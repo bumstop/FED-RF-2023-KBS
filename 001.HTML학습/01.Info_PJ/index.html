@@ -3,10 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>네이버 요약 뉴스</title>
     <!-- css인터널 코딩영역 -->
     <style>
-        /* css영역내 주석문 */
+        /* 웹 폰트 CDN(Content Delevery network) */
+        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic&display=swap');
+        /*
+            @import url(주소) 
+            - 외부 CSS를 불러올때 사용하는 형식
+            - 외부 CSS 파일을 하나로 합칠때 많이 사용
+        */
+        /* 
+            웹폰트 font-family 이름 
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Nanum Gothic', sans-serif;    
+        */
+        
+         /* css영역내 주석문 */
         
         /* 
             [ 모든 요소 공통 디자인 요소 : 박스모델 ]
@@ -53,7 +66,40 @@
 
         /* 1.상단영역 */
         #top {
-            background-color: lightblue;
+            background-color: #00c3008c;
+        }
+        /* 타이틀 */
+        #top h1 {
+            font-size: 40px;
+            font-weight: 300;
+            color: white;
+            font-family: 'Black Han Sans', sans-serif;
+            text-shadow: 3px 2px 2px rgba(0, 0, 0, .22);
+            /* 
+                text-shadow: 글자 그림자
+                값 - x축 y축 블러(경계흐림) 색 
+            */
+        }
+        /* 메뉴 링크 */
+        #gnb {
+            color: white;
+        }
+        #gnb a {
+            color: white;
+            text-decoration: none;
+            font-weight: 300;
+            font-family: 'Black Han Sans', sans-serif;
+            font-size: 24px;
+            vertical-align: -4px;
+            /* vertical-align : 인라인요소간 세로정렬 */
+        }
+        /* 가상클래스 :hover 마우스오버시 */
+        #gnb a+a:hover { /* a+a는 앞에 a요소가 있는 형제 a요소를 선택 - 결과적으로 첫번째 a요소가 선택되지 않는다. */
+            text-decoration: underline;
+            color: #00c300;
+        }
+        #gnb img {
+            vertical-align: -3px;
         }
         .cimg {
             width: 100%;
@@ -62,6 +108,28 @@
         #cont {
             margin: 20px auto;
         }
+        /* 3. 하단영역 */
+        #info {
+            background-color: #ccc;
+        }
+        /* 회사주소 */
+        #info address {
+            /* 기본 이탤릭체 스타일 노말로 변경 */
+            font-style: normal;
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+        /* 대표자  span*/
+        .utxt {
+            text-decoration: underline;
+            text-decoration-color: red;
+        }
+        b.utxt {
+            text-decoration: underline;
+            text-decoration-style: wavy;
+            text-decoration-color: blue;
+        }
+        /* 종속 선택자로 같은 이름의 클래스인데 다른 디자인으로 변경하여 셋팅하기 */
+
     </style>
 </head>
 <body>
@@ -74,17 +142,17 @@
         <nav id="gnb">
             <a href="index.html">
                 <!-- 상대경로 -->
-                <img src="images/logo.png" alt="네이버로고" style="width: 50px;">
+                <img src="images/logo.png" alt="네이버로고" style="width: 24px; height: 24px;">
                 <!-- style속성으로 CSS를 셋팅하는 방법은 인라인방식이라 함 -->
                 <!-- 절대상대경로 -->
                 <!-- <img src="/001.HTML학습/01.Info_PJ/images/logo.png" alt="네이버로고"> -->
                 <!-- 절대경로 -->
                 <!-- <img src="https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png" alt="네이버로고"> -->
             </a>
-            <a href="sub1.html">정치</a>
-            <a href="sub2.html">경제</a>
-            <a href="sub3.html">사회</a>
-            <a href="sub4.html">IT/과학</a>
+            <a href="sub1.html">정치</a> |
+            <a href="sub2.html">경제</a> |
+            <a href="sub3.html">사회</a> |
+            <a href="sub4.html">IT/과학</a> |
             <a href="sub5.html">TV/연예</a>
         </nav>
     </header>
@@ -96,11 +164,23 @@
     <footer id="info" class="bx">
         <address>
             서울시 강남구 역삼동 119 대호B 8F<br>
-            대표: 김범서<br>
-            전화: 010-2222-3333
+            대표: <span class="utxt">김범서</span><br>
+            전화: <b class="utxt">010-2222-3333</b>
         </address>
     </footer>
     <!-- 
+        [ 웹표준이란? ]
+        - 모든 브라우저에서 하나의 소스로 동일한 디스플레이 및 기능이 작동하도록 정한 웹 코딩의 표준안이다.
+
+        [ 웹 접근성이란? ]
+        - 평등의 원칙. 장애인 차별금지법에 따라 이미지(alt속성), 동영상(자막)등에 설명의 추가하여 정보제공에 차별이 없도록 하는것.
+
+        [ img요소 : 이미지 연결요소 ]
+        - 필수속성
+        1)src(source) : 이미지경로
+        2)alt(alternative text) : 이미지 설명(웹 접근성, 대체 텍스트) 
+
+
         [ 레이아웃을 위한 블록 요소 ]
         div : 영역을 나누고 묶어주는 요소
 
