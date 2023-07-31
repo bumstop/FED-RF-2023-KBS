@@ -43,12 +43,20 @@
         6.종속선택자 : 태그명#아이디명 / 태그명.클래스명 (태그 = 요소)
 
         */
+
+        /* 기본요소의 초기화 */
+        *{
+            padding: 0;
+            margin: 0;
+            border: 0;
+        }
+
         /* 레이아웃 박스 공통 디자인 */
         .bx {
             /* 크기 w800 -> 가로크기 */
             width: 800px;
             /* 외곽선 bd -> 두깨 선종류 색상 */
-            border: 4px double darkcyan;
+            border: 3px solid #00c300;
             /* 패딩 */
             padding: 20px;
             /* 마진 */
@@ -62,6 +70,7 @@
             */
             /* 택스트 중앙 */
             text-align: center;
+            border-radius: 10px;
         }
 
         /* 1.상단영역 */
@@ -79,6 +88,7 @@
                 text-shadow: 글자 그림자
                 값 - x축 y축 블러(경계흐림) 색 
             */
+            margin: 10px 0;
         }
         /* 메뉴 링크 */
         #gnb {
@@ -102,7 +112,8 @@
             vertical-align: -3px;
         }
         .cimg {
-            width: 100%;
+            width: 100%; /* 100%의 기준은 싸고 있는 블록 박스의 content영역을 말함.(border, padding제외 내부영역) */
+            border-radius: 10px;
         }
         /* 2.메인영역 */
         #cont {
@@ -110,24 +121,26 @@
         }
         /* 3. 하단영역 */
         #info {
-            background-color: #ccc;
+            background-color: #00c3008c;
         }
         /* 회사주소 */
         #info address {
             /* 기본 이탤릭체 스타일 노말로 변경 */
+            color: white;
+            font-weight: 600;
             font-style: normal;
             font-family: 'Nanum Gothic', sans-serif;
         }
         /* 대표자  span*/
-        .utxt {
+        /* .utxt {
             text-decoration: underline;
             text-decoration-color: red;
-        }
-        b.utxt {
+        } */
+        /* b.utxt {
             text-decoration: underline;
             text-decoration-style: wavy;
             text-decoration-color: blue;
-        }
+        } */
         /* 종속 선택자로 같은 이름의 클래스인데 다른 디자인으로 변경하여 셋팅하기 */
 
     </style>
