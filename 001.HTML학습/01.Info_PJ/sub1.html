@@ -1,68 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>네이버 요약 뉴스 - 정치</title>
-    <!-- 서브용 외부css 불러오기 -->
-    <link rel="stylesheet" href="./css/sub.css" />
-</head>
-<body>
-    <!-- 1.상단영역 : 제목, 메뉴 -->
-    <header id="top" class="bx">
-        <!-- 1-1.제목 -->
-        <h1>네이버 요약 뉴스</h1>
-        <!-- 1-2.GNB메뉴 -->
-        <!-- GNB(Global Navigation Bar) -->
-        <nav id="gnb">
-            <a href="index.html">
-                <!-- 상대경로 -->
-                <img src="images/logo.png" alt="네이버로고" style="width: 24px; height: 24px;">
-                <!-- style속성으로 CSS를 셋팅하는 방법은 인라인방식이라 함 -->
-                <!-- 절대상대경로 -->
-                <!-- <img src="/001.HTML학습/01.Info_PJ/images/logo.png" alt="네이버로고"> -->
-                <!-- 절대경로 -->
-                <!-- <img src="https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png" alt="네이버로고"> -->
-            </a>
-            <a href="sub1.html">정치</a> |
-            <a href="sub2.html">경제</a> |
-            <a href="sub3.html">사회</a> |
-            <a href="sub4.html">IT/과학</a> |
-            <a href="sub5.html">TV/연예</a>
-        </nav>
-    </header>
-    <!-- 2.메인영역 : 컨텐츠 -->
-    <main id="cont" class="bx">
-        <!-- 2-1. 서브 타이틀 -->
-        <h2 class="stit">정치 뉴스</h2>
-        <!-- 2-2. 언론사 로고 -->
-        <div class="prlogo"></div>
-        <!-- 2-3. 기사 제목 -->
-        <h3 class="atit"></h3>
-        <!-- 2-4. 기사사진 -->
-        <figure class="afig">
-            <!-- 이미지 -->
-            <!-- 이미지 설명 -->
-            <figcaption></figcaption>
-        </figure>
-        <!-- 2-5. 기사내용 -->
-        <section class="acont">
-
-        </section>
-        <!-- 2-6. 기자정보 -->
-        <div class="rpt"></div>
-        <!-- 2-7. 기사원문 -->
-        <h5>
-            <a href="https://n.news.naver.com/mnews/hotissue/article/031/0000760697?type=series&cid=1087779"></a>
-        </h5>
-    </main>
-    <!-- 3.하단영역 : 회사정보 -->
-    <footer id="info" class="bx">
-        <address>
-            서울시 강남구 역삼동 119 대호B 8F<br>
-            대표: <span class="utxt">김범서</span><br>
-            전화: <b class="utxt">010-2222-3333</b>
-        </address>
-    </footer>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>네이버 요약 뉴스 - 정치</title>
+        <!-- 서브용 외부css 불러오기 -->
+        <link rel="stylesheet" href="./css/sub.css" />
+    </head>
+    <body>
+        <!-- 1.상단영역 : 제목, 메뉴 -->
+        <header id="top" class="bx">
+            <!-- 1-1.제목 -->
+            <h1>네이버 요약 뉴스</h1>
+            <!-- 1-2.GNB메뉴 -->
+            <!-- GNB(Global Navigation Bar) -->
+            <nav id="gnb">
+                <a href="index.html">
+                    <!-- 상대경로 -->
+                    <img src="images/logo.png" alt="네이버로고" style="width: 24px; height: 24px" />
+                    <!-- style속성으로 CSS를 셋팅하는 방법은 인라인방식이라 함 -->
+                    <!-- 절대상대경로 -->
+                    <!-- <img src="/001.HTML학습/01.Info_PJ/images/logo.png" alt="네이버로고"> -->
+                    <!-- 절대경로 -->
+                    <!-- <img src="https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png" alt="네이버로고"> -->
+                </a>
+                <a href="sub1.html">정치</a> | <a href="sub2.html">경제</a> | <a href="sub3.html">사회</a> |
+                <a href="sub4.html">IT/과학</a> |
+                <a href="sub5.html">TV/연예</a>
+            </nav>
+        </header>
+        <!-- 2.메인영역 : 컨텐츠 -->
+        <main id="cont" class="bx">
+            <!-- 2-1. 서브 타이틀 -->
+            <h2 class="stit">정치 뉴스</h2>
+            <!-- 2-2. 언론사 로고 -->
+            <div class="prlogo">
+                <img src="./images/prlogo1.png" alt="kbc" />
+            </div>
+            <!-- 2-3. 기사 제목 -->
+            <h3 class="atit">우주시대 도래 대비한 ‘우주항공청 밑그림’ 나왔다</h3>
+            <!-- 2-4. 기사사진 -->
+            <figure class="afig">
+                <!-- 이미지 -->
+                <img src="./images/afig1.jpg" alt="이종호 과학기술정보통신부 장관 사진" />
+                <!-- 이미지 설명 -->
+                <figcaption>▲ 이종호 과학기술정보통신부 장관 사진 : 연합뉴스</figcaption>
+            </figure>
+            <!-- 2-5. 기사내용 -->
+            <section class="acont">
+                <p>
+                    우주경제 시대가 본격 도래하고 있는 가운데 우주항공분야를 한 차원 높은 단계로 도약시키고 미래 우주항공을 이끌어갈
+                    전담조직인 우주항공청 설립을 위한 밑그림이 완성됐습니다.
+                </p>
+                <p>
+                    과학기술정보통신부는 27일 우주항공청의 설립방향, 기관별 역할, 조직 구성(안) 등을 담은 ‘우주항공청 설립·운영 기본 방향’을
+                    발표했습니다.
+                </p>
+                <p>
+                    우주항공청의 기능별 편제는 크게 임무조직과 기관운영조직으로 구분할 수 있으며, 임무조직에서는 정책, 연구개발, 비즈니스,
+                    국제협력을 다루고 예산, 법무, 인사, 대국민 커뮤니케이션 등은 기관운영 조직에서 담당할 예정입니다.
+                </p>
+                <p>
+                    우주항공청은 최고 인재들이 언제든 합류할 수 있도록 최소한의 규모로 출발하고 필요와 요구에 따라 지속적으로 확장할
+                    계획이며, 조직 및 인력규모는 현재 관계부처와 긴밀하게 협의를 거쳐 곧 확정될 예정입니다.
+                </p>
+            </section>
+            <!-- 2-6. 기자정보 -->
+            <div class="rpt">박준수(jspark@ikbc.co.kr) 기자 프로필</div>
+            <!-- 2-7. 기사원문 -->
+            <h5>
+                <a href="https://n.news.naver.com/mnews/article/660/0000040999?sid=100">기사원문</a>
+            </h5>
+        </main>
+        <!-- 3.하단영역 : 회사정보 -->
+        <footer id="info" class="bx">
+            <address>
+                서울시 강남구 역삼동 119 대호B 8F<br />
+                대표: <span class="utxt">김범서</span><br />
+                전화: <b class="utxt">010-2222-3333</b>
+            </address>
+        </footer>
+    </body>
 </html>

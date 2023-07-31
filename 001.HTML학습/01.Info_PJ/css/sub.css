@@ -13,3 +13,12 @@
     font-family: 'Black Han Sans', sans-serif;
     text-shadow: 1px 1px 5px #000000;
 }
+.afig {
+    display: flex;
+    flex-direction: column;
+}
+figcaption {
+    font-size: 14px;
+    color: #767678;
+    text-align: center;
+}
