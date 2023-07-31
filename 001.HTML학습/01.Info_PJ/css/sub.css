@@ -1,0 +1,15 @@
+@charset "utf-8";
+/* 서브페이지용 CSS - sub.css */
+
+/* 공통 외부 CSS 합치기 */
+@import url(./common.css);
+
+/* 서브타이틀 */
+.stit {
+    text-align: center;
+    font-size: 38px;
+    color: #ffffff;
+    font-weight: 300;
+    font-family: 'Black Han Sans', sans-serif;
+    text-shadow: 1px 1px 5px #000000;
+}
