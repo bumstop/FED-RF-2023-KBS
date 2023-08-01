@@ -4,15 +4,6 @@
 /* 공통 외부 CSS 합치기 */
 @import url(./common.css);
 
-/* 서브타이틀 */
-.stit {
-    text-align: center;
-    font-size: 38px;
-    color: #ffffff;
-    font-weight: 300;
-    font-family: 'Black Han Sans', sans-serif;
-    text-shadow: 1px 1px 5px #000000;
-}
 .afig {
     display: flex;
     flex-direction: column;
@@ -22,3 +13,40 @@ figcaption {
     color: #767678;
     text-align: center;
 }
+
+/* 서브타이틀 */
+.stit {
+    text-align: center;
+    font-size: 38px;
+    color: #ffffff;
+    font-weight: 300;
+    font-family: 'Black Han Sans', sans-serif;
+    text-shadow: 1px 1px 5px #000000;
+    padding: 40px;
+    /* 배경넣기 */
+    background: url() no-repeat center/cover;
+    /* background : 색 배경 반복 고정 위치/크기 */
+}
+
+/* 정치 타이틀 배경 */
+.st1 {
+    background: url(../images/afig1.jpg) no-repeat center/cover;
+}
+/* 경제 타이틀 배경 */
+.st2 {
+    background: url(../images/afig2.jpg) no-repeat center/cover;
+}
+/* 사회 타이틀 배경 */
+#cont .st3 { /* 부모요소를 써주면 우선순위가 높아짐 */
+    background: url(../images/afig3.jpg) no-repeat /cover;
+}
+/* IT/과학 타이틀 배경 */
+.st4 {
+    background: url(../images/afig4-1.jpg) no-repeat 0 48%/cover;
+}
+/* TV/연예 타이틀 배경 */
+.st5 {
+    background: url(../images/afig5.jpg) no-repeat center/cover;
+}
+
+

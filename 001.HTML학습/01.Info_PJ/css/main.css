@@ -3,3 +3,7 @@
 
 /* 공통 외부 CSS 합치기 */
 @import url(./common.css);
+
+#cont {
+    background-color: transparent;
+}

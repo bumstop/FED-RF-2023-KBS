@@ -43,7 +43,7 @@
 */
 
 /* 기본요소의 초기화 */
-html, body{
+html, body, h1, h2 {
     padding: 0;
     margin: 0;
     border: 0;
