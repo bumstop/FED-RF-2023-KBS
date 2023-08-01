@@ -4,10 +4,6 @@
 /* 공통 외부 CSS 합치기 */
 @import url(./common.css);
 
-.afig {
-    display: flex;
-    flex-direction: column;
-}
 figcaption {
     font-size: 14px;
     color: #767678;
@@ -69,5 +65,66 @@ figcaption {
         나머지 방향은 기본으로 비율을 유지한다.
     */
 }
+/* 기사타이틀 */
+.atit {
+    font-size: 30px;
+}
+.afig {
+    margin: 30px 0 40px 0;
+}
+/* 기사이미지 */
+.afig img {
+    width: 100%;
+}
+/* 기사이미지 설명 */
+.afig figcaption {
+    font-size: 15px;
+    text-align: center;
+    color: #767676;
+}
+/* 기사 문단 */
+.acont p {
+    font-size: 17px;
+    color: #303038;
+    letter-spacing: 1px; /* 자간 1px */
+    word-spacing: 1px; /* 단어간격 1px */
+    text-align: justify; /* 양쪽정렬 */
+    /* 줄간격 1h */
+    line-height: 2.1;
+    /* 글자 라인간 간격을 조정함 */
+}
+/* 유튜브 동영상 박스 */
+.mvbx {
+    height: 550px;
+    /* 
+        div와 같은 block 요소는 width 설정을 하지 않으면
+        width: auto 로 자동설정됨.
+    */
+}
 
+.mvbx iframe {
+    border: none;
+    width: 100%;
+    height: 100%;
+}
 
+.alink {
+    text-align: right;
+}
+.alink a {
+    display: inline-block;
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: rgb(77, 73, 73);
+    font-family: sans-serif;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 1px 6px 0 #20212447;      
+    border-radius: 20px;
+}
+.alink a:hover {
+    background-color: #ececec;
+}

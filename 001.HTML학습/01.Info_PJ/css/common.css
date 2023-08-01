@@ -43,20 +43,25 @@
 */
 
 /* 기본요소의 초기화 */
-html, body, h1, h2 {
+html, body, h1, h2, h3, h4, h5, h6{
     padding: 0;
     margin: 0;
     border: 0;
+    word-break: keep-all;
 }
 
 /* 레이아웃 박스 공통 디자인 */
 .bx {
     /* 크기 w800 -> 가로크기 */
-    width: 800px;
+    /* width: 800px; */
+    max-width: 1000px;
+    /* 최대가로크기 1000px의 의미는 1000px보다 안커지고 작을 경우 auto로 전환한다.(부모박스 크기로 맞춤) */
+    min-width: 600px;
+    /* 최소가로크기를 설정하면 최소크기보다 작아지지 않는다. */
     /* 외곽선 bd -> 두깨 선종류 색상 */
     border-top: 1px solid #00c300;
     /* 패딩 */
-    padding: 20px;
+    padding: 30px;
     /* 마진 */
     margin: 0 auto;
     /* 
