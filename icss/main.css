@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* 아카이브 메인 CSS - main.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic&display=swap');
+/* 
+    웹폰트 font-family 이름 
+    font-family: 'Black Han Sans', sans-serif;
+    font-family: 'Nanum Gothic', sans-serif;    
+*/
+
+html, body, h1, h2, h3, ul, ol {
+    margin: 0;
+    padding: 0;
+}
+
+/* 전체 배경이미지 */
+body {
+    background: url(../imgs/worksbg.jpg) no-repeat fixed center/cover;
+    /* 전체 폰트 */
+    font-family: sans-serif;
+    /* 전체 폰트크기 */
+    font-size: 17px;
+}
+/* 전체박스 */
+.wrap {
+    background-color: rgba(255, 255, 255, 0.555);
+    width: 80%;
+    border-radius: 20px;
+    margin: 20px auto;
+    padding: 20px;
+}
+/* 메인타이틀 */
+.tit {
+    text-align: center;
+    font-size: 45px;
+}
