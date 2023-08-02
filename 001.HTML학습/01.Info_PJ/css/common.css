@@ -43,12 +43,17 @@
 */
 
 /* 기본요소의 초기화 */
-html, body, h1, h2, h3, h4, h5, h6, figure{
+html, body, h1, h2, h4, h5, h6, figure, blockquote {
     padding: 0;
     margin: 0;
-    border: 0;
 }
-
+article h5 {
+    padding: 20px 0;
+    margin: 20px 0;
+}
+h5.alink {
+    margin-bottom: 20px;
+}
 /* 레이아웃 박스 공통 디자인 */
 .bx {
     /* 크기 w800 -> 가로크기 */
