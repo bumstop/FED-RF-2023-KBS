@@ -79,7 +79,6 @@ figcaption {
 /* 기사이미지 설명 */
 .afig figcaption {
     font-size: 15px;
-    text-align: center;
     color: #767676;
 }
 /* 기사 문단 */
@@ -100,6 +99,10 @@ figcaption {
         div와 같은 block 요소는 width 설정을 하지 않으면
         width: auto 로 자동설정됨.
     */
+}
+
+.work figcaption {
+    display: inline-block;
 }
 
 .mvbx iframe {

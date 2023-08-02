@@ -43,11 +43,10 @@
 */
 
 /* 기본요소의 초기화 */
-html, body, h1, h2, h3, h4, h5, h6{
+html, body, h1, h2, h3, h4, h5, h6, figure{
     padding: 0;
     margin: 0;
     border: 0;
-    word-break: keep-all;
 }
 
 /* 레이아웃 박스 공통 디자인 */

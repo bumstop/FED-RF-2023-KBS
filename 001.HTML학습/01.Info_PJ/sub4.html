@@ -56,7 +56,7 @@
                 <p>
                     <b>극지연구소(소장 강성호)</b>가 13회 극지사진콘테스트 21일 수상작을 공개했다. 우리나라 쇄빙선 <b>아라온호</b
                     ><sub>[1]</sub>를 타고 <i>남극<sup>①</sup>과 북극<sup>②</sup></i
-                    >을 오가는 극지연구소 연구원들이 찍은 사진들이다.
+                    >을 오가는 <abbr title="극지연구소">극연</abbr> 연구원들이 찍은 사진들이다.
                 </p>
                 <p>
                     <i>남극과 북극</i>은 현재 지구 가열화로 가장 변화가 심한 곳으로 꼽힌다.
@@ -128,7 +128,7 @@
             <div class="rpt">정종오 기자 ikokid@inews24.com</div>
             <!-- 2-7. 기사원문 -->
             <h5 class="alink">
-                <a href="https://n.news.naver.com/mnews/hotissue/article/031/0000760697?type=series&cid=1087779" target="_blank">
+                <a href="https://n.news.naver.com/mnews/hotissue/article/031/0000760697?type=series&cid=1087779" target="_blank" title="원본기사 바로가기">
                     기사원문
                 </a>
             </h5>
@@ -147,6 +147,23 @@
                     나라가 연구 기지를 설치하였다.
                 </div>
             </article>
+
+            <!-- 오늘의 작품 & 느낌 -->
+            <article class="work">
+                <h3>오늘의 작품 &amp; 느낌</h3>
+                <figure>
+                    <img src="./images/scream.jpg" alt="뭉크의 절규">
+                </figure>
+                <figcaption>
+                    뭉크의 <cite>&lt;절규&gt;</cite>
+                </figcaption>
+            </article>
+            <!-- 
+                [ html요소에서 특수문자 처리]
+                & 엔퍼센드 &amp;
+                < 여는꺽쇠 &lt; (less than)
+                > 닫는꺽쇠 &gt; (greater than)
+             -->
         </main>
         <!-- 3.하단영역 : 회사정보 -->
         <footer id="info" class="bx">
@@ -208,9 +225,21 @@
                 - 줄임말의 원래 뜻을 표시하는 요소
                 - 필수속성 : title 속성 -> 툴팁으로 원래뜻을 표시
                 (참고 : title속성은 어느 요소든 사용가능)
+
+            4.주소인용
             <address>
+                - 주소, 대표자, 전화번호 등 사이트 정보표시
+
+            5.작품명 인용 
             <cite>
+                - 인용하고 있는 작품을 표시하기 위한 요소
+            
+            6.반대방향글 인용
             <bdo>
+                - 글방향이 반대일떄 사용함
+                - Bi-Directional Override(줄임)
+                - dir 속성 : rtl(right to left)
+                - 아랍어, 이스라엘어 등 반대방향으로 출력해야하는 문자를 인용할때 사용
             ______________________________________
 
                 [ 시맨틱 태그란? ]
