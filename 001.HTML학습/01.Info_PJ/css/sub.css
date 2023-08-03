@@ -253,6 +253,25 @@
     background: linear-gradient(90deg, lightblue, #ffffff );
     padding: 10px;
 }
+
+/* 한줄 말줄임 표시하기 공통처리 */
+.nbx li, .nbx dd, .nbx td {
+    white-space: nowrap; /* 줄바꿈 방지 */
+    overflow: hidden; /* 넘치는 컨텐츠 숨기기 */
+    text-overflow: ellipsis; /* 넘치는 글자 말줄임(...) 표시 */
+    /* 
+        [ 여러줄일때 말줄임 ]
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 라인수;
+        -webkit-box-orient: vertical;
+        주의)
+        박스 높이를 글자가 보일만큼만 조절
+        white-space: nowrap; 없음
+    */
+}
+
 /* 주요뉴스 ul */
 .cnews ul li::before {
     content: '🐣';
@@ -263,10 +282,23 @@
     - 필수속성 : content: '';
     - 이미지는 (url)
 */
+
+/* 주요뉴스 li별 글자색 바꾸기 */
+.cnews li:first-child a {
+    color: red;
+}
+.cnews li:nth-child(2) a {
+    color: blue;
+}
+.cnews li:last-child a {
+    color: green;
+}
+
+/* 분야별 뉴스 */
 .snews dt {
     font-size: 28px;
     font-weight: 600;
-    background-color: lightgreen;
+    background-color: #c1e1ec;
     display: inline-block;
     padding: 15px;
     border-radius: 40px;
@@ -276,4 +308,27 @@
 .snews dd:before {
     content: '🐣';
 }
+/* 분야별 뉴스 dt별  */
+.snews dt:first-of-type {
+    color: red;
+}
+.snews dt:nth-of-type(2) {
+    color: blue;
+}
+.snews dt:nth-of-type(3) {
+    color: green;
+}
+/* 
+    [ 자식요소 선택 가상클래스 : 자식요소 종류가 같아야함! ]
+    요소:first-child -> 첫번째 자식요소
+    요소:nth-child(n) -> n번째 자식요소
+    요소:last-child -> 마지막째 자식요소
+
+    [ 여러종류가 섞여 있을 경우 형제 선택하기 ]
+    요소:first-of-type -> 같은 요소 중 첫번째
+    요소:nth-of-type(n) -> 같은 요소 중 n번째
+    요소:last-of-type -> 같은 요소 중 마지막째
+
+    (n은 1부터 시작)
+*/
 
