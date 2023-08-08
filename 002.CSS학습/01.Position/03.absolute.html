@@ -188,6 +188,13 @@
             width: 92px;
             height: 115px;
             border: 10px ridge goldenrod;
+            /* 박스를 원형으로 */
+            border-radius: 50%;
+            margin: 100px auto;
+            /* 넘치는 이미지 숨기기 */
+            overflow: hidden;
+            /* 박스의 자식으로 앱솔루트가 있을때 overflow: hidden 은 부모자격이 있는 박스에서만 숨길 수 있다. */
+            position: relative; 
         }
         .absimg img {
             position: absolute;
