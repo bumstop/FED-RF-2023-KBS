@@ -42,15 +42,14 @@
                     (유의: 배경고정과는 다르다. 배경고정은 보이는 화면을 기준한 박스의 배경이미지를 고정해주는 것.
                         박스가 움직이면 배경이미지도 안보이게 된다. 반면, fixed 포지션은 요소를 고정한다.)
                 */
-
-
-                background-color: lightblue;
+                background: url(./images/ab0.jpg) repeat-x 0 / auto 100%;
                 z-index: 999;
                 width: 100%;
                 height: 200px;
                 font-size: 35px;
                 line-height: 200px;
                 text-align: center;
+                color: white;
             }
 
             /* 두번째 fixed 박스 */
@@ -223,22 +222,62 @@
                 height: 100px;
                 border-radius: 50%;
             }
+
+            /* 고정 포스터 박스 */
+            .fixedPoster {
+                position: fixed;
+                top: 250px;
+                right: -139px;
+                z-index: 9999;
+                /* 트랜지션: trs */
+                transition: .3s;
+            }
+            .fixedPoster:hover {
+                right: 0;
+            }
+            /* 글자 span */
+            .fixedPoster span {
+                position: absolute;
+                top: 0;
+                left: -50px;
+                /* 부모는? fixedPoster */
+                width: 50px;
+                height: 100%;
+                background-color: lightblue;
+                border-radius: 15px 0 0 15px;
+                /* 글자세로모드 - 세로방향 왼쪽에서 오른쪽으로 */
+                writing-mode: vertical-lr;
+                text-align: center;
+                font-size: 25px;
+                letter-spacing: 10px;
+                line-height: 50px;
+            }
+            /* 포스터 이미지 */
+            .fixedPoster img {
+                height: 200px;
+                vertical-align: middle;
+            }
         </style>
     </head>
     <body>
-        
-
         <div class="bx" id="r1">r1</div>
         <div class="bx" id="s1">s1</div>
+        <!-- 젠틀 fixed -->
+        <div class="fxbx f1">나는 젠틀 fixed다!</div>
+
         <div class="bx" id="a1">a1</div>
         <div class="bx" id="r2">r2</div>
         <div class="bx" id="s2">s2</div>
         <div class="bx" id="a2">a2</div>
 
         <!-- 화면고정 fixed 포지션 박스 -->
-        <div class="fxbx f1">나는 젠틀 fixed다!</div>
         <div class="fxbx f2">나는 fixed다! 부모는 화면이다!</div>
 
+        <!-- 포스터 고정 박스 -->
+        <div class="fixedPoster">
+            <img src="./images/ab0.jpg" alt="포스터">
+            <span>포스터보기</span>
+        </div>
 
         <!-- 앱솔루트 포지션-->
         <div class="a5">
