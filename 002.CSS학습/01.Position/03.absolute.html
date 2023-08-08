@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>02. relative 포지션</title>
+    <title>03. absolute 포지션</title>
     <style>
         .bx{
-            width: 100px;
-            height: 100px;
+            width: 300px;
+            height: 300px;
             border: 2px solid blue;
             text-align: center;
             font-size: 24px;
             font-weight: bold;/* fwb */
             /* 글자세로중앙 */
-            line-height: 100px;
+            line-height: 300px;
         }
 
         /* 첫번째 박스에 포지션 체크 */
@@ -68,8 +68,8 @@
                 -> 일반적으로 앱솔루트 포지션 요소는 블록이다.
             */
             position: relative;
-            top: 50px;
-            left: 50px;
+            top: 200px;
+            left: 260px;
             background: url(./images/ab5.jpg) no-repeat center/cover;
         }
         #s1{
@@ -86,8 +86,8 @@
         }
         #r2 {
             position: relative;
-            bottom: 30px;
-            right: -60px;
+            top: -150px;
+            left: 200px;
             background: url(./images/ab4.jpg) no-repeat center/cover;
         }
         #a1 {
@@ -114,9 +114,12 @@
             background: url(./images/ab1.jpg) no-repeat center/cover;
         }
         #a2 {
+            bottom: 0;
+            right: 0;
             position: absolute;
-            background: url(./images/ab5.jpg) no-repeat center/cover;
+            background: url(./images/ab1.jpg) no-repeat center/cover;
         }
+
         .s5 {
             position: relative;
             background-color: lightblue;
@@ -154,35 +157,86 @@
         .a4 {
             top: 0;
             left: 0;
-            /* 나의 부모는? */
+            /* 나의 부모는? .s7*/
+            width: 25%;
+            height: 40%;
+            /* 앱솔루트 요소 크기를 %로 주면 부모자격 박스를 기준한다. */
         }
         /* span을 앱솔루트로 만들경우 */
         .spabs {
             position: absolute;
             bottom: 0;
             right: 0;
-            /* 나의 부모는? .s7*/
+            /* 나의 부모는? */
+            
             border: 4px dotted red;
         }
+        /* 앱솔루트 포지션 */
+        .a5 {
+            position: absolute;
+            /* 크기를 안주면 내용만큼 늘어남 */
+            top: 20%;
+            right: 10%;
+            outline: 4px solid red;
+        }
+        /* 블록박스 내의 단독 이미지 */
+        .a5 img {
+            vertical-align: top;    
+        }
+        /*  앱솔루트끼리는 서로 겹친다 */
+        .absimg {
+            width: 92px;
+            height: 115px;
+            border: 10px ridge goldenrod;
+        }
+        .absimg img {
+            position: absolute;
+            /* 젠틀 앱솔루트이기때문에 부모자격이 없는 일반 static요소여도 그 자리에 이미지가 가만히 있음 
+            -> 앱솔루트 이미지끼리는 서로 겹쳐짐, 위 아래 관계는 나중에 온것이 위로옴 z-index로 조절 가능*/
+        }
 
+        /* 두번째 이미지 닥스만 투명하게 */
+        .absimg img:last-child {
+            opacity: 0;
+            /*
+                트랜지션 : 속성 시간 이징 지연시간 
+                -> 두가지 속성값 변경을 애니메이션 해주는 속성
+            */
+            transition: .5s;
+        }
+        /* 박스에 오버시 닥스 보이기 */
+        .absimg:hover img:last-child {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
     <div class="bx" id="r1">r1</div>
     <div class="bx" id="s1">s1</div>
     <div class="bx" id="a1">a1</div>
-    <div class="bx" id="s2">s2</div>
     <div class="bx" id="r2">r2</div>
+    <div class="bx" id="s2">s2</div>
     <div class="bx" id="a2">a2</div>
+
+    <!-- 앱솔루트 포지션-->
+    <div class="a5">
+        <img src="./images/ab2.jpg" alt="타노스">
+    </div>
+
+    <!-- 앱솔루트끼리는 서로 겹친다 -->
+    <div class="absimg">
+        <img src="./images/ab3.jpg" alt="토르">
+        <img src="./images/ab4.jpg" alt="닥스">
+    </div>
 
     <!-- 부모를 찾는 앱솔루트 -->
     <div class="bx2 s5">s5
         <div class="bx2 s6">s6
             <div class="bx2 s7">s7
                 <div class="bx2 s8">s8
-                    <div class="abs a3">a3</div>
-                    <div class="abs a4">a4</div>
-                    <span class="spabs">
+                    <div class="abs a3" title="나는 젠틀 앱솔루트다">a3</div>
+                    <div class="abs a4" title="나는 부모 찾아 올라간다">a4</div>
+                    <span class="spabs" title="자동 블록 전환">
                         나는 span 앱솔루트다
                     </span>
                 </div>

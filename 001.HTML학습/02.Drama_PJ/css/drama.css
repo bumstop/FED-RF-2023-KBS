@@ -35,7 +35,8 @@ body {
 #drama {
     font-size: 24px;
     margin: 0 auto;
-    max-width: 1000px;
+    width: 1000px;
+    max-width: 95%;
     /* 
         테이블은 가로크기 설정이 없으면 내용만큼 늘어남
         max-width로 가로스크롤 대비.
@@ -57,7 +58,12 @@ body {
 #drama tbody td {
     border-bottom: 1px solid #ccc;
 }
+/* tbody의 tr의 첫번째 td 중앙정렬 */
+#drama tbody tr td:first-of-type {
+    text-align: center;
+}
 #drama th {
+    background-color: #ccc;
     border-top: 2px solid #555;
     border-bottom: 2px solid #555;
 }
@@ -81,3 +87,32 @@ body {
     color: hotpink;
     text-decoration: underline;
 }
+/* 구분 테이블박스 */
+.gubun {
+    width: 1000px;
+    max-width: 95%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+/* 테이블을 오른쪽 끝으로 보내기 */
+table#gubun {
+    font-size: 20px;
+    float: right;
+    border: 1px solid #999;
+    border-collapse: separate;
+    border-spacing: 10px;
+     
+}
+/* 구분 테이블 td */
+#gubun td {
+    padding: 10px;
+}
+/* 구분테이블 첫번째 tr의 첫번째 td의 오른쪽 점선 */
+#gubun tr:first-child td:first-child {
+    border-right: 1px dotted #999;
+}
+/* 구분테이블의 두번째 tr부터 끝까지 td 윗쪽 점선보더 */
+#gubun tr+tr td {
+    border-top: 4px dotted #999;
+}
+
