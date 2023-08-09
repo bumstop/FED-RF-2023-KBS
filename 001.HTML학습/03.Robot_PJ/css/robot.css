@@ -11,4 +11,124 @@
     font-family: 'Chakra Petch', sans-serif;
     font-family: 'Orbitron', sans-serif;
 */
+/* 초기화 */
+html, body, h1, h2, h3 ,ul, ol {
+    margin: 0;
+    padding: 0;
+}
+/* 전체 배경이미지 */
+body {
+    background: url(../images/bg.jpg) no-repeat fixed top/cover;
+}
+/* 공사중표시 */
+body * {
+    outline: 2px dashed yellow;
+}
+/* 1. 상단영역 */
+/* 로고 */
+/* 링크타이틀 */
+/* 탑이동버튼 */
+
+/* 2. 메인영역 */
+.main-aria {
+    overflow: hidden;
+    /* 첫번째 자식요소 블록박스에 마진탑을 준경우 그 마진값은
+    부모요소 바깥쪽으로 나간다. (기본성질)
+    마진탑을 포함하려면 부모요소에 overflow: hidden을 줘야한다. 
+     + 하단마진도 부모요소 바깥으로 나감 */
+}
+/* 로봇박스 */
+.box-robot {
+    padding: 200px 0 50px;
+    margin-top: 30px;
+}
+/* 머리 */
+.head{
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+    /* 메탈배경 */
+    background: url(../images/metal01.jpg) no-repeat center/cover;
+    position: relative;
+    border-radius: 100px 100px 80px 80px;
+}
+/* 가상요소로 머리에 가발 씌우기 */
+.head::after {
+    content:'';
+    display: block;
+    /* 마치 div를 넣은것과 같다 */
+    position: absolute;
+    top: -75px;
+    left: -24px;
+    /* 부모는? .head */
+    width: 300px;
+    height: 250px;
+    background: url(../images/hair.png) no-repeat 0/100% 100%;
+}
+.head > div {
+    position: absolute;
+}
+/* 눈공통 */
+.eye {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 4px double #000;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-color: #fff;
+    top: 50px;
+}
+/* 왼눈 */
+.eye1 {
+    left: 50px;
+    background-image: url(../images/e1.jpg);
+}
+/* 오른눈 */
+.eye2 {
+    right: 50px;
+    background-image: url(../images/e2.jpg);
+}
+/* 코 */
+.nose {
+    width: 60px;
+    height: 69px;
+    background: url(../images/nose.jpg) no-repeat -2px 0/cover;
+    border-radius: 26px;
+    transform: translate(-50%, -30%);
+    top: 50%;                
+    left: 50%;
+
+}
+/* 입 */
+.mouth {
+    left: 62px;
+    bottom: 10px;
+    width: 126px;
+    height: 54px;
+    background: url(../images/mouth.png) no-repeat 0/100% 100%;
+}
+/* 귀공통 */
+.ear {
+    top: 100px;
+    width: 50px;
+    height: 80px;
+    background: url(../images/metal02.jpg) no-repeat center/cover;
+}
+/* 왼귀 */
+.ear1 {
+    left: -50px;
+    border-radius: 20px 0 0 20px;
+}
+/* 오른귀 */
+.ear2 {
+    right: -50px;
+    border-radius: 0 20px 20px 0;
+}
+/* 몸통 */
+
+/* 로봇설명박스 */
+
+/* 3. 하단영역 */
+/* 회사정보 */
 
