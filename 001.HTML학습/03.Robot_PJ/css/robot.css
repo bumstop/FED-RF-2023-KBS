@@ -50,7 +50,7 @@ body * {
     /* 메탈배경 */
     background: url(../images/metal01.jpg) no-repeat center/cover;
     position: relative;
-    border-radius: 100px 100px 80px 80px;
+    border-radius: 150px;
 }
 /* 가상요소로 머리에 가발 씌우기 */
 .head::after {
@@ -64,6 +64,14 @@ body * {
     width: 300px;
     height: 250px;
     background: url(../images/hair.png) no-repeat 0/100% 100%;
+}
+/* 오버시 가상요소 가발 변경하기 */
+.head:hover::after {
+    top: -168px;
+    left: -135px;
+    width: 524px;
+    height: 401px;
+    background-image: url(../images/hair3.png);
 }
 .head > div {
     position: absolute;
