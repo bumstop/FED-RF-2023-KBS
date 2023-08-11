@@ -180,15 +180,25 @@
 .arm2 {
     animation:
     right-arm-ani-01 .3s ease-in 9s forwards,
-    right-arm-ani-02 .3s ease-in-out 10.4s infinite alternate;
+    right-arm-ani-02 .3s ease-in-out 9.4s infinite alternate;
 }
 /* 오른팔 애니3 호출 :  흔들기2 */
 .arm2 span {
     transform-origin: top;
-    animation: right-arm-ani-03 .3s ease-in-out 10.4s infinite alternate;
+    animation: right-arm-ani-03 .3s ease-in-out 9.4s infinite alternate;
 }
-/* 오른팔 애니4 호출 : 대상 - */
+/* 오른팔 애니4 호출 : 손목흔들기 */
 .arm2 span::before {
     transform-origin: top;
-    animation: right-arm-ani-04 .3s ease-in-out 10.4s infinite alternate;
+    animation: right-arm-ani-04 .3s ease-in-out 9.4s infinite alternate;
+}
+/* 입 나불나불 애니 */
+@keyframes mouth-ani {
+    to {
+        transform: scaleY(.7);
+    }
+}
+/* 입 애니 호출 */
+.mouth {
+    animation: mouth-ani .1s linear 9.8s infinite;
 }

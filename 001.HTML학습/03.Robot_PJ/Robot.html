@@ -66,13 +66,20 @@
                         <div class="tv">
                             <div class="screen">
                                 <!-- youtube 동영상 -->
-                                <iframe id="mv" src="https://www.youtube.com/embed/3P1CnWI62Ik"></iframe>
+                                <iframe id="mv" allow="autoplay" src="https://www.youtube.com/embed/3P1CnWI62Ik"></iframe>
                                 <!--
-                                     영상아이디
-                                     1. xLD8oWRmlAE
+                                    영상아이디
+                                    1. 3P1CnWI62Ik
+                                    2. dQ_lCmB2hfk
+                                    3. xLD8oWRmlAE
                                  -->
-
-
+                            </div>
+                            <!-- 조작버튼박스 -->
+                            <div class="box-btn">
+                                <button onclick="바꿔('3P1CnWI62Ik')">ch1</button>
+                                <button onclick="바꿔('dQ_lCmB2hfk')">ch2</button>
+                                <button onclick="바꿔('xLD8oWRmlAE')">ch3</button>
+                                <button onclick="커짐()">🚭</button>
                             </div>
                         </div>
                     </div>
@@ -86,5 +93,32 @@
                 <!-- 1. 회사정보 -->
             </footer>
         </div>
+        <script>
+
+
+            // JS가 하는일
+            // 1. HTML 변경
+            // 2. CSS 변경
+    
+            // JS가 필수로 하는 것은?
+            // 요소 선택하기!
+            // element -> 요소 -> 태그
+            // 요소들이 모여있는 웹문서 전체구조 -> DOM(Document Object Model)
+    
+            // document 객체를 통하여 하위요소들로 접근
+            // JS는 명령어 끝에 꼭 세미콜론
+            // 함수는 코드를 저장하는 장소
+            // 함수 호출시 함수 내부의 코드가 실행됨
+            function 바꿔(먹이) { 
+                console.log('영상바꿔!', 먹이)
+                document.getElementById('mv').src = 'https://www.youtube.com/embed/' + 먹이 + '?autoplay=1';
+            }
+            function 커짐() {
+                // document.getElementsByClassName('tv').item(0).classList.toggle("on");
+                // item
+                document.querySelector('.tv').classList.toggle("on");
+                console.log('노담사피엔스');
+            } // tv 배율 변경 클래스 적용함수
+        </script>
     </body>
 </html>

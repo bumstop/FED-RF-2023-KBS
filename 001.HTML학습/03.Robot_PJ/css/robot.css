@@ -383,14 +383,19 @@ body * {
 .tv {
     top: 8%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) scale(1);
     width: 200px;
     height: 140px;
     border: 2px solid #222;
     border-radius: 5px;
     box-shadow: inset 0 0 10px #000;
-    background:
-    url(../images/tv.jpg) no-repeat 0/100%;
+    background: url(../images/tv.jpg) no-repeat 0/100%;
+    z-index: 2;
+    transition: 1.2s ease-in-out;
+}
+/* tv가 커지는 클래스 */
+.tv.on {
+    transform: translateX(-50%) scale(5);
 }
 /* 스크린 */
 .screen {
@@ -406,6 +411,18 @@ body * {
     width: 100%;
     height: 100%;
     border-radius: inherit;
+    border: none;
+}
+
+.box-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    height: 90px;
+}
+.box-btn button {
+    width: 100%;
 }
 /* 로봇설명박스 */
 
