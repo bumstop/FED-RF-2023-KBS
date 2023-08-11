@@ -65,11 +65,130 @@
     to {
         top: 50px;
         left: 50px;
-        transform: scale(1);
+        transform: scale(1) rotate(-25deg);
 
     }
 }
-/* 로고이동 호출하기 - 대상: .logo */
+/* 로고이동 + 오뚜기애니 호출하기 - 대상: .logo */
 .logo {
-    animation: logo-ani 1s cubic-bezier(0.91, 0.26, 0, 0.82) 1s forwards;
+    animation: 
+    logo-ani 1s ease-in-out 1s forwards,
+    swing-ani .5s ease-in-out 2s infinite alternate;
+}
+/* 오뚜기 애니 키프레임 */
+@keyframes swing-ani {
+    from {
+        transform: rotate(-25deg);
+    }
+    to {
+        transform: rotate(25deg);
+    }
+}
+/* 로봇 위치/크기변경 애니 */
+@keyframes robot-ani {
+    to {
+      transform: translate(0, 0) scale(1);
+    }
+}
+/* 로봇 애니 호출 */
+.box-robot {
+    animation: robot-ani 5s linear 3s forwards;
+}
+
+/* 걷는다리 키프레임 */
+@keyframes walk-ani {
+    to {
+        transform: scaleY(.8);
+    }
+}
+/* 다리 애니호출 */
+.leg1 {
+    animation: walk-ani .4s ease-in-out 3s 14 alternate;
+}
+.leg2 {
+    animation: walk-ani .4s ease-in-out 3.4s 14 alternate;
+}
+/* 왼팔 애니1 키프레임 */
+@keyframes left-arm-ani-01 {
+    to {
+        transform: rotate(30deg);
+    }
+}
+/* 왼팔 애니2 키프레임 */
+@keyframes left-arm-ani-02 {
+    to {
+        transform: rotate(-90deg);
+    }
+}
+/* 왼팔 애니3 키프레임 */
+@keyframes left-arm-ani-03 {
+    to {
+        transform: rotate(100deg);
+    }
+}
+/* 왼팔 애니1 호출 */
+.arm1 {
+    animation: left-arm-ani-01 .3s ease-in 9s forwards;
+}
+/* 왼팔 애니2 호출 */
+.arm1 span{
+    transform-origin: top;
+    animation: left-arm-ani-02 .3s ease-in 9s forwards;
+}
+/* 왼팔 애니3 호출 */
+.arm1 span::before{
+    transform-origin: top;
+    animation: left-arm-ani-03 .3s ease-in 9s forwards;
+}
+
+
+/* 오른팔 애니1 키프레임 */
+@keyframes right-arm-ani-01 {
+    to {
+        transform: rotate(-136deg);
+    }
+}
+/* 오른팔 애니2 키프레임 : 흔들기 1 */
+@keyframes right-arm-ani-02 {
+    from {
+        transform: rotate(-136deg);
+    }
+    to {
+        transform: rotate(-110deg);
+    }
+}
+/* 오른팔 애니3 키프레임 : 흔들기 2 */
+@keyframes right-arm-ani-03 {
+    from {
+        transform: rotate(-30deg);
+    }
+    to {
+        transform: rotate(-10deg);
+    }
+}
+/* 오른팔 애니4 키프레임 : 손목흔들기 */
+@keyframes right-arm-ani-04 {
+    from {
+        transform: rotate(-15deg);
+    }
+    to {
+        transform: rotate(15deg);
+    }
+}
+/* 오른팔 애니1 호출 : 팔들기 */
+/* 오른팔 애니2 호출 : 흔들기1 */
+.arm2 {
+    animation:
+    right-arm-ani-01 .3s ease-in 9s forwards,
+    right-arm-ani-02 .3s ease-in-out 10.4s infinite alternate;
+}
+/* 오른팔 애니3 호출 :  흔들기2 */
+.arm2 span {
+    transform-origin: top;
+    animation: right-arm-ani-03 .3s ease-in-out 10.4s infinite alternate;
+}
+/* 오른팔 애니4 호출 : 대상 - */
+.arm2 span::before {
+    transform-origin: top;
+    animation: right-arm-ani-04 .3s ease-in-out 10.4s infinite alternate;
 }

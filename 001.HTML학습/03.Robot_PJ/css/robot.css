@@ -74,8 +74,11 @@ body * {
 }
 /* 로봇박스 */
 .box-robot {
+    position: fixed;
+    width: 100%;
     padding: 200px 0 520px;
-    margin-top: 30px;
+    /* margin-top: 30px; */
+    transform: scale(0.2) translate(25%, -25%);
 }
 /* 머리 */
 .head{
@@ -217,6 +220,7 @@ body * {
     width: 50px;
     height: 200px;
     border-radius: 20%;
+    transform-origin: center top;
 }
 /* 가상요소로 팔 관절 만들기 */
 .arm::after {
@@ -284,6 +288,8 @@ body * {
     top: 95%;
     /* 부모박스 크기만큼 나감 */
     border-radius: 20%;
+    /* 애니를 위한 트랜스폼 기준축 변경 */
+    transform-origin: top;
 }
 /* 가상요소로 무릎 관절 만들기 */
 .leg::after {
@@ -351,6 +357,7 @@ body * {
 /* 왼다리 */
 .leg1 {
     left: 10px;
+    
 }
 /* 오른다리 */
 .leg2 {
