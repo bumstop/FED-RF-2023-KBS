@@ -66,7 +66,8 @@ body * {
 
 /* 2. 메인영역 */
 .main-aria {
-    overflow: hidden;
+    padding-top: 860px;
+    /* overflow: hidden; */
     /* 첫번째 자식요소 블록박스에 마진탑을 준경우 그 마진값은
     부모요소 바깥쪽으로 나간다. (기본성질)
     마진탑을 포함하려면 부모요소에 overflow: hidden을 줘야한다. 
@@ -75,10 +76,15 @@ body * {
 /* 로봇박스 */
 .box-robot {
     position: fixed;
+    /* 
+        top값을 안주면 패딩/static요소를 존중하므로 위치값을 줘서
+        화면을 기준으로 위치를 고정시킨다.
+    */
+    top: 0;
     width: 100%;
     padding: 200px 0 520px;
     /* margin-top: 30px; */
-    transform: scale(0.2) translate(25%, -25%);
+    transform: translate(25%, -15%)scale(0.2);
 }
 /* 머리 */
 .head{
@@ -194,6 +200,7 @@ body * {
     height: 220px;
     background-image: linear-gradient(to bottom, #913e0d, #ee9968);
     border-radius: 30px;
+    clip-path: polygon(0 0,100% 0,87% 100%,13% 100%);
 }
 .body::after {
     content:'';
@@ -205,6 +212,8 @@ body * {
     height: 150px;
     background-image: linear-gradient(to bottom, #913e0d, #ee9968);
     border-radius: 30px;
+    clip-path:
+    polygon(6% 25%,15% 3%,87% 0%,95% 25%,90% 74%,58% 95%,41% 95%,10% 75%);
 }
 /* 목 */
 .neck{
