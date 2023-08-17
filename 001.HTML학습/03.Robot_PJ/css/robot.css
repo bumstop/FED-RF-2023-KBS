@@ -13,6 +13,10 @@
 */
 
 /* 초기화 */
+html {
+    font-size: 10px;
+    /* 상대단위 rem 계산 편의를 위해 변경! */
+}
 html,body,h1,h2,h3,ul,ol{
     margin: 0;
     padding: 0;
@@ -138,10 +142,12 @@ body{
     position: absolute;
     /* 앱솔루트요소 */
     top: -75px;
-    left: -71px;
+    left: -23px;
     /* 부모는? .head */
-    width: 239px;
-    height: 283px;
+    width: 245px;
+    height: 230px;
+    
+    
 
     /* 배경 */
     background: 
@@ -150,15 +156,13 @@ body{
 /* 오버시 가상요소 가발 변경하기 */
 .head:hover::after{
     /* 앱솔루트요소 */
-    top: -74px;
-    left: -127px;
-    /* 부모는? .head */
-    width: 236px;
-    height: 351px;
+    top: -118px;
+    left: -100px;
+    width: 399px;
+    height: 317px;
 
     /* 배경 */
-    background-image: 
-    url(../images/hair3.png);
+    background-image: url(../images/hair3.png);
 }
 
 /* 머리/몸통 하위요소 공통 */
@@ -611,7 +615,7 @@ body{
     /* top값 설정시 위치고정 */
     top: 15px;
     /* 글자 : 35px 'Chakra Petch' */
-    font: 2.18rem 'Chakra Petch';
+    font: 3.5rem 'Chakra Petch';
     /* 글자색 lime */
     color: lime;
     /* 글자중앙정렬 */
@@ -626,7 +630,7 @@ body{
     /* 글자체 : 'Chakra Petch' */
     font-family: 'Chakra Petch';
     /* 글자크기 12px -> rem? */
-    font-size: 0.75rem;
+    font-size: 1.2rem;
     /* 줄간격 : 3배 */
     line-height: 3;
     /* 글자색 : 노란색 */
@@ -643,7 +647,13 @@ body{
 .desc {
     /* 글자체 : 'Barlow' */
     font-family: 'Barlow';
-    
+    /* 글자크기 : 17px -> rem */
+    font-size: 1.7rem;
+    /* 줄간격 1.8배 */
+    line-height: 1.8;
+    /* 자간 1px */
+    letter-spacing: 1px;
+    /* 간격 2px */
     /* 
         [ 다단설정하기 ]
         - 다중열속성
@@ -653,6 +663,23 @@ body{
     */
     /* 다중열 개수 */
     column-count: 3;
+    /* 다중열 구분선 : 두께 종류 색상 */
+    column-rule: 5px dotted lightgreen;
+    column-gap: 40px;
+    /* 양쪽정렬 : taj */
+    text-align: justify;
+    /* 단어 단위로 줄바꿈하므로 양쪽정렬시 영어는 단어깨기를
+    해줘야함, 2byte인 한글 일본어 등은 안깨도 됨 */
+    word-break: break-all;
+
+    /* 들여쓰기 : ti */
+    text-indent: 40px;
+}
+/* 설명문단 첫글자 가상요소로 디자인변경 */
+.desc::first-letter {
+    font-size: 3rem;
+    font-weight: bold;
+    color: orange;
 }
 /* 2-2-3.내용단락 */
 
