@@ -28,21 +28,27 @@
 
         /* 트위터 */
         .icons li:nth-child(1){
+            background-position: 0 0;
         }
         /* 트위터 오버시 */
         .icons li:nth-child(1):hover {
+            background-position: 0 100%;
         }
         /* 인스타 */
         .icons li:nth-child(2){
+            background-position: 50% 0;
         }
         /* 인스타 오버시 */
         .icons li:nth-child(2):hover{
+            background-position: 50% 100%;
         }
         /* 페북 */
         .icons li:nth-child(3){
+            background-position: 100% 0;
         }
         /* 페북 오버시 */
         .icons li:nth-child(3):hover{
+            background-position: 100% 100%;
         }
 
         /* a요소 확장하기 */
@@ -140,9 +146,35 @@
         }
         
 
-
         /* 스프라이츠 연습 */
-        
+        .sp {
+            border: 1px solid #000;
+            /* background-size: 457px; */
+        }
+        .sp1 {
+            width: 166px;
+            height: 55px;
+            background: url(./images/sp_main_dba1af.png) no-repeat;
+            background-position: -392px -534px;
+        }
+        .sp2 {
+            width: 118px;
+            height: 46px;
+            background: url(./images/sp_main_dba1af.png) no-repeat;
+            background-position: -398px -596px;
+        }
+        .sp3 {
+            width: 127px;
+            height: 25px;
+            background: url(./images/sp_main_dba1af.png) no-repeat;
+            background-position: -396px -657px;
+        }
+        .sp4 {
+            width: 198px;
+            height: 77px;
+            background: url(./images/sp_main_dba1af.png) no-repeat;
+            background-position: -549px -331px;
+        }
         
     </style>
 </head>
@@ -151,14 +183,17 @@
     <ul class="icons">
         <li>
             <a href="#">
+                <span class="ir">트위터 바로가기</span>
             </a>
         </li>
         <li>
             <a href="#">
+                <span class="ir">인스타 바로가기</span>
             </a>
         </li>
         <li>
             <a href="#">
+                <span class="ir">페이스북 바로가기</span>
             </a>
 
         </li>

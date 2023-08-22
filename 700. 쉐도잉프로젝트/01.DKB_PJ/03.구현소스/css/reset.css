@@ -1,0 +1,33 @@
+@charset "utf-8";
+/* 도깨비 PJ 리셋 CSS - reset.css */
+/* 기본 초기화 셋팅 */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+ol, ul {
+    list-style: none;
+}
+a {
+    color: #222;
+    text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+}
+
+/* 클리어 가상요소 클래스 */
+.clb::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/* IR(Image Replacement - 배경이미지 설명 숨기기 클래스*/
+.ir {
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}

@@ -4,206 +4,101 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>1. 가로네비 서브별 드롭다운 세로형</title>
+        <link rel="stylesheet" href="./css/nav01.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     </head>
-    <style>
-        html,
-        body,
-        h1 {
-            margin: 0;
-            padding: 0;
-        }
-        .tit {
-            text-align: center;
-            padding: 20px;
-        }
-        body {
-            color: #fff;
-            background: #0a134d url(./images/nav1bg.png) no-repeat fixed center/cover;
-        }
-        ul,
-        ol {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-        /* 클리어설정 가상요소 */
-        ul::after,
-        ol::after,
-        .clb::after {
-            content: "";
-            clear: both;
-            display: block;
-        }
-        .part-box {
-            float: left;
-        }
-
-        .logo {
-            line-height: 80px;
-        }
-        .logo img {
-            width: min(173px, 14vw);
-        }
-        .gnb {
-            padding: 0px min(100px, 8vw);
-        }
-        .gnb > ul > li {
-            position: relative;
-            float: left;
-        }
-        .gnb > ul > li.m5:hover .sub-menu{
-            height: calc(40px * 5);
-            opacity: 1;
-        }
-        .gnb > ul > li.m4:hover .sub-menu{
-            height: calc(40px * 4);
-            opacity: 1;
-        }
-        .gnb > ul > li.m3:hover .sub-menu{
-            height: calc(40px * 3);
-            opacity: 1;
-        }
-        .gnb > ul > li.m2:hover .sub-menu{
-            height: calc(40px * 2);
-            opacity: 1;
-        }
-        .gnb > ul > li.m1:hover .sub-menu{
-            height: calc(40px * 1);
-            opacity: 1;
-        }
-        
-        .gnb a {
-            color: #fff;
-            text-decoration: none;
-            font-size: min(18px, 1.8vw);
-            padding: 0 min(32px, 1.5vw);
-            line-height: 80px;
-        }
-        /* 
-            서브메뉴
-            - 높이값 0으로 숨길때 숨길박스에 보더나 패딩이 있으면
-              완전히 숨길 수 없다. 따라서 보더, 패딩은 없어야 한다.
-        */
-        .sub-menu {
-            position: absolute;
-            left: 50%;
-            top: 90%;
-            transform: translate(-50%, 0);
-            width: min(200px, 18vw);
-            border-radius: 15px;
-            background-color: rgba(0, 0, 128, 0.7);
-            box-shadow: inset 0 0 5px lightblue;
-            height: 0;
-            overflow: hidden;
-            transition: .4s ease-in-out;
-            opacity: 0;
-        }
-        .sub-menu li {
-            text-align: center;
-        }
-        .sub-menu a {
-            /* display: block;
-            box-sizing: border-box;
-            width: 100%; */
-            line-height: 40px;
-            font-size: min(16px, 1.6vw);
-            opacity: .8;
-            transition: .3s;
-        }
-        .sub-menu a:hover {
-            opacity: 1;
-            transform: scale(1.1);
-        }
-
-
-        /* 메인영역 */
-        .main-area {
-            max-width: 1000px;
-            min-height: 600px;
-            line-height: 600px;
-            text-align: center;
-            font-size: 2.5vw;
-            border: 10px dashed lightgreen;
-            margin: 100px auto;
-        }
-    </style>
 
     <body>
         <h1 class="tit">1. 가로네비 서브별 드롭다운 세로형</h1>
 
         <!-- 상단영역 -->
         <header class="top-area clb">
-            <div class="part-box">
-                <h1 class="logo">
-                    <a href="#">
-                        <img src="./images/nav1logo.png" alt="" />
-                    </a>
-                </h1>
-            </div>
-            <div class="part-box">
-                <nav class="gnb">
-                    <ul>
-                        <li class="m5">
-                            <a href="">Vision Processor</a>
-                            <div class="sub-menu">
-                                <ol>
-                                    <li><a href="">RVC</a></li>
-                                    <li><a href="">In-cabin</a></li>
-                                    <li><a href="">FVC</a></li>
-                                    <li><a href="">SVM</a></li>
-                                    <li><a href="">E-mirror</a></li>
-                                </ol>
-                            </div>
-                        </li>
-                        <li class="m3">
-                            <a href="">ADAS Processor</a>
-                            <div class="sub-menu">
-                                <ol>
-                                    <li><a href="">RVC</a></li>
-                                    <li><a href="">In-cabin</a></li>
-                                    <li><a href="">FVC</a></li>
+            <div class="inbox clb">
+                <div class="part-box col-2">
+                    <h1 class="logo">
+                        <a href="#">
+                            <img src="./images/nav1logo.png" alt="" />
+                        </a>
+                    </h1>
+                </div>
+                <div class="part-box col-8">
+                    <nav class="gnb ">
+                        <ul class="line-ani">
+                            <li class="m5">
+                                <a href="">Vision Processor</a>
+                                <div class="sub-menu">
+                                    <ol>
+                                        <li><a href="">RVC</a></li>
+                                        <li><a href="">In-cabin</a></li>
+                                        <li><a href="">FVC</a></li>
+                                        <li><a href="">SVM</a></li>
+                                        <li><a href="">E-mirror</a></li>
+                                    </ol>
+                                </div>
+                            </li>
+                            <li class="m3">
+                                <a href="">ADAS Processor</a>
+                                <div class="sub-menu">
+                                    <ol>
+                                        <li><a href="">RVC</a></li>
+                                        <li><a href="">In-cabin</a></li>
+                                        <li><a href="">FVC</a></li>
 
-                                </ol>
-                            </div>
+                                    </ol>
+                                </div>
+                            </li>
+                            <li class="m1">
+                                <a href="">AHD™</a>
+                                <div class="sub-menu">
+                                    <ol>
+                                        <li><a href="">RVC</a></li>
+                                    </ol>
+                                </div>
+                            </li>
+                            <li class="m1">
+                                <a href="">News</a>
+                                <div class="sub-menu">
+                                    <ol>
+                                        <li><a href="">RVC</a></li>
+                                    </ol>
+                                </div>
+                            </li>
+                            <li class="m3">
+                                <a href="">About Us</a>
+                                <div class="sub-menu">
+                                    <ol>
+                                        <li><a href="">RVC</a></li>
+                                        <li><a href="">In-cabin</a></li>
+                                        <li><a href="">FVC</a></li>
+                                    </ol>
+                                </div>
+                            </li>
+                            <li class="m1">
+                                <a href="">Career</a>
+                                <div class="sub-menu">
+                                    <ol>
+                                        <li><a href="">RVC</a></li>
+                                    </ol>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- 언어선택, 사이트맵 버튼 -->
+                <div class="part-box col-2">
+                    <ul class="top-menu line-ani">
+                        <li>
+                            <a href="#">kor</a>
                         </li>
-                        <li class="m1">
-                            <a href="">AHD™</a>
-                            <div class="sub-menu">
-                                <ol>
-                                    <li><a href="">RVC</a></li>
-                                </ol>
-                            </div>
+                        <li>
+                            <a href="#">eng</a>
                         </li>
-                        <li class="m1">
-                            <a href="">News</a>
-                            <div class="sub-menu">
-                                <ol>
-                                    <li><a href="">RVC</a></li>
-                                </ol>
-                            </div>
-                        </li>
-                        <li class="m3">
-                            <a href="">About Us</a>
-                            <div class="sub-menu">
-                                <ol>
-                                    <li><a href="">RVC</a></li>
-                                    <li><a href="">In-cabin</a></li>
-                                    <li><a href="">FVC</a></li>
-                                </ol>
-                            </div>
-                        </li>
-                        <li class="m1">
-                            <a href="">Career</a>
-                            <div class="sub-menu">
-                                <ol>
-                                    <li><a href="">RVC</a></li>
-                                </ol>
-                            </div>
+                        <li>
+                            <a href="#"><i class="fa-solid fa-grip"></i></a>
                         </li>
                     </ul>
-                </nav>
+                </div>
             </div>
-            <div class="part-box"></div>
         </header>
         <!-- 메인영역 -->
         <main class="main-area">여기에 내용</main>
