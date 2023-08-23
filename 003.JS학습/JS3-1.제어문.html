@@ -179,9 +179,9 @@
                     빈값일 경우 걸러내기!
                 ***********************************************/
 
-                if(txt.trim()=='') {
-                    alert('값을 입력후 조회하세요!');
-                    target.value = '';
+                if (txt.trim() == "") {
+                    alert("값을 입력후 조회하세요!");
+                    target.value = "";
                     target.focus();
                     return; // 함수나가기
                 }
@@ -247,10 +247,9 @@
                 console.log("메시지:", message);
 
                 // message 변수에 최종 출력내용을 다시 담아준다.
-                if(message == "esc") {
+                if (message == "esc") {
                     message = "등록되지 않은 지역입니다!";
-                } 
-                else {
+                } else {
                     message = `${txt}의 지역번호는 ${message}입니다!`;
                 }
 
@@ -289,6 +288,45 @@
                 없으면 이 부분이 실행됨(단, 필요시 사용)
                 -> default문에는 break를 쓰지 않는다!
             ***********************************************/
+
+
+
+            /***********************************************
+                이벤트 설정 로딩구역 만들기
+
+                -> 외부에 함수를 만들고 이름만 써서 함수연결한 것은
+                내부에 직접 익명함수 코드를 작성한 것과 같다!
+                외부함수를 만들고 호출하는 이유는 코드의 재사용으로
+                효율성과 경제성을 높이기 위함이다!
+            ***********************************************/
+            
+            window.addEventListener('load', function() {
+                console.log('로딩완료');
+                document.querySelector('#sel').onchange = showGugu;
+            });
+
+
+
+            /***********************************************
+                함수명 : showGugu
+                기능 : 구구단을 출력한다!
+            ***********************************************/
+            function showGugu() {
+                // 1. 함수호출 확인
+                console.log('보여줘!구구단!', this.value);
+                // this 키워드 - 나자신! -> 할당된 요소 자신(여기서는 select 요소)
+                // value 는 select 요소의 속성
+
+                // 2. 선택값 읽기
+                var optVal = this.value;
+                // 구구단 저장변수
+                var result;
+                // 3. 구구단 만들기
+                result = `<h2>${optVal}단</h2>`;
+                // 4. 화면출력
+                document.querySelector('.g1').innerHTML = result;
+            }
+
         </script>
         <style>
             h1 {
@@ -304,6 +342,9 @@
             select {
                 font-size: 2vw;
             }
+            body {
+                text-align: center;
+            }
             .tit {
                 text-align: center;
                 background-image: linear-gradient(to bottom, lightgreen, lightsalmon);
@@ -316,7 +357,7 @@
             .jshow {
                 position: absolute;
                 top: 5vw;
-                left: 48vw;
+                left: 77vw;+
                 width: 15vw;
                 height: 15vw;
                 background: url(images/ifshow.jpg) no-repeat;
@@ -325,6 +366,15 @@
                 /* 배경크기 */
                 background-size: 300%;
                 transition: background-position 1s;
+            }
+            .gugu {
+                width: 40vw;
+                height: 40vw;
+                border: 2px dashed blue;
+                text-align: center;
+                margin: 3vh auto;
+                /* 박스 Y축 스크롤 : 박스보다 내용 많으면 스크롤바 생김(트랙 나와있음) */
+                overflow-y: scroll;
             }
         </style>
     </head>
@@ -389,6 +439,25 @@
         <!-- for문 연습 -->
         <h2 class="tit">for문 연습</h2>
         <h3>구구단 출력하기</h3>
+
+        <!-- 
+            [ select 요소 ]
+            
+            1. 보통 정해진 선택값을 나열하여 선택입력을
+            할 수 있는 입력요소
+            2. form요소 내부에 주로 사용되고 데이터를
+            DB에 전송하는 목적을 많이 이용됨!
+            3. id를 설정할때 name속성을 같이 셋팅할 경우가
+            많은데 이는 post방식 데이터 전송시 서버사이드에서
+            name으로 데이터를 읽어가기 때문에 일반적으로 씀.
+            보통 id명과 동일하게 이름짓는다
+            4. 필수하위 요소 : option
+                -> 속성으로 value를 쓰고 값을 사용하면
+                    JS등 프로그래밍에서 이 값을 읽어감!
+                -> value속성을 셋팅하지 않으면
+                    option의 데이터를 읽어감!
+         -->
+
         <select name="sel" id="sel">
             <option value="1">구구단을 선택하세요!</option>
             <option value="2">2단</option>
