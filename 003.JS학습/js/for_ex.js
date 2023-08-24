@@ -6,6 +6,9 @@
 // 이벤트 대상선정
 var mini = document.querySelectorAll(".mini");
 var blue_box = document.querySelector(".Bcase");
+var miniSpace = document.querySelector('.mini-space');
+var stxtCount = document.querySelector('.stxt__count');
+var count = 0;
 console.log("미니언즈:", mini, blue_box);
 // 2. 이벤트 연결하기
 
@@ -36,10 +39,21 @@ function insertMini() {
     // console.log('data-cnt:', cnt);
 
     // 3. 미니언즈 넣기
-    // 대상: .Bcase -> blue_box
+    // 대상: .Bcase -> miniSpace
     for (var j = 0; j < cnt; j++) {
-        blue_box.innerHTML += `
-        <img src="./images/Minions.png" alt="미니언즈">
-    `;
+        miniSpace.innerHTML += `
+            <img src="./images/Minions.png" alt="미니언즈">
+        `;
+        count += 3;
     }
+    stxtCount.innerText = count;
 }
+
+
+// 박스 리셋 버튼
+var resetBtn = document.querySelector('.rbtn');
+resetBtn.addEventListener('click',() => {
+    miniSpace.innerText = '';
+    count = 0;
+    stxtCount.innerText = count;
+})
