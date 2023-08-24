@@ -7,12 +7,12 @@
 @import url(./common.css);
 
 /* 공사중표시 */
-body * {
+/* body * {
     outline: 2px dashed #ccc;
 }
 body > div > * {
     outline-color: red;
-}
+} */
 
 
 /* 개별영역 박스 -> 확장형 박스
@@ -69,14 +69,19 @@ body > div > * {
 .dokebi-sub-menu {
    position: absolute;
    border: 1px solid red;
-   border-radius: 30px;
+   border-radius: 20px;
+   padding: 14px 10px;
    width: 180px;
    background-color: #fff;
+   display: none;
 }
 .dokebi-sub-menu a {
     display: block;
     padding: 10px 15px;
     font-size: 1.8rem;
+}
+.dokebi-menu ul > li:hover .dokebi-sub-menu {
+    display: block;
 }
 /************* 4. 메인영역 : .group-part *************/
 #main {
