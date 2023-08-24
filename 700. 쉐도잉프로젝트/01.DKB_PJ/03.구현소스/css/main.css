@@ -1,31 +1,76 @@
 @charset "utf-8";
+/* 도깨비 PJ : 메인페이지 CSS - main.css */
+
+/* 리셋,공통 외부 CSS 합치기(merging) */
 @import url(./reset.css);
 @import url(./core.css);
 @import url(./common.css);
-/* 도깨비 PJ : 메인페이지 CSS - main.css */
+
+/* 공사중표시 */
 body * {
     outline: 2px dashed #ccc;
 }
-body > div * {
-    outline: 2px dashed red;
+body > div > * {
+    outline-color: red;
 }
 
-/* 
-개별영역 박스 
--> 개별영역 중앙속박스에 높이값을 주면 파트박스가
-    늘어날경우 높이값에 제한을 받게됨.
-    확장형은 반드시 파트박스에 높이값을 설정한다.
-*/
 
+/* 개별영역 박스 -> 확장형 박스
+        -> 개별영역 중앙속박스에 높이값을 주면
+        파트박스가 늘어날 경우 높이값에 제한을 받게됨!
+        확장형은 반드시 파트박스에 높이값을 설정한다! */
 
-/************* 1. 캐릭터소개영역 *************/
+/************* 2. 캐릭터소개 *************/
 #banner {
-    background-color: lightgreen;
+    background: url(../images/bg_mainvisual2.jpg) no-repeat center/auto 100%;
 }
 .banner .partbox {
     height: 530px;
 }
-/************* 2. 메인영역 : .group-part *************/
+
+/************* 3. 도깨비메뉴박스 *************/
+#dokebi-menu{
+    /* 스티키 포지션 - 상단스크롤 걸림! */
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+}
+.dokebi-menu ul{
+    /* 플렉스박스 */
+    display: flex;
+    padding: 12px 0;
+}
+/* 도깨비메뉴 상위메뉴a */
+.dokebi-menu ul>li>a{
+    color: #999;
+    font-size: 1.8rem;
+    display: block;
+    padding: 9px 24px;
+    /* 줄바꿈방지 */
+    white-space: nowrap;
+}
+/* 도깨비메뉴 상위li 오버시 a */
+.dokebi-menu ul>li:hover>a{
+    color: #222;
+}
+/* 하위메뉴가 있는 li만 하위 표시하기 */
+.dokebi-menu ul>li.be-sub>a::after{
+    content: '∨';
+    display: inline-block;
+    transform: scale(.5,.3);
+    margin-left: 3px;
+}
+/* 현재 선택된 메뉴 li.on 클래스 */
+.dokebi-menu ul>li.on>a{    
+    background-color: red;
+    color: #fff;
+    border-radius: 30px;
+}
+
+/************* 4. 메인영역 : .group-part *************/
+#main {
+    background-color: lightgoldenrodyellow;
+}
 /* 방송편성소개파트 */
 .main .group-part-01 .partbox {
     height: 455px;
