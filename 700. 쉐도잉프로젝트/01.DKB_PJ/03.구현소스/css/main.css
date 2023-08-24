@@ -66,7 +66,18 @@ body > div > * {
     color: #fff;
     border-radius: 30px;
 }
-
+.dokebi-sub-menu {
+   position: absolute;
+   border: 1px solid red;
+   border-radius: 30px;
+   width: 180px;
+   background-color: #fff;
+}
+.dokebi-sub-menu a {
+    display: block;
+    padding: 10px 15px;
+    font-size: 1.8rem;
+}
 /************* 4. 메인영역 : .group-part *************/
 #main {
     background-color: lightgoldenrodyellow;
