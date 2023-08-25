@@ -96,15 +96,31 @@ body{
 /* 태양박스 */
 #sun{
     position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--sun-size);
+    height: var(--sun-size);
+    /* 원형 */
+    border-radius: 50%;
+    /* 원형 바깥쪽 글로우효과 */
+    box-shadow: 0 0 60px 10px orange;
 
+    /* 커지는 태양이미지 숨기기 */
+    overflow: hidden;
 }
+
 /* 태양이미지 */
 #sun img{
+    width: 100%;
+    height: 100%;
+
+    /* 애니메이션호출 */
+    animation: flame-ani 40s linear infinite alternate;
 }
 /* 태양이 이글거리는 애니메이션 키프레임 */
-@keyframes flame {
+@keyframes flame-ani {
     to{
-        
+        transform: scale(1.5);
     }
 } /* 키프레임 */
 
@@ -114,31 +130,58 @@ body{
 /* 지구 */
 #earth{
     position: absolute;
-    
+    top: calc(50% - var(--earth-size) / 2);
+    left: calc(50% - var(--earth-size) / 2);
+    /* 부모는? #solar */
+    width: var(--earth-size);
+    height: var(--earth-size);
+    /* 배경이미지 */
+    background: url(../images/earth.png) no-repeat 0/100% 100%;
+    animation: rotate-earth-ani 20s linear infinite;
 }
 
 /* 지구회전 키프레임 */
-@keyframes earth {
+@keyframes rotate-earth-ani {
     from{
-        
+        transform: rotate(0deg) translateX(-250px) rotate(0deg);
+        /* 
+            [ 원형 주변회전 만들기 ]
+            1. 첫번째 rotate : 0deg -> 360deg
+                - 중앙회전담당!
+
+            2. 위치이동 translateX
+                - 주변을 도는 효과생김
+
+            3. 두번째 rotate : 0deg -360deg
+                - 반대회전은 옆으로 이동한 박스에 적용되어 
+                세워져서 주변을 도는 효과가생김
+        */
     }
     to{
-        
+        transform: rotate(360deg) translateX(-250px) rotate(-360deg);
     }
 } /* 지구회전 키프레임 */
 
 /* 달 */
 #moon{
     position: absolute;
+    top: calc(50% - var(--moon-size) / 2);
+    left: calc(50% - var(--moon-size) / 2);
+    /* 부모는? #solar */
+    width: var(--moon-size);
+    height: var(--moon-size);
+    /* 배경이미지 */
+    background: url(../images/moon.png) no-repeat 0/100% 100%;
+    animation: rotate-moon-ani 4s linear infinite;
 }
 
 /* 달회전 키프레임 */
-@keyframes moon {
+@keyframes rotate-moon-ani {
     from{
-        
+        transform: rotate(0deg) translateX(-80px) rotate(0deg);
     }
     to{
-        
+        transform: rotate(360deg) translateX(-80px) rotate(-360deg);
     }
 } /* 달회전 키프레임 */
 
