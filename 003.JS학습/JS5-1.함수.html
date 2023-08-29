@@ -5,9 +5,42 @@
         <title>JS5-1. 함수(function)</title>
         <style>
             body {
-                background: url(https://images.adsttc.com/media/images/5f73/76e0/63c0/17bc/c900/04e8/large_jpg/HK_1_N3.jpg?1601402564) no-repeat fixed center/cover;
+                margin: 0;
+                min-height: 100vh;
+                /* 최소 높이로 보이는 화면 크기만큼 지정하면 기본적으로 body가 보이는 화면을 유지하다가 컨텐츠가 많아져서 스크롤 생성시 body도 늘어남. */
+                /* background: url(https://images.adsttc.com/media/images/5f73/76e0/63c0/17bc/c900/04e8/large_jpg/HK_1_N3.jpg?1601402564)
+                    no-repeat fixed center/cover; */
             }
 
+            /* 배경박스 */
+            .bgbox {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                z-index: -1;
+                /* body가 투명하므로 아래쪽에 내려가 있어도 배경은 보인다! -> 배경처리시 이렇게 하면됨 */
+            }
+            .bgbox ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                width: 100%;
+                height: 100%;
+            }
+            .bgbox li {
+                position: absolute;
+                /* 서로 겹쳐짐 */
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                transition: .5s ease-in-out;
+            }
+            .bgbox li.on {
+                opacity: 1;
+                z-index: 1;
+            }
             h2 {
                 font-size: 5vh;
                 color: #fff;
@@ -20,7 +53,6 @@
             }
         </style>
         <script>
-            
             /**************************************** 
             [ 함수란? ]
             - JS의 특정실행코드 담고 있는 메모리 공간
@@ -163,13 +195,20 @@
                 ()=>{}
         ***********************************************/
 
-        // 온라인상 배경이미지 주소를 배열로 셋팅
-        const scene = [
-            "https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Fsundaytimes%2Fprod%2Fweb%2Fbin%2F1ee63066-4239-11ec-b414-b1f6389ab345.jpg?crop=2667%2C1500%2C0%2C0&resize=1200", 
-            "https://www.asml.com/-/media/asml/images/careers/working-at-asml/south-korea/gyeongbokgung_palace_south_korea.jpg?mw=1920&rev=5154661f5c8943bb8c81419c01b327e2&hash=30B844A1D30F8A9B2BB0A2FE6377E953", 
-            "https://images.adsttc.com/media/images/5f73/76e0/63c0/17bc/c900/04e8/large_jpg/HK_1_N3.jpg?1601402564"
-        ];
-
+            // 온라인상 배경이미지 주소를 배열로 셋팅
+            const scene = [
+                "https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Fsundaytimes%2Fprod%2Fweb%2Fbin%2F1ee63066-4239-11ec-b414-b1f6389ab345.jpg",
+                "https://cdn.britannica.com/57/75757-050-122EC2ED/Changgyong-Palace-background-Seoul.jpg",
+                "https://images.adsttc.com/media/images/5f73/76e0/63c0/17bc/c900/04e8/large_jpg/HK_1_N3.jpg",
+                "https://www.wallpaperflare.com/static/353/548/867/cityscape-seoul-south-korea-landscape-wallpaper-preview.jpg",
+                "https://wallpaperaccess.com/full/11675.jpg",
+                "https://wallpaperaccess.com/full/11676.jpg",
+                "https://wallpaperaccess.com/full/11678.jpg",
+                "https://wallpaperaccess.com/full/5480068.jpg",
+                "https://wallpaperaccess.com/full/11682.jpg",
+            ];
+            
+            let scene_cnt = scene.length;
             /*////////////////////////////////
                 함수명: Korea
                 기능: 다른함수호출
@@ -178,11 +217,11 @@
                 // 1.함수호출,전달값 확인
                 alert(txt);
                 // 2.다른함수호출
-                let ri = Ri(txt + '리');
+                let ri = Ri(txt + "리");
                 // 3.리턴값 찍기
                 alert(ri);
                 // 4.리턴값 보내기! -> 호출한곳으로!
-                return ri + '국 만세!!!';
+                return ri + "국 만세!!!";
             } ///// Korea함수 ////////////////
             //////////////////////////////////
 
@@ -194,11 +233,11 @@
                 // 1.함수호출,전달값 확인
                 alert(txt);
                 // 2.다른함수호출
-                let na = Na(txt + '나');
+                let na = Na(txt + "나");
                 // 3.리턴값 찍기
                 alert(na);
                 // 4.리턴값 보내기! -> 호출한곳으로!
-                return na + '민';
+                return na + "민";
             } ///// Ri함수 ////////////////
             //////////////////////////////////
 
@@ -210,11 +249,11 @@
                 // 1.함수호출,전달값 확인
                 alert(txt);
                 // 2.다른함수호출
-                let ra = Ra(txt + '라');
+                let ra = Ra(txt + "라");
                 // 3.리턴값 찍기
                 alert(ra);
                 // 4.리턴값 보내기! -> 호출한곳으로!
-                return ra + '한';
+                return ra + "한";
             } ///// Na함수 ////////////////
             //////////////////////////////////
 
@@ -226,12 +265,12 @@
                 // 1.함수호출,전달값 확인
                 alert(txt);
                 // 2.리턴값 보내기! -> 호출한곳으로!
-                return txt + ' 대';
+                return txt + " 대";
             } ///// Ra함수 ////////////////
             //////////////////////////////////
 
             // 선언적함수보다 위에서 이 함수를 호출! //
-            callMe("함수위에서 호출!");
+            // callMe("함수위에서 호출!");
             // 호출됨! 어떻게? -> 미리로딩되었다는 증거!
             // 코드위에서 호출되므로 이것을 함수호출 호이스팅(Hoisting)
             // 이라고 부른다!
@@ -253,7 +292,7 @@
             // -> 변수에 익명함수를 할당하여 함수를 호출!
             const myHome = function (txt) {
                 // txt 전달변수
-                console.log("오!나의집!", txt);
+                // console.log("오!나의집!", txt);
             }; /////// myHome 함수 ////////////////
 
             // 할당형 익명함수를 코드 아래에서 호출!
@@ -300,26 +339,89 @@
             // 인터발함수 사용!!!
             // 구현내용: 3초 간격으로 배경이미지를 배열데이터 순서대로 변경
 
-            
-
             ///////////////////////////////////////////
             /// 일정시간 후 한번만 애국가 가사  /////////
             /// body에 h2태그로 넣기 ///////////////////
             ///////////////////////////////////////////
-            
 
             /************************************************ 
                 함수명: myFn
                 기능: 파라미터 얼마든지 받아서 h2만들어 넣기
             ************************************************/
-            
+            function myFn() {
+                console.log('내함수!', 
+                arguments,
+                typeof arguments,
+                typeof scene);
+
+                // 대상선정: body
+                for(let i = 0; i <arguments.length; i++) {
+                    document.body.innerHTML += `
+                        <h2>${arguments[i]}</h2>
+                    `;
+                    // body에 자식으로 추가 (+= 대입연산자) 
+                }
+            }
+            // arguments는 화살표함수에서 사용불가
+
+
+            setTimeout(() => {
+                myFn('동해물과','백두산이','마르고','닳도록','하느님이','보우하사','우리나라','만세!');
+            }, 3000);
+
+            // 로드구역
+            window.addEventListener("load", () => {
+                console.log("로딩완료!");
+
+                // 대상선정
+                let bgbox = document.querySelector(".bgbox");
+
+                // 대상에 html 넣기
+                let hcode = "";
+                hcode += "<ul>";
+                for (let i = 0; i < scene_cnt; i++) hcode += `
+                    <li ${i == 0 ? "class='on'" : ""}></li>
+                `;
+                hcode += "</ul>";
+
+                // 대상넣기
+                bgbox.innerHTML = hcode;
+
+                // 배경박스 li에 배경이미지 넣기
+                let bgli = bgbox.querySelectorAll("li");
+                for (let i = 0; i < bgli.length; i++) {
+                    bgli[i].style.background = `
+                        url(${scene[i]}) no-repeat center/cover
+                    `;
+                }
+
+                // li 순번변수
+                let seq = 0;
+                // 배경이미지 순서대로 li에 클래스 on 넣기 - 2초간격으로 계속실행
+                setInterval(() => {
+                    // 순번증가 전 클래스 제거
+                    bgli[seq].classList.remove('on');
+
+                    // 순번증가
+                    seq++;
+                    // 한계수 체크(마지막번호 +1 -> 0번으로)
+                    // 마지막번호는 (배열개수 -1)
+                    // 마지막번호다음은 개수
+                    if(seq == scene_cnt) seq = 0;
+
+                    // 다음해당순번 적용하기
+                    bgli[seq].classList.add('on');
+                }, 2000);
+            });
         </script>
     </head>
 
     <body>
-        <button onclick="alert(Korea('우'))">
-            우리나라 대한민국 만세 프로젝트 시작!
-        </button>
+        <!-- 배경박스 -->
+        <div class="bgbox"></div>
+
+        <!-- 프로젝트 버튼 -->
+        <button onclick="alert(Korea('우'))">우리나라 대한민국 만세 프로젝트 시작!</button>
         <!-- 
             [JS 일반적인 실행순서]
             1. 위에서 아래로
