@@ -348,18 +348,26 @@
                 함수명: myFn
                 기능: 파라미터 얼마든지 받아서 h2만들어 넣기
             ************************************************/
+            // [유사배열객채란? - 배열형식으로 생겼으나 배열이 아니다.]
             function myFn() {
                 console.log('내함수!', 
                 arguments,
                 typeof arguments,
+                'arguments는 배열인가?', Array.isArray(arguments),
+                'arguments를 배열로 변경!', Array.isArray(Array.from(arguments)),
+                // 유사배열을 배열로 변경하는 메서드 -> Array.from()
                 typeof scene);
 
-                // 대상선정: body
+                // 대상선정: .letters
+                let letters = document.querySelector('.letters');
+                // body에 대상을 직접 추가하면 전체 DOM구조에 영향을 주므로
+                // 기존에 셋팅한 코드가 끊어질 수 있다!
+                // 따라서 변경요소는 처음부터 넣은 특정 박스로 한정해 주는것이 좋다.
                 for(let i = 0; i <arguments.length; i++) {
-                    document.body.innerHTML += `
+                    letters.innerHTML += `
                         <h2>${arguments[i]}</h2>
                     `;
-                    // body에 자식으로 추가 (+= 대입연산자) 
+                    // letters 자식으로 추가 (+= 대입연산자) 
                 }
             }
             // arguments는 화살표함수에서 사용불가
@@ -428,7 +436,9 @@
             2. 이퀄 오른쪽에서 왼쪽으로
             3. 소괄호 안에서 바깥으로
             4. 함수바깥부터실행 호출시 함수실행
-
         -->
+
+        <!-- 애국가 가사 타이틀 넣기 박스 -->
+        <div class="letters"></div>
     </body>
 </html>
