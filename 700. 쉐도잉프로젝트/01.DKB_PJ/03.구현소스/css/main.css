@@ -7,12 +7,12 @@
 @import url(./common.css);
 
 /* 공사중표시 */
-/* body * {
+body * {
     outline: 2px dashed #ccc;
 }
 body > div > * {
     outline-color: red;
-} */
+}
 
 
 /* 개별영역 박스 -> 확장형 박스
@@ -25,9 +25,39 @@ body > div > * {
     background: url(../images/bg_mainvisual2.jpg) no-repeat center/auto 100%;
 }
 .banner .partbox {
-    height: 530px;
+    aspect-ratio: 2/1;
+    /* height: 530px; */
 }
-
+.cat-content {
+     display: flex;
+     flex-direction: column;
+     height: 200%;
+}
+.cat-content .part{
+    flex: 1;
+}
+/* 이미지박스 */
+.img-box> img {
+    width: 100%;
+}
+.img-box figcaption {
+    text-align: center;
+    margin-top: -20%;
+    /* 싸고있는 박스 높이를 기준한 %로 마진을 설정함
+    동적인 크기변경시 마진도 변경되어야 위치가 일정함 */
+}
+.img-box figcaption img {
+    width: 40%;
+}
+.img-box figcaption img:last-child {
+    display: none;
+}
+.cat-box article:hover .img-box figcaption img:last-child {
+    display: inline;
+}
+.cat-box article:hover .img-box figcaption img:first-child {
+    display: none;
+}
 /************* 3. 도깨비메뉴박스 *************/
 #dokebi-menu{
     /* 스티키 포지션 - 상단스크롤 걸림! */
@@ -66,24 +96,57 @@ body > div > * {
     color: #fff;
     border-radius: 30px;
 }
-.dokebi-sub-menu {
-   position: absolute;
-   border: 1px solid red;
-   border-radius: 20px;
-   padding: 14px 10px;
-   width: 180px;
-   background-color: #fff;
-   display: none;
+
+/* 도깨비 서브메뉴 */
+.dokebi-sub-menu{
+    position: absolute;
+    border: 1px solid red;
+    border-radius: 20px;
+    width: 180px;
+    background-color: #fff;
+
+    /* 처음에 숨김 */
+    display: none;
 }
-.dokebi-sub-menu a {
+/* 상위li에 마우스 오버시 서브 보이기 */
+.dokebi-menu ul>li:hover .dokebi-sub-menu{
+    display: block;
+}
+/* 도깨비 서브메뉴 a */
+.dokebi-sub-menu a{
     display: block;
     padding: 10px 15px;
     font-size: 1.8rem;
 }
-.dokebi-menu ul > li:hover .dokebi-sub-menu {
-    display: block;
+
+
+
+/************* 4. 메인배너 *************/
+/* 캐릭터 파트박스 */
+.cat-area{
+    position: relative;
+    /* 부모자격 */
 }
-/************* 4. 메인영역 : .group-part *************/
+.cat-box{
+    position: absolute;
+    bottom: 5%;
+    /* 플렉스박스 */
+    display: flex;
+    flex-wrap: wrap;
+    /* 진행방향정렬 */
+    justify-content: center;
+
+    width: 100%;
+    margin: 0 auto;
+}
+/* 개별캐릭터 박스 */
+.cat-box article{
+    width: calc(95%/4);
+    /* 개별박스 비율설정 : height 설정안함! */
+    aspect-ratio: 2/1.2;
+    outline: 2px dashed blue;
+}
+/************* 5. 메인영역 : .group-part *************/
 #main {
     background-color: lightgoldenrodyellow;
 }
