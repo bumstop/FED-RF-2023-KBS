@@ -24,17 +24,51 @@ body > div > * {
 #banner {
     background: url(../images/bg_mainvisual2.jpg) no-repeat center/auto 100%;
 }
-.banner .partbox {
+/* 캐릭터 파트박스 */
+.cat-area{
+    position: relative;
+    /* 부모자격 */
     aspect-ratio: 2/1;
-    /* height: 530px; */
+    /* 파트박스에 비율만들기
+    -> height값을 절대 주지말것! */
+}
+.cat-box{
+    position: absolute;
+    bottom: 5%;
+    /* 플렉스박스 */
+    display: flex;
+    flex-wrap: wrap;
+    /* 진행방향정렬 */
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    margin: 0 auto;
+}
+/* 개별캐릭터 박스 */
+.cat-box article{
+    position: relative;
+    width: calc(95%/4);
+    /* 개별박스 비율설정 : height 설정안함! */
+    aspect-ratio: 2/1.2;
+    outline: 2px dashed blue;
 }
 .cat-content {
      display: flex;
+     position: absolute;
+     bottom: 0;
+     width: 100%;
      flex-direction: column;
-     height: 200%;
+     height: 92%;
+     transition: height .4s ease-in-out;
+}
+
+/* 개별상위 박스 오버시 컨텐트 박스 설명 보이기 */
+.cat-box article:hover .cat-content {
+    height: 200%;
 }
 .cat-content .part{
     flex: 1;
+    /* 등분할 */
 }
 /* 이미지박스 */
 .img-box> img {
@@ -57,6 +91,29 @@ body > div > * {
 }
 .cat-box article:hover .img-box figcaption img:first-child {
     display: none;
+}
+/* 캐릭터 설명박스 */
+.desc-box {
+    background: url(../images/eachBG.jpg) no-repeat bottom/cover;
+    height: 50%;
+    border-radius: 10px 5px 5px 10px;
+    overflow: auto;
+}
+/* 캐릭터 타이틀 */
+.desc-box h3 {
+    font-family: 'Gugi';
+    font-size: min(2.4rem, 1.7vw);
+    font-weight: normal;
+    white-space: nowrap; 
+    padding: 15px 10px 5px;
+    letter-spacing: -1px;
+}
+.desc-box p {
+    font-family: 'Single Day','ZCOOL KuaiLe';
+    font-size: min(1.8rem, 1.3vw);
+    line-height: 1.6;
+    padding: min(1vw, 1.5rem);
+    text-align: justify;
 }
 /************* 3. 도깨비메뉴박스 *************/
 #dokebi-menu{
@@ -122,30 +179,7 @@ body > div > * {
 
 
 /************* 4. 메인배너 *************/
-/* 캐릭터 파트박스 */
-.cat-area{
-    position: relative;
-    /* 부모자격 */
-}
-.cat-box{
-    position: absolute;
-    bottom: 5%;
-    /* 플렉스박스 */
-    display: flex;
-    flex-wrap: wrap;
-    /* 진행방향정렬 */
-    justify-content: center;
 
-    width: 100%;
-    margin: 0 auto;
-}
-/* 개별캐릭터 박스 */
-.cat-box article{
-    width: calc(95%/4);
-    /* 개별박스 비율설정 : height 설정안함! */
-    aspect-ratio: 2/1.2;
-    outline: 2px dashed blue;
-}
 /************* 5. 메인영역 : .group-part *************/
 #main {
     background-color: lightgoldenrodyellow;
