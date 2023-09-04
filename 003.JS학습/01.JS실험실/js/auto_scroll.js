@@ -26,6 +26,8 @@ let pg_num = 0;
 let sts_wheel = 0;
 // 1-3. 전체 페이지수
 let total_pg;
+// 1-4. 전체 .page 요소
+let ele_page;
 
 setTimeout(() => {
     scrollTo(0, 0);
@@ -45,8 +47,11 @@ function loadFn() {
     // 호출확인
     console.log("로딩완료");
 
+    // 전체 .page 요소 담기
+    ele_page = qsa('.page');
+
     // 전체 페이지수 할당
-    total_pg = qsa(".page").length;
+    total_pg = ele_page.length;
     console.log("전체 페이지 수", total_pg);
 }
 
@@ -163,6 +168,6 @@ function movePage(dir) { // dir은 방향값 (1 - 아래쪽, 0 - 윗쪽)
     // 한계수 체크(양정 페이지 고정)
     if (pg_num < 0) pg_num = 0;
     if (pg_num > total_pg) pg_num = total_pg - 1;
-    window.scrollTo(0, qsa('.page')[pg_num].offsetTop);
-    console.log('여기',qsa('.page')[pg_num].offsetTop);
+    window.scrollTo(0, ele_page[pg_num].offsetTop);
+    console.log('여기', ele_page[pg_num].offsetTop);
 }
