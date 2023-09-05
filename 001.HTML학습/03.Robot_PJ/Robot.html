@@ -5,24 +5,24 @@
         <!-- 뷰포트 필수! meta:vp -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Robot PJ</title>
-        <!-- 파비콘 : 탭메뉴 출력 아이콘 -->
-        <link rel="shortcut icon" type="image/x-icon" href="./images/robot_03.png" />
+        <!-- 파비콘 : 탭메뉴 출력아이콘 -->
+        <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.png">
         <!-- 메인 CSS -->
         <link rel="stylesheet" href="./css/robot.css" />
         <!-- 애니메이션 CSS -->
         <link rel="stylesheet" href="./css/robot_ani.css" />
-        <!-- 미디어쿼리 CSS -->
-        <link rel="stylesheet" href="./css/robot_media.css" />
+        <!-- 미디어쿼리 CSS : 가장 아래위치해야함! -->
+        <link rel="stylesheet" href="./css/robot_media.css">
     </head>
     <body>
         <!-- 1. 상단영역 -->
         <div id="top-aria">
             <header class="top-aria">
-                <!-- 1-1. 로고 -->
+                <!-- 1-1.로고 -->
                 <h1 class="logo">R2D4</h1>
-                <!-- 1-2. 탑이동버튼 -->
+                <!-- 1-2.탑이동버튼 -->
                 <button class="btn-top">
-                    <a href="#">top</a>
+                    <a href="#">TOP</a>
                 </button>
             </header>
         </div>
@@ -31,7 +31,11 @@
             <main class="main-aria">
                 <!-- 2-1. 로봇박스 -->
                 <section class="box-robot">
-                    <!-- 2-1-1. 머리 -->
+                    <!-- 2-1-1.링크타이틀 : 말풍선모양 -->
+                    <a href="#box-text" class="link-title">
+                        What is Robot?
+                    </a>
+                    <!-- 2-1-2.머리 -->
                     <div class="head">
                         <!-- 왼눈 -->
                         <div class="eye eye1"></div>
@@ -46,7 +50,7 @@
                         <!-- 오른귀 -->
                         <div class="ear ear2"></div>
                     </div>
-                    <!-- 2-1-2. 몸통 -->
+                    <!-- 2-1-3.몸통 -->
                     <div class="body metal2">
                         <!-- 목 -->
                         <div class="neck metal2"></div>
@@ -70,80 +74,99 @@
                         <div class="shdr shdr1 metal1"></div>
                         <!-- 오른어깨 -->
                         <div class="shdr shdr2 metal1"></div>
+
                         <!-- TV -->
                         <div class="tv">
                             <div class="screen">
-                                <!-- youtube 동영상 -->
-                                <iframe id="mv" allow="autoplay" src="https://www.youtube.com/embed/3P1CnWI62Ik"></iframe>
-                                <!--
-                                    영상아이디
+                                <!-- 유튭동영상 -->
+                                <iframe
+                                    src="https://www.youtube.com/embed/dQ_lCmB2hfk"
+                                    id="mv"
+                                    allow="autoplay"
+                                ></iframe>
+                                <!-- 
+                                    영상아이디:
                                     1. 3P1CnWI62Ik
                                     2. dQ_lCmB2hfk
                                     3. xLD8oWRmlAE
                                  -->
                             </div>
                             <!-- 조작버튼박스 -->
+                            <!-- 
+                                이벤트 속성값으로 함수를 호출
+                                onclick="값"
+                                onclick="함수명(전달값)"
+
+                             -->
                             <div class="box-btn">
                                 <button onclick="바꿔('3P1CnWI62Ik')">ch1</button>
                                 <button onclick="바꿔('dQ_lCmB2hfk')">ch2</button>
                                 <button onclick="바꿔('xLD8oWRmlAE')">ch3</button>
-                                <button onclick="커짐()">🚭</button>
+                                <!-- 축소확대버튼 -->
+                                <button onclick="커짐()">▣</button>
                             </div>
                         </div>
-                    </div>
-                    <!-- 2-1-3.링크타이틀 : 말풍선모양 -->
-                    <a href="#box-text" class="link-title">
-                        What is Robot?
-                    </a>
+                    </div>                    
+                    
+                    
                 </section>
                 <!-- 2-2. 로봇설명박스 -->
                 <section class="box-text" id="box-text">
+                    <!-- 2-2-1.제목 -->
                     <h2>Robot</h2>
-                    <small>From Wikipdia,</small>
-                    <p class="desc"> 
-                        A robot is a machine—especially one programmable by a computer—capable of carrying out a complex series of
-                        actions automatically.[2] A robot can be guided by an external control device, or the control may be embedded
-                        within. Robots may be constructed to evoke human form, but most robots are task-performing machines, designed
-                        with an emphasis on stark functionality, rather than expressive aesthetics.
-                        <br><br>
-                        Robots can be autonomous or semi-autonomous and range from humanoids such as Honda's Advanced Step in Innovative
-                        Mobility (ASIMO) and TOSY's TOSY Ping Pong Playing Robot (TOPIO) to industrial robots, medical operating robots,
-                        patient assist robots, dog therapy robots, collectively programmed swarm robots, UAV drones such as General
-                        Atomics MQ-1 Predator, and even microscopic nano robots. By mimicking a lifelike appearance or automating
-                        movements, a robot may convey a sense of intelligence or thought of its own. Autonomous things are expected to
-                        proliferate in the future, with home robotics and the autonomous car as some of the main drivers.[3]
-                        <br><br>   
-                        The branch of technology that deals with the design, construction, operation, and application of robots,[4] as
-                        well as computer systems for their control, sensory feedback, and information processing is robotics. These
-                        technologies deal with automated machines that can take the place of humans in dangerous environments or
-                        manufacturing processes, or resemble humans in appearance, behavior, or cognition. Many of today's robots are
-                        inspired by nature contributing to the field of bio-inspired robotics. These robots have also created a newer
-                        branch of robotics: soft robotics. 
-                        <br><br>
-                        From the time of ancient civilization, there have been many accounts of user-configurable automated devices and
-                        even automata resembling humans and other animals, such as animatronics, designed primarily as entertainment. As
-                        mechanical techniques developed through the Industrial age, there appeared more practical applications such as
-                        automated machines, remote-control and wireless remote-control.
-                        <br><br>
-                        The term comes from a Slavic root, robot-, with meanings associated with labor. The word 'robot' was first used
-                        to denote a fictional humanoid in a 1920 Czech-language play R.U.R. (Rossumovi Univerzální Roboti – Rossum's
-                        Universal Robots) by Karel Čapek, though it was Karel's brother Josef Čapek who was the word's true
-                        inventor.[5][6][7] Electronics evolved into the driving force of development with the advent of the first
-                        electronic autonomous robots created by William Grey Walter in Bristol, England in 1948, as well as Computer
-                        Numerical Control (CNC) machine tools in the late 1940s by John T. Parsons and Frank L. Stulen.
-                        <br><br>
-                        The first modern digital and programmable robot was invented by George Devol in 1954 and spawned his seminal
-                        robotics company, Unimation. The first Unimate was sold to General Motors in 1961 where it lifted pieces of hot
-                        metal from die casting machines at the Inland Fisher Guide Plant in the West Trenton section of Ewing Township,
-                        New Jersey.[8]
-                        <br><br>
-                        Robots have replaced humans[9] in performing repetitive and dangerous tasks which humans prefer not to do, or
-                        are unable to do because of size limitations, or which take place in extreme environments such as outer space or
-                        the bottom of the sea. There are concerns about the increasing use of robots and their role in society. Robots
-                        are blamed for rising technological unemployment as they replace workers in increasing numbers of functions.[10]
-                        The use of robots in military combat raises ethical concerns. The possibilities of robot autonomy and potential
+                    <!-- 2-2-2.출처 -->
+                    <small> From Wikipedia, the free encyclopedia </small>
+                    <!-- 2-2-3.내용단락 -->
+                    <p class="desc">
+                        A robot is a machine—especially one programmable by a computer—capable of carrying out a complex
+                        series of actions automatically.[2] A robot can be guided by an external control device, or the
+                        control may be embedded within. Robots may be constructed to evoke human form, but most robots
+                        are task-performing machines, designed with an emphasis on stark functionality, rather than
+                        expressive aesthetics.
+                        <br /><br />
+                        Robots can be autonomous or semi-autonomous and range from humanoids such as Honda's Advanced
+                        Step in Innovative Mobility (ASIMO) and TOSY's TOSY Ping Pong Playing Robot (TOPIO) to
+                        industrial robots, medical operating robots, patient assist robots, dog therapy robots,
+                        collectively programmed swarm robots, UAV drones such as General Atomics MQ-1 Predator, and even
+                        microscopic nano robots. By mimicking a lifelike appearance or automating movements, a robot may
+                        convey a sense of intelligence or thought of its own. Autonomous things are expected to
+                        proliferate in the future, with home robotics and the autonomous car as some of the main
+                        drivers.[3]
+                        <br /><br />
+                        The branch of technology that deals with the design, construction, operation, and application of
+                        robots,[4] as well as computer systems for their control, sensory feedback, and information
+                        processing is robotics. These technologies deal with automated machines that can take the place
+                        of humans in dangerous environments or manufacturing processes, or resemble humans in
+                        appearance, behavior, or cognition. Many of today's robots are inspired by nature contributing
+                        to the field of bio-inspired robotics. These robots have also created a newer branch of
+                        robotics: soft robotics.
+                        <br /><br />
+                        From the time of ancient civilization, there have been many accounts of user-configurable
+                        automated devices and even automata resembling humans and other animals, such as animatronics,
+                        designed primarily as entertainment. As mechanical techniques developed through the Industrial
+                        age, there appeared more practical applications such as automated machines, remote-control and
+                        wireless remote-control.
+                        <br /><br />
+                        The term comes from a Slavic root, robot-, with meanings associated with labor. The word 'robot'
+                        was first used to denote a fictional humanoid in a 1920 Czech-language play R.U.R. (Rossumovi
+                        Univerzální Roboti – Rossum's Universal Robots) by Karel Čapek, though it was Karel's brother
+                        Josef Čapek who was the word's true inventor.[5][6][7] Electronics evolved into the driving
+                        force of development with the advent of the first electronic autonomous robots created by
+                        William Grey Walter in Bristol, England in 1948, as well as Computer Numerical Control (CNC)
+                        machine tools in the late 1940s by John T. Parsons and Frank L. Stulen.
+                        <br /><br />
+                        The first modern digital and programmable robot was invented by George Devol in 1954 and spawned
+                        his seminal robotics company, Unimation. The first Unimate was sold to General Motors in 1961
+                        where it lifted pieces of hot metal from die casting machines at the Inland Fisher Guide Plant
+                        in the West Trenton section of Ewing Township, New Jersey.[8]
+                        <br /><br />
+                        Robots have replaced humans[9] in performing repetitive and dangerous tasks which humans prefer
+                        not to do, or are unable to do because of size limitations, or which take place in extreme
+                        environments such as outer space or the bottom of the sea. There are concerns about the
+                        increasing use of robots and their role in society. Robots are blamed for rising technological
+                        unemployment as they replace workers in increasing numbers of functions.[10] The use of robots
+                        in military combat raises ethical concerns. The possibilities of robot autonomy and potential
                         repercussions have been addressed in fiction and may be a realistic concern in the future.
-                    
                     </p>
                 </section>
             </main>
@@ -151,11 +174,17 @@
         <!-- 3. 하단영역 -->
         <div id="bottom-aria">
             <footer class="bottom-aria">
-                <!-- 1. 회사정보 -->
+                <!-- 3-1. 회사정보 -->
                 Robotronics Inc.
             </footer>
         </div>
+
+        <!-- 자바스크립트 코딩구역 -->
         <script>
+            // 자바스크립트 문법이 적용된는 곳!
+            // 한줄주석
+            /* 여러줄주석 */
+
             // JS가 하는일
             // 1. HTML 변경
             // 2. CSS 변경
@@ -163,22 +192,67 @@
             // JS가 필수로 하는 것은?
             // 요소 선택하기!
             // element -> 요소 -> 태그
-            // 요소들이 모여있는 웹문서 전체구조 -> DOM(Document Object Model)
+            // 요소들이 모여있는 웹문서 전체구조 -> DOM
+            // Document Object Model
 
-            // document 객체를 통하여 하위요소들로 접근
-            // JS는 명령어 끝에 꼭 세미콜론
+            // 보관장소 = 물건
+            // 변수 = 값
+            // 이퀄은 오른쪽 값이 왼쪽에 들어감(할당!)
+
+            // document 객체를 통하여 하위요소들로 접근!
+            // 여기를 봐~!!! var (변수선언)
+            var 나야나 = document.getElementById("mv").src;
+            // JS 는 명령어끝에 꼭 세미콜론;
+
+            // 콘.........솔
+            // console
+            // 로.........그
+            // log
+
+            console.log("내꺼얌:", 나야나);
+
+            // 콘솔 위치 : F12 개발자모드 -> console탭
+
             // 함수는 코드를 저장하는 장소
-            // 함수 호출시 함수 내부의 코드가 실행됨
+            // 함수 호출시 함수내부의 코드가 실행됨!
+            // function 함수명(전달변수){코드}
             function 바꿔(먹이) {
                 console.log("영상바꿔!", 먹이);
+
+                // 아이프레임요소.src = 동영상값
                 document.getElementById("mv").src = "https://www.youtube.com/embed/" + 먹이 + "?autoplay=1";
-            }
+
+                // src에 할당된값
+                console.log("src할당값:", "https://www.youtube.com/embed/" + 먹이);
+            } ///////////////// 바꿔함수 ////////////////
+            ////////////////////////////////////////////
+
+            // TV 배율 변경 클래스 적용함수 ////
+            /********************************** 
+                함수명: 커짐
+                기능: 클릭시 클래스를 한번은넣고 
+                        또 한번 빼기
+            **********************************/
             function 커짐() {
-                // document.getElementsByClassName('tv').item(0).classList.toggle("on");
-                // item
-                document.querySelector(".tv").classList.toggle("on");
-                console.log("노담사피엔스");
-            } // tv 배율 변경 클래스 적용함수
+                console.log("커지냐?");
+
+                /**************************** 
+                    [ JS 에서 클래스 제어하기 ]
+                    classList 내장객체
+                    1) add(클래스명) : 클래스추가
+                    2) remove(클래스명) : 클래스제거
+                    3) toggle(클래스명) : 클래스넣기/빼기
+                    -> toggle은 없으면 넣고 있으면 뺌!
+                    
+                ****************************/
+                document.getElementsByClassName("tv").item(0).classList.toggle("on");
+
+                // getElementsByClassName(클래스명)
+                // get Elements By ClassName
+                // 가져와 요소들 클래스명으로!
+                // item(순번) - 클래스 중 순번(0부터)
+            } ////////////// 커짐함수 //////////////////
+            ///////////////////////////////////////////
         </script>
     </body>
 </html>

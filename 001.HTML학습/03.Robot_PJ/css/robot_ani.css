@@ -246,11 +246,13 @@
 
 /* 말풍선 애니 */
 @keyframes balloon-ani {
-    to {
+    to{
         transform: scale(1);
     }
 }
 /* 말풍선 애니 호출 */
-.link-title {
-    animation: balloon-ani .5s ease-in 10.8s forwards;
+.link-title{
+    animation: 
+    balloon-ani .5s ease-in 10.8s forwards;
 }
+
