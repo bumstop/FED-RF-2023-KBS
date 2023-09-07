@@ -6,8 +6,7 @@ const qsa = (x) => document.querySelectorAll(x);
 
 // addEvent 함수
 // ele - 요소, evt - 이벤트, fn - 함수
-const addEvt = 
-(ele, evt, fn) => ele.addEventListener(evt, fn);
+const addEvt = (ele, evt, fn) => ele.addEventListener(evt, fn);
 
 // HTML태그 로딩후 loadFn함수 호출! ///
 addEvt(window, "DOMContentLoaded", loadFn);
@@ -41,6 +40,17 @@ addEvt(window, "DOMContentLoaded", loadFn);
 
 *****************************************************/
 
+// 1. 광클 방지 변수
+let click_sts = 0;
+
+// 2. 슬라이드 이동시간 : 상수로 설정
+const TIME_SLIDE = 400;
+
+/* 
+    (참고: JS 이름짓는 일반규칙)
+    상수: 모든글자 대문자, 연결부분 언더바로 연결
+*/
+
 /****************************************** 
     함수명: loadFn
     기능: 로딩 후 버튼 이벤트 및 기능구현
@@ -53,12 +63,26 @@ function loadFn() {
     const abtn = qsa(".abtn");
     // 변경대상: #slide
     const slide = qs("#slide");
+    // 블릿박스 대상
+    const indic = qsa(".indic li");
+
+    // li에 순번속성 만들어 넣기
+    // 만드는이유: 블릿변경등에 현재 슬라이드 순번 필요
+    // 사용자 정의 속성은 반드시 'data-'로 시작해야한다. (W3C규칙)
+    slide.querySelectorAll("li").forEach((ele, idx) => {
+        ele.setAttribute("data-seq", idx);
+    });
 
     // 2. 이벤트 설정하기 : 버튼 요소들 -> forEach()
     abtn.forEach((ele) => addEvt(ele, "click", goSlide));
     // 3. 함수만들기
 
     function goSlide() {
+        if (click_sts) return; // 나가
+        click_sts = 1; // 잠금
+        setTimeout(() => {
+            click_sts = 0;
+        }, TIME_SLIDE); // 잠금해제
         // console.log("나야나", this);
 
         // 1. 오른쪽 버튼여부 알아내기
@@ -71,23 +95,33 @@ function loadFn() {
         // this.classList.contains(클래스명)
         if (isRight) {
             slide.style.left = "-100%";
-            slide.style.transition = ".4s ease-in-out";
+            slide.style.transition = TIME_SLIDE + "ms ease-in-out";
 
             setTimeout(() => {
                 slide.appendChild(eachOne[0]);
                 slide.style.left = "0";
                 slide.style.transition = "none";
-            }, 400);
+            }, TIME_SLIDE);
         } else {
             slide.insertBefore(eachOne[eachOne.length - 1], eachOne[0]);
             slide.style.left = "-100%";
             slide.style.transition = "none";
-            
+
             setTimeout(() => {
                 slide.style.left = "0";
-                slide.style.transition = ".4s ease-in-out";
+                slide.style.transition = TIME_SLIDE + "ms ease-in-out";
             }, 0);
         }
-    }
+
+        // 4. 슬라이드 순번과 일치하는 블릿에 클래스 넣기
+        // 맨앞 슬라이드 li의 data-seq 값 읽어오기
+        let nowSeq = slide.querySelectorAll("li")[isRight ? 1:0].getAttribute("data-seq");
+        console.log(nowSeq);
+
+        indic.forEach((ele,idx)=>{
+            if(idx==nowSeq) ele.classList.add('on');
+            else ele.classList.remove('on');
+        })
+    } // goSlide
 } //////////////// loadFn 함수 ///////////////
 /////////////////////////////////////////////
