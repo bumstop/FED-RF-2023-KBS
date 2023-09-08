@@ -193,9 +193,16 @@ body > div > * {
     height: 298px;
 }
 /* 현장포토파트 */
-.main .group-part-03 .partbox {
-    height: 300px;
+.live-box ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
 }
+.live-box img {
+    width: 100%;
+    border-radius: 15px;
+}
+
 /* 대표이미지파트 */
 .main .group-part-04 .partbox {
     height: 542px;
