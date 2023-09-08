@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', loadFn);
 
 function loadFn() {
     // 부드러운 스크롤 적용
-    startSS();
+    startSS(); 
 
     // 부드러운 스크롤 때문에 마우스휠 막기가 작동되어
     // 캐릭터 설명 박스 작은 스크롤도 작동안됨!
