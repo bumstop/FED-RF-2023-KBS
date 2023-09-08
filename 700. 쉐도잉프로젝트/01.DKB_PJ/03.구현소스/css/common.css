@@ -59,14 +59,14 @@
     transform: scale(.5,.3);
     margin-left: 3px;
 }
-/************ 2. 메인영역 ************/
+************ 2. 메인영역 ************
 #main {
     /* 본문영역 최소높이 셋팅! */
     min-height: 800px;
 }
 /************* 3. 하단영역 *************/
 #footer {
-    background-color: lightskyblue;
+    /* background-color: lightskyblue; */
 }
 .footer .partbox {
     height: 100px;

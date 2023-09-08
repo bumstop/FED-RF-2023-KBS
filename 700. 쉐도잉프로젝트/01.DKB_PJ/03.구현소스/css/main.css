@@ -35,12 +35,15 @@ body > div > * {
 .cat-box{
     position: absolute;
     bottom: 5%;
+
     /* 플렉스박스 */
     display: flex;
     flex-wrap: wrap;
     /* 진행방향정렬 */
     justify-content: center;
-    gap: 15px;
+    /* 사이간격 */
+    gap: 0 min(1.1vw,5px);
+
     width: 100%;
     margin: 0 auto;
 }
@@ -48,73 +51,88 @@ body > div > * {
 .cat-box article{
     position: relative;
     width: calc(95%/4);
-    /* 개별박스 비율설정 : height 설정안함! */
+    /* 개별박스 비율설정 : height설정안함! */
     aspect-ratio: 2/1.2;
     outline: 2px dashed blue;
 }
-.cat-content {
-     display: flex;
-     position: absolute;
-     bottom: 0;
-     width: 100%;
-     flex-direction: column;
-     height: 92%;
-     transition: height .4s ease-in-out;
+/* 캐릭터 컨텐츠박스 */
+.cat-content{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 93%;
+    /* 트랜지션 */
+    transition: height .4s ease-in-out;
 }
-
-/* 개별상위 박스 오버시 컨텐트 박스 설명 보이기 */
-.cat-box article:hover .cat-content {
+/* 개별상위 박스 오버시 컨텐트박스 설명보이기 */
+.cat-box article:hover .cat-content{
     height: 200%;
 }
+
 .cat-content .part{
     flex: 1;
     /* 등분할 */
 }
-/* 이미지박스 */
-.img-box> img {
+
+/* 이미지박스 - 캐릭터 이미지 */
+.img-box>img{
     width: 100%;
 }
-.img-box figcaption {
+/* 이미지설명박스 */
+.img-box figcaption{
     text-align: center;
     margin-top: -20%;
     /* 싸고있는 박스 높이를 기준한 %로 마진을 설정함
     동적인 크기변경시 마진도 변경되어야 위치가 일정함 */
 }
-.img-box figcaption img {
+/* 이미지설명박스 - 캐릭터이름 이미지 */
+.img-box figcaption img{
     width: 40%;
 }
-.img-box figcaption img:last-child {
+/* 마지막 이미지(진한글자) 숨기기 */
+.img-box figcaption img:last-child{
     display: none;
 }
-.cat-box article:hover .img-box figcaption img:last-child {
+/* 개별박스에 오버시 진한글자 보이기 */
+.cat-box article:hover 
+.img-box figcaption img:last-child{
     display: inline;
 }
-.cat-box article:hover .img-box figcaption img:first-child {
+/* 개별박스에 오버시 흐린글자 숨기기 */
+.cat-box article:hover 
+.img-box figcaption img:first-child{
     display: none;
 }
+
 /* 캐릭터 설명박스 */
-.desc-box {
-    background: url(../images/eachBG.jpg) no-repeat bottom/cover;
+.desc-box{    
     height: 50%;
-    border-radius: 10px 5px 5px 10px;
+    /* 스크롤바 생성 */
     overflow: auto;
+    background: 
+    url(../images/eachBG.jpg) no-repeat bottom/cover;
+    border-radius: 10px 5px 5px 10px;
 }
 /* 캐릭터 타이틀 */
-.desc-box h3 {
+.desc-box h3{
     font-family: 'Gugi';
-    font-size: min(2.4rem, 1.7vw);
+    font-size: min(2.4rem,1.7vw);
     font-weight: normal;
-    white-space: nowrap; 
+    white-space: nowrap;
     padding: 15px 10px 5px;
     letter-spacing: -1px;
 }
-.desc-box p {
+/* 캐릭터 설명박스 */
+.desc-box p{
     font-family: 'Single Day','ZCOOL KuaiLe';
-    font-size: min(1.8rem, 1.3vw);
+    font-size: min(1.8rem,1.3vw);
     line-height: 1.6;
-    padding: min(1vw, 1.5rem);
-    text-align: justify;
+    padding: min(1vw,1.5rem);
+    text-align: justify;/* 양쪽정렬 */
 }
+
 /************* 3. 도깨비메뉴박스 *************/
 #dokebi-menu{
     /* 스티키 포지션 - 상단스크롤 걸림! */
@@ -176,38 +194,45 @@ body > div > * {
     font-size: 1.8rem;
 }
 
-
-
-/************* 4. 메인배너 *************/
-
-/************* 5. 메인영역 : .group-part *************/
+/************* 4. 메인영역 : .group-part *************/
 #main {
-    background-color: lightgoldenrodyellow;
+    /* background-color: lightgoldenrodyellow; */
 }
-/* 방송편성소개파트 */
+/*********** 방송편성소개파트 ***********/
 .main .group-part-01 .partbox {
     height: 455px;
 }
-/* 미리보기파트 */
+/*********** 미리보기파트 ***********/
 .main .group-part-02 .partbox {
     height: 298px;
 }
-/* 현장포토파트 */
-.live-box ul {
+/*********** 현장포토파트 ***********/
+
+/* 현장포토 그리드 구성박스 */
+.live-box ul{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
+    grid-template-columns: repeat(4,1fr);
+    grid-column-gap: 24px;
+    grid-row-gap: 48px;
 }
+/* 현장포토 이미지 공통 */
 .live-box img {
     width: 100%;
-    border-radius: 15px;
+    border-radius: 10px;
+}
+/* 현장포토 이미지 설명 타이틀 */
+.live-box figcaption{
+    font-size: 2rem;
+    font-weight: 500;
+    padding-top: 14px;
 }
 
-/* 대표이미지파트 */
+
+/*********** 대표이미지파트 ***********/
 .main .group-part-04 .partbox {
     height: 542px;
 }
-/* 최신동영상파트 */
+/*********** 최신동영상파트 ***********/
 .main .group-part-05 .partbox {
     height: 376px;
 }
