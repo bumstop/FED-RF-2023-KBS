@@ -2,19 +2,71 @@
 /* CGV PJ 미디어쿼리 CSS - media.css */
 
 /************* 1330px 이하 사이즈 시작 *************/
-@media screen and (max-width: 1330px) {
-    
+@media screen and (max-width: 1370px) {
+    .gnb {
+        right: 80px;
+    }
 }
 /************* 1330px 이하 사이즈 종료 *************/
 
 /************* 1050px 이하 사이즈 시작 *************/
 @media screen and (max-width: 1050px) {
-    
+    /* 2-2.GNB */
+    .gnb {
+        bottom: -90px;
+        height: 140px;
+    }
+    .gnb ul {
+        top: 53px;
+        left: 59px;
+        flex-direction: column;
+        align-items: flex-end;
+        display: none;
+    }
+    .gnb:hover ul {
+        display: flex;
+    }
+    .gnb ul > li:hover .smenu {
+        display: none;
+    }
+    .cam {
+        padding-bottom: 20px;
+    }
 }
 /************* 1050px 이하 사이즈 종료 *************/
 
 /************* 800px 이하 사이즈 시작 *************/
 @media screen and (max-width: 800px) {
-    
+    .tit {
+        font-size: 8vw;
+    }
+    .main {
+        aspect-ratio: 1/1.3;
+        background-position: center -22%;
+        background-size: 140%;
+    }
+    .screen {
+        top: 5.7%;
+        left: 9.9%;
+        width: 81.9%;
+        height: 35.8%;
+    }
+    .poster-menu {
+        width: 70%;
+    }
+    .poster-menu ul {
+        flex-wrap: wrap;
+    }
+    .poster-menu > ul > li {
+        flex-basis: calc(100% / 3 - 10px * 2);
+    }
+    .footer {
+        height: auto;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .sns-box {
+        margin-left: 0;
+    }
 }
 /************* 800px 이하 사이즈 종료 *************/

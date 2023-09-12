@@ -38,4 +38,32 @@ addEvt(window,"DOMContentLoaded", loadFn);
 function loadFn() {
     console.log("로딩완료!");
 
+    let snum = 0;
+     // 1. 대상선정
+    // 1-1.이벤트 대상: .abtn
+    const abtn = qsa('.abtn');
+    // 1-2.변경 대상: #slide
+    const slide = qs('#slide');
+    // 1-3.블릿박스 대상:
+    const indic = qsa('.indic li');
+
+
+    // 대상확인
+    console.log('대상',abtn,slide,indic);
+
+    abtn.forEach(ele => {
+        addEvt(ele, 'click', goSlide);
+    })
+
+    function goSlide() {
+        let isR = this.classList.contains('ab2');
+        if(isr) {
+            snum_++;
+                if(snum == snt_SLIDE ==  ()
+        }
+        else {
+
+        }
+    }
+
 }/////////////// loadFn 함수 //////////////
