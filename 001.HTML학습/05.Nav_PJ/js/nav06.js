@@ -35,11 +35,11 @@ for (let x in mdata) {
                         <h2>
                             <div class="stit">${x}</div>
                             <a href="#">전체보기</a>
-                            <div class="swrap">
-                                <!-- 2차메뉴 dl생성 -->
-                                ${makeCode(mdata[x])}
-                            </div>
                         </h2>
+                        <div class="swrap">
+                            <!-- 2차메뉴 dl생성 -->
+                            ${makeCode(mdata[x])}
+                        </div>
                     </aside>
                 </div>
             </li>
@@ -109,3 +109,26 @@ console.log(cc);
 // ul>li>a[href='#']{1차}+.smenu>aside.smbx>h2>
 // (.stit{1차}+a[href='#']{전체보기})+.swrap>dl>
 // dt{2차}+dd>a[href='#']{3차}
+
+
+/* 
+    [ 상위 메뉴 li오버시 하위메뉴 보이기 ]
+    이벤트 대상: .gnb>ul>li
+    변경 대상: .smenu
+*/
+
+const gnb = domFn.qsa('.gnb>ul>li');
+console.log(gnb);
+
+gnb.forEach(ele => {
+    domFn.addEvt(ele, 'mouseover', overFn);
+    domFn.addEvt(ele, 'mouseout', outFn);
+})
+function overFn(){
+    let hv = domFn.qsEl(this,'.smbx').clientHeight;
+    domFn.qsEl(this,'.smenu').style.height = hv +'px';
+}
+function outFn(){
+    domFn.qsEl(this,'.smenu').style.height = '0px';
+    
+}
