@@ -348,3 +348,14 @@ body > div > * {
 .main .group-part-05 .partbox {
     height: 376px;
 }
+.clip-box ul {
+    display: flex;
+    gap: 0 2%;
+}
+.clip-box li {
+    flex-basis: calc(25% - 2%);
+    flex-shrink: 0;
+}
+.clip-box iframe {
+    width: 100%;
+}
