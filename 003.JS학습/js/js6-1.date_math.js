@@ -23,8 +23,8 @@ tt[1].innerText = today.getMonth() + 1;
 tt[2].innerText = today.getDate();
 
 // 3-4. 요일찍기
-const DAY = ["일","월", "화", "수", "목", "금", "토"];
-tt[3].innerText = DAY[today.getDay()];
+const week = ["일","월", "화", "수", "목", "금", "토"];
+tt[3].innerText = week[today.getDay()];
 
 
 
