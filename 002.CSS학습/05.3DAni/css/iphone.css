@@ -65,7 +65,7 @@ body {
     transform: translateZ(calc(var(--phone-side) / 2));
 }
 /* 앞면 화면 배경박스 */
-.iphone span:nth-child(1) b{
+.iphone span:nth-child(1) #screen{
     position: absolute;
     top: 46px;
     left: 12px;
@@ -254,7 +254,7 @@ left 하나당 크기는 7623px의 절반크기 마이너스 */
     top: 0;
     left: 0;
     z-index: 9;
-    width: 100vw;
+    width: 0;
     height: 100vh;
     display: flex;
     /* 랩핑박스 */
@@ -262,7 +262,7 @@ left 하나당 크기는 7623px의 절반크기 마이너스 */
 }
 .evt-box div{
     width: 20%;
-    height: 50%;
+    height: 33.3%;
 
     outline: 1px dashed green;
 }
