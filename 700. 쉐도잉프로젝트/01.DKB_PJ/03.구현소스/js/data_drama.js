@@ -127,7 +127,12 @@ const gnbData = {
         "[목] 70억의 선택",
         "[종영] 2억 9천 : 결혼전쟁",
     ],
-    인사이트: ["[예정] 김창옥쇼 리부트", "[종영] 류준열과 교복 입은 사진가들", "[종영] 월간커넥트2", "[종영] 그때 나는 내가 되기로 했다"],
+    인사이트: [
+        "[예정] 김창옥쇼 리부트",
+        "[종영] 류준열과 교복 입은 사진가들",
+        "[종영] 월간커넥트2",
+        "[종영] 그때 나는 내가 되기로 했다",
+    ],
 };
 
 // 4. 미리보기 구성 데이터
@@ -499,5 +504,39 @@ const clipData = [
         date: "2023-09-26",
     },
 ];
+
+// 6. 링크정보 ///////////////////
+const linkData = {
+    brand: [
+        "브랜드 바로가기",
+        "MNET",
+        "MWAVE",
+        "tvN",
+        "tvN SPORTS",
+        "tvN STORY",
+        "tvN DRAMA",
+        "tvN SHOW",
+        "OCN",
+        "중화TV",
+        "UXN",
+        "CATCHON",
+        "Tooniverse",
+    ],
+    corp: {
+        "CJ 그룹": ["CJ주식회사"],
+        "엔터테인먼트 & 미디어": ["CJ ENM 엔터테인먼트부문", "TVING", "CJ CGV"],
+        '생명공학':['CJ제일제당 BIO사업부문','CJ Feed & Care'],
+        "식품 & 식품 서비스": ["CJ제일제당 BIO사업부문", "CJ Feed & Care"],
+        "물류 & 신유통": [
+            "CJ대한통운",
+            "CJ대한통운 건설부문",
+            "CJ올리브영",
+            "CJ올리브네트웍스",
+            "CJ ENM 커머스부문",
+            "CJ텔레닉스",
+        ],
+    },
+}; ///////////// linkData ///////////////
+
 // 모듈화 내보내기 ///////////
-export { gridData, gnbData, previewData, clipData };
+export { gridData, gnbData, previewData, clipData, linkData };

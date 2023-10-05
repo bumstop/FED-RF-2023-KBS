@@ -5,7 +5,6 @@
 
 /* 웹폰트 CDN */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&family=Gugi&family=Nanum+Gothic&family=Single+Day&family=ZCOOL+KuaiLe&display=swap');
-
 /* 
     0. 메뉴 등 일반체
     font-family: 'Noto Sans KR', sans-serif;
@@ -61,6 +60,7 @@ body{
     /* 내부패딩 */
     /* padding: 15px; - 제외 */
     /* 임시 보이게 보더 */
+    /* border: 2px dotted blue; */
     /* 높이값이 속박스에 있을 경우 
             채우기셋팅 - 높이값이 파티션박스에 있으면 안씀! */
     height: 100%;
@@ -151,3 +151,4 @@ body{
     background-color: #ddd;
     border-radius: 5px;
 }
+

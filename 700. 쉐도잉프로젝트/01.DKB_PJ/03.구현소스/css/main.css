@@ -7,12 +7,13 @@
 @import url(./common.css);
 
 /* 공사중표시 */
-body * {
+/* body * {
     outline: 2px dashed #ccc;
-}
-body > div > * {
+} */
+/* body > div > * {
     outline-color: red;
-}
+} */
+
 
 /* 개별영역 박스 -> 확장형 박스
         -> 개별영역 중앙속박스에 높이값을 주면
@@ -24,14 +25,14 @@ body > div > * {
     background: url(../images/bg_mainvisual2.jpg) no-repeat center/auto 100%;
 }
 /* 캐릭터 파트박스 */
-.cat-area {
+.cat-area{
     position: relative;
     /* 부모자격 */
     aspect-ratio: 2/1;
     /* 파트박스에 비율만들기
     -> height값을 절대 주지말것! */
 }
-.cat-box {
+.cat-box{
     position: absolute;
     bottom: 5%;
 
@@ -41,21 +42,21 @@ body > div > * {
     /* 진행방향정렬 */
     justify-content: center;
     /* 사이간격 */
-    gap: 0 min(1.1vw, 5px);
+    gap: 0 min(1.1vw,5px);
 
     width: 100%;
     margin: 0 auto;
 }
 /* 개별캐릭터 박스 */
-.cat-box article {
+.cat-box article{
     position: relative;
-    width: calc(95% / 4);
+    width: calc(95%/4);
     /* 개별박스 비율설정 : height설정안함! */
     aspect-ratio: 2/1.2;
-    outline: 2px dashed blue;
+    /* outline: 2px dashed blue; */
 }
 /* 캐릭터 컨텐츠박스 */
-.cat-content {
+.cat-content{
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -63,86 +64,89 @@ body > div > * {
     flex-direction: column;
     height: 93%;
     /* 트랜지션 */
-    transition: height 0.4s ease-in-out;
+    transition: height .4s ease-in-out;
 }
 /* 개별상위 박스 오버시 컨텐트박스 설명보이기 */
-.cat-box article:hover .cat-content {
+.cat-box article:hover .cat-content{
     height: 200%;
 }
 
-.cat-content .part {
+.cat-content .part{
     flex: 1;
     /* 등분할 */
 }
 
 /* 이미지박스 - 캐릭터 이미지 */
-.img-box > img {
+.img-box>img{
     width: 100%;
 }
 /* 이미지설명박스 */
-.img-box figcaption {
+.img-box figcaption{
     text-align: center;
     margin-top: -20%;
     /* 싸고있는 박스 높이를 기준한 %로 마진을 설정함
     동적인 크기변경시 마진도 변경되어야 위치가 일정함 */
 }
 /* 이미지설명박스 - 캐릭터이름 이미지 */
-.img-box figcaption img {
+.img-box figcaption img{
     width: 40%;
 }
 /* 마지막 이미지(진한글자) 숨기기 */
-.img-box figcaption img:last-child {
+.img-box figcaption img:last-child{
     display: none;
 }
 /* 개별박스에 오버시 진한글자 보이기 */
-.cat-box article:hover .img-box figcaption img:last-child {
+.cat-box article:hover 
+.img-box figcaption img:last-child{
     display: inline;
 }
 /* 개별박스에 오버시 흐린글자 숨기기 */
-.cat-box article:hover .img-box figcaption img:first-child {
+.cat-box article:hover 
+.img-box figcaption img:first-child{
     display: none;
 }
 
 /* 캐릭터 설명박스 */
-.desc-box {
+.desc-box{    
     height: 50%;
     /* 스크롤바 생성 */
     overflow: auto;
-    background: url(../images/eachBG.jpg) no-repeat bottom/cover;
+    background: 
+    url(../images/eachBG.jpg) no-repeat bottom/cover;
     border-radius: 10px 5px 5px 10px;
 }
 /* 캐릭터 타이틀 */
-.desc-box h3 {
-    font-family: "Gugi";
-    font-size: min(2.4rem, 1.7vw);
+.desc-box h3{
+    font-family: 'Gugi';
+    font-size: min(2.4rem,1.7vw);
     font-weight: normal;
     white-space: nowrap;
     padding: 15px 10px 5px;
     letter-spacing: -1px;
 }
 /* 캐릭터 설명박스 */
-.desc-box p {
-    font-family: "Single Day", "ZCOOL KuaiLe";
-    font-size: min(1.8rem, 1.3vw);
+.desc-box p{
+    font-family: 'Single Day','ZCOOL KuaiLe';
+    font-size: min(1.8rem,1.3vw);
     line-height: 1.6;
-    padding: min(1vw, 1.5rem);
-    text-align: justify; /* 양쪽정렬 */
+    padding: min(1vw,1.5rem);
+    text-align: justify;/* 양쪽정렬 */
 }
 
 /************* 3. 도깨비메뉴박스 *************/
-#dokebi-menu {
+#dokebi-menu{
     /* 스티키 포지션 - 상단스크롤 걸림! */
     position: sticky;
     top: 0;
     background-color: #fff;
 }
-.dokebi-menu ul {
+.dokebi-menu ul{
     /* 플렉스박스 */
     display: flex;
     padding: 12px 0;
 }
 /* 도깨비메뉴 상위메뉴a */
-.dokebi-menu ul > li > a {
+.dokebi-menu ul>li>a{
     color: #999;
     font-size: 1.8rem;
     display: block;
@@ -151,25 +155,25 @@ body > div > * {
     white-space: nowrap;
 }
 /* 도깨비메뉴 상위li 오버시 a */
-.dokebi-menu ul > li:hover > a {
+.dokebi-menu ul>li:hover>a{
     color: #222;
 }
 /* 하위메뉴가 있는 li만 하위 표시하기 */
-.dokebi-menu ul > li.be-sub > a::after {
-    content: "∨";
+.dokebi-menu ul>li.be-sub>a::after{
+    content: '∨';
     display: inline-block;
-    transform: scale(0.5, 0.3);
+    transform: scale(.5,.3);
     margin-left: 3px;
 }
 /* 현재 선택된 메뉴 li.on 클래스 */
-.dokebi-menu ul > li.on > a {
+.dokebi-menu ul>li.on>a{    
     background-color: red;
     color: #fff;
     border-radius: 30px;
 }
 
 /* 도깨비 서브메뉴 */
-.dokebi-sub-menu {
+.dokebi-sub-menu{
     position: absolute;
     border: 1px solid red;
     border-radius: 20px;
@@ -180,11 +184,11 @@ body > div > * {
     display: none;
 }
 /* 상위li에 마우스 오버시 서브 보이기 */
-.dokebi-menu ul > li:hover .dokebi-sub-menu {
+.dokebi-menu ul>li:hover .dokebi-sub-menu{
     display: block;
 }
 /* 도깨비 서브메뉴 a */
-.dokebi-sub-menu a {
+.dokebi-sub-menu a{
     display: block;
     padding: 10px 15px;
     font-size: 1.8rem;
@@ -199,30 +203,30 @@ body > div > * {
     height: 455px;
 }
 /* 서브타이틀 */
-.intro-part .stit {
+.intro-part .stit{
     padding-bottom: 0;
 }
 /* 하위제목+아이콘 박스 */
-.intro-desc {
+.intro-desc{
     display: flex;
     font-size: 2.5rem;
 }
-.intro-desc h3 {
+.intro-desc h3{
     margin-right: 10px;
 }
-.intro-desc ul {
+.intro-desc ul{
     display: flex;
     gap: 0 15px;
 }
 /* 설명박스 */
-.intro-txt {
+.intro-txt{
     padding: 20px;
     font-size: 2.2rem;
     line-height: 2;
     color: #555;
 }
 /* 인트로버튼 */
-.intro-btn {
+.intro-btn{
     padding: 20px 50px;
     border-radius: 10px;
     font-size: 1.8rem;
@@ -231,14 +235,14 @@ body > div > * {
     font-weight: bold;
 }
 /* 인트로 동영상 박스 */
-.intro-mv-img {
+.intro-mv-img{
     position: relative;
     /* 부모자격 */
     aspect-ratio: 2/1.1;
 }
 /* 가상요소로 플레이버튼 만들기 */
-.intro-mv-img.off::after {
-    content: "";
+.intro-mv-img.off::after{
+    content: '';
     position: absolute;
     top: 50%;
     left: 50%;
@@ -251,32 +255,33 @@ body > div > * {
 
 /* 하위 이미지/동영상 */
 .intro-mv-img img,
-.intro-mv-img video {
+.intro-mv-img video{
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 5px;
 }
 /* 동영상 설명박스 */
-.intro-mv-box figcaption {
+.intro-mv-box figcaption{
     font-size: 2rem;
     padding-top: 10px;
 }
+
 
 /*********** 미리보기파트 : .preview-part ***********/
 .main .preview-part .partbox {
     height: 298px;
 }
-.preview-box .partbox {
+.preview-box .partbox{
     padding: 15px;
     color: #888;
     cursor: pointer;
 }
-.preview-box .partbox:hover {
+.preview-box .partbox:hover{
     color: #222;
 }
 /* 각 박스 외곽선 디자인 */
-.preview-box .partbox > div {
+.preview-box .partbox>div{
     width: 100%;
     height: 100%;
     padding: 10px;
@@ -285,12 +290,12 @@ body > div > * {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.504);
 }
 /* 각 미리보기 타이틀 */
-.preview-box h3 {
+.preview-box h3{
     font-size: 2rem;
     padding-bottom: 10px;
 }
 /* 각 미리보기 내용박스 */
-.preview-box p {
+.preview-box p{
     font-size: 1.5rem;
     line-height: 2;
 
@@ -302,13 +307,14 @@ body > div > * {
     -webkit-box-orient: vertical;
 }
 
+
 /*********** 그리드박스 공통파트 ***********/
 /* 현장포토(.live-box) / 대표이미지(.poster-box) */
 
 /* 현장포토 그리드 구성박스 */
-.grid-box ul {
+.grid-box ul{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4,1fr);
     grid-column-gap: 24px;
     grid-row-gap: 48px;
 }
@@ -318,16 +324,16 @@ body > div > * {
     border-radius: 10px;
 }
 /* 현장포토 이미지 설명 타이틀 */
-.grid-box figcaption {
+.grid-box figcaption{
     font-size: 2rem;
     font-weight: 500;
     padding-top: 14px;
 }
 
 /* 대표이미지 박스 조정 */
-.poster-box ul {
+.poster-box ul{
     /* 그리드 템플릿 줄속성 반복 사이즈 지정하기 */
-    grid-template-rows: repeat(2, min(16.5vw, 238px));
+    grid-template-rows: repeat(2,min(16.5vw,238px));
     /* min() 으로 최대사이즈 지정, 작아질때 화면맞춤(vw) 
     -> 결과적으로 일정한 높이값을 줌으로해서 첫번째 줄의
     이미지의 큰 박스가 아랫쪽으로 나가있고 두번째줄은
@@ -339,17 +345,17 @@ body > div > * {
     height: 542px;
 }
 /*********** 최신동영상파트 ***********/
-.clip-area {
+.clip-area{
     position: relative;
     /* 부모자격 */
 }
 .clip-box ul {
     position: relative;
-    left: 0; /* 이동초기값 */
+    left: 0;/* 이동초기값 */
     display: flex;
     gap: 0 2%;
     /* 트랜지션 */
-    transition: left 0.4s ease-in-out;
+    transition: left .4s ease-in-out;
 }
 
 .clip-box li {
@@ -368,7 +374,7 @@ body > div > * {
 }
 /* 동영상 이미지박스 가상요소로 플레이버튼 */
 .clip-mv-box::after {
-    content: "";
+    content: '';
     position: absolute;
     top: 50%;
     left: 50%;
@@ -394,8 +400,9 @@ body > div > * {
     overflow: hidden;
 }
 
+
 /* 양쪽버튼만들기 */
-.btn-box button {
+.btn-box button{
     position: absolute;
     z-index: 999;
     top: 43%;
@@ -407,15 +414,16 @@ body > div > * {
     font-weight: bold;
     color: #fff;
     border: none;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.6); 
 }
 /* 왼쪽버튼 */
-.btn-box button:first-child {
+.btn-box button:first-child{
     left: -35px;
     /* 처음에 안보임 */
     display: none;
 }
 /* 오른쪽버튼 */
-.btn-box button:last-child {
+.btn-box button:last-child{
     right: -35px;
 }
+
