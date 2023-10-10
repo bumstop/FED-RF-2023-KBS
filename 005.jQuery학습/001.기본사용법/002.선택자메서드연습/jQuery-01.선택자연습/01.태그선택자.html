@@ -1,12 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title> 태그 선택자  </title>
-<!-- jQuery library 가장위에 있어야함!!! -->
-<script src="../jquery-3.6.3.min.js"></script>
-	<script>
-    /************************************************* 
+    <head>
+        <meta charset="utf-8" />
+        <title>태그 선택자</title>
+        <!-- jQuery library 가장위에 있어야함!!! -->
+        <script src="../jquery-3.6.3.min.js"></script>
+        <script>
+            /************************************************* 
       [ 제이쿼리 라이브러리 사용법 ]
       
       1. 제이쿼리 함수 호출하기
@@ -59,46 +59,43 @@
           document.querySelector(".my").click() -> X
           $(".my").click() -> O
 
-
-
     
-    *************************************************/
-	
-	
-			
-	
-	</script>
-	
-	
-	
-	
-	
-	
-</head>
-  
-<body>
+  *************************************************/
 
-<div id="container">
+            $(() => {
+                // 미션: header태그를 클릭하면 큰제목 배경색을 노란색으로 변경하시오.
+                $("header h2").click(() => {
+                    $("h2").css({ backgroundColor: "yellow" });
 
- <header>
-   <h2> 여기를 클릭하시오~!!! </h2>
- </header>
+                    // 추가미션: 동시에 nav태그의 배경색은 녹색, 테두리는 2px 빨간색선, 글자크기는 40px, 글자색은 파란색으로 변경하시오.
+                    $("nav").css({
+                        backgroundColor: "green",
+                        border: "2px solid red",
+                        fontSize: "40px",
+                        color: "blue",
+                        transition: "1s ease-in-out",
+                    });
+                }); // $("header h2").click()
+            }); // JQB (JQuery Code Block)
+        </script>
+    </head>
 
- <nav>
-   <ul class="list">
-   <li id="first">One</li>
-   <li id="second">Two</li>
-   <li id="third">Three</li>
-  </ul>
- </nav>
+    <body>
+        <div id="container">
+            <header>
+                <h2>여기를 클릭하시오~!!!</h2>
+            </header>
 
-</div>
+            <nav>
+                <ul class="list">
+                    <li id="first">One</li>
+                    <li id="second">Two</li>
+                    <li id="third">Three</li>
+                </ul>
+            </nav>
+        </div>
 
-<!---------- jQuery code Start ---------->
-<script>
-
-</script>
-
-</body>
+        <!---------- jQuery code Start ---------->
+        <script></script>
+    </body>
 </html>
-
