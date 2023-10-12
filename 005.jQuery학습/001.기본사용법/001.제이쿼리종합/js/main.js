@@ -151,7 +151,7 @@ const actMini = (ele, seq, fn) => {
 // 다음버튼 보이기 함수
 const showNextBtn = (ele) => {
     $(ele).next().delay(1000).slideDown(400);
-}
+};
 
 // 4. "들어가기" 버튼 클릭시 /////////////
 btns.first() // 첫번째버튼
