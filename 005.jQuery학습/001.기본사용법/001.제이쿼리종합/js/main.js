@@ -40,7 +40,7 @@ let mz2 = `<img src="./images/mz2.png" alt="좀비2" class="mz">`;
 let zom = `<img src="./images/zom.png" alt="좀비들" class="mz">`;
 let inj = `<img src="./images/inj.png" alt="주사기" class="inj">`;
 
-// (6) 메세지 배열 셋팅
+// (6) 메시지 배열셋팅
 const msgTxt = [
     // 0번방
     "",
@@ -51,17 +51,29 @@ const msgTxt = [
     // 3번방
     "",
     // 4번방
-    "",
+    [
+        [
+            "무",
+            "무.",
+            "무.서",
+            "무.서.",
+            "무.서.워",
+            "무.서.워.",
+            "무.서.워..",
+            "무.서.워...",
+        ],
+        `아~악! 물렸다!<br>어서 치료주사방으로!`,
+    ],
     // 5번방
     "",
     // 6번방
-    "",
+    [`여긴없겠지?`, `그래도 무서우니<br>윗층으로 가자!`],
     // 7번방
-    [`여긴 없겠지?`, `악, 여기도!!!`],
+    [`여긴없겠지?`, `악, 여기도!!!`],
     // 8번방
-    "와~! 아늑하다!<br>옆방으로 가보자!",
+    `와~! 아늑하다!<br>옆방으로 가보자!`,
     // 9번방
-    "악! 좀비! 어서 피하자!",
+    "악!;;;; 좀비!<br>어서피하자!",
 ];
 
 // console.log('대상:',mi,room,btns,msg);
@@ -148,10 +160,9 @@ const actMini = (ele, seq, fn) => {
     ); ///////// animate ////////
 }; /////////// actMini함수 //////////////
 
-// 다음버튼 보이기 함수
-const showNextBtn = (ele) => {
-    $(ele).next().delay(1000).slideDown(400);
-};
+// 다음버튼 보이기 함수 //////////////////
+const showNextBtn = (ele) => $(ele).next().delay(500).slideDown(400);
+////////// showNextBtn함수 ///////////////
 
 // 4. "들어가기" 버튼 클릭시 /////////////
 btns.first() // 첫번째버튼
@@ -166,7 +177,7 @@ btns.first() // 첫번째버튼
                 // this가 싸고있는 버튼요소임!
 
                 // 메시지변경 + 메시지 보이기
-                msg.html(msgTxt[8]).delay(1000).fadeIn(300);
+                msg.html(msgTxt[8]).delay(500).fadeIn(300);
 
                 // console.log('미니언즈 콜백함수:',this);
                 // 다음버튼 보이기
@@ -178,7 +189,7 @@ btns.first() // 첫번째버튼
     }) //// "들어가기" 버튼 끝 //////////
 
     // 5. "옆방으로!" 버튼 클릭시 /////////////
-    // 위의 버튼에서 이어짐 (들어가기 버튼)
+    // 위의 버튼에서 이어짐!
     .next() // 두번째버튼
     .click(function () {
         // 하위 이벤트함수 this의미!
@@ -188,25 +199,28 @@ btns.first() // 첫번째버튼
         let fn =
             // function(){ -> this가 mi임!
             () => {
+                // 좀비 나타나기(1초후)
                 room.eq(9)
                     .find(".mz")
-                    .delay(2000)
+                    .delay(1000)
                     .fadeIn(400, () => {
-                        // 콜백함수 메세지보이기
+                        // 콜백함수
+                        // 메시지 보이기
                         msg.html(msgTxt[9])
                             .css({ left: "-89%" })
                             .fadeIn(300);
                         // 다음버튼 보이기
                         showNextBtn(this);
-                    });
+                    }); /////// fadeIn ///////
             }; ////////// 콜백함수 /////////////
+
         // 미니언즈 공통함수 호출
         actMini(this, 9, fn);
     }) //// "옆방으로!" 버튼 끝 //////////
 
     // 6. "윗층으로 도망가!" 버튼 클릭시 /////////////
-    // 위의 버튼에서 이어짐 (들어가기 버튼)
-    .next() // 두번째버튼
+    // 위의 버튼에서 이어짐!
+    .next() // 세번째버튼
     .click(function () {
         // 하위 이벤트함수 this의미!
         // ()=>{
@@ -215,19 +229,132 @@ btns.first() // 첫번째버튼
         let fn =
             // function(){ -> this가 mi임!
             () => {
+                // 메시지 보이기 : 7번방 첫번째 메시지
                 msg.text(msgTxt[7][0]).fadeIn(300);
 
-                // 좀비보이기
-                // find()는 자손선택 / children()은 직계자식선택
+                // 좀비 보이기
+                // find() 자손선택 / children() 직계자식선택
                 room.eq(7)
                     .children(".mz")
-                    .delay(1000)
+                    .delay(500)
                     .fadeIn(400, () => {
+                        // 콜백함수 : 좀비등장후
+                        // 메시지변경하기 - 두번째 메시지
                         msg.text(msgTxt[7][1]);
-                        // 다음버튼 보이기
+
+                        // 다음버튼보이기
                         showNextBtn(this);
-                    });
+                    }); ///// fadeIn //////
             }; ////////// 콜백함수 /////////////
+
         // 미니언즈 공통함수 호출
         actMini(this, 7, fn);
-    }); //// "윗층으로 도망가!" 버튼 끝 //////////
+    }) //// "윗층으로 도망가!" 버튼 끝 //////////
+
+    // 7. "다시옆방으로!" 버튼 클릭시 /////////////
+    // 위의 버튼에서 이어짐!
+    .next() // 네번째버튼
+    .click(function () {
+        // 하위 이벤트함수 this의미!
+        // ()=>{
+
+        // 버튼별 콜백함수 만들기 ////////
+        let fn =
+            // function(){ -> this가 mi임!
+            () => {
+                // 첫번째 메시지 보이기
+                msg.html(msgTxt[6][0])
+                    .fadeIn(200)
+                    // 이미보이지만 delay()를 쓰기위해 다시 fadeIn()
+                    .delay(500)
+                    .fadeIn(200, () => {
+                        // 1.2초후 실행
+                        // 두번째 메시지 보이기
+                        msg.html(msgTxt[6][1]);
+                        // 다음버튼 보이기
+                        showNextBtn(this);
+                    }); /////// fadeIn ///////
+            }; ////////// 콜백함수 /////////////
+
+        // 미니언즈 공통함수 호출
+        actMini(this, 6, fn);
+    }) //// "다시옆방으로!" 버튼 끝 //////////
+
+    // 8. "무서우니 윗층으로!" 버튼 클릭시 /////////////
+    // 위의 버튼에서 이어짐!
+    .next() // 다섯번째버튼
+    .click(function () {
+        // 하위 이벤트함수 this의미!
+        // ()=>{
+
+        // 버튼별 콜백함수 만들기 ////////
+        let fn =
+            // function(){ -> this가 mi임!
+            () => {
+                // 무.서.워... 메시지-배배배
+                msg.html(msgTxt[4][0][0])
+                    .fadeIn(200)
+                    .delay(200)
+                    .fadeIn(200, () => msg.html(msgTxt[4][0][1]))
+                    .delay(200)
+                    .fadeIn(200, () => msg.html(msgTxt[4][0][2]))
+                    .delay(200)
+                    .fadeIn(200, () => msg.html(msgTxt[4][0][3]))
+                    .delay(200)
+                    .fadeIn(200, () => msg.html(msgTxt[4][0][4]))
+                    .delay(200)
+                    .fadeIn(200, () => msg.html(msgTxt[4][0][5]))
+                    .delay(200)
+                    .fadeIn(200, () => msg.html(msgTxt[4][0][6]))
+                    .delay(200)
+                    .fadeIn(200, () => msg.html(msgTxt[4][0][7]))
+                    .delay(200)
+                    .fadeIn(200, () => {
+                        // 무서워 대사후 좀비 올라와 달겨들기!
+                        // 7번방좀비가 올라옴
+                        room.eq(7)
+                            .find(".mz")
+                            .animate(
+                                {
+                                    // 윗층으로 올라옴! li높이값 만큼
+                                    bottom:
+                                        room.eq(7).height() + "px",
+                                },
+                                500,
+                                "easeOutElastic"
+                            )
+                            .delay(500) // 기다림
+                            .animate(
+                                {
+                                    // right값을 li width값 만큼 이동(120%보정)
+                                    right:
+                                        room.eq(7).width() * 1.2 +
+                                        "px",
+                                },
+                                1000,
+                                "easeOutBounce",
+                                () => {
+                                    // 물린후 대사
+                                    msg.html(msgTxt[4][1]);
+
+                                    // 미니언즈 좀비이미지 변경 (1초후)
+                                    setTimeout(() => {
+                                        mi.find("img")
+                                            .attr(
+                                                "src",
+                                                "images/mz1.png"
+                                            )
+                                            .css({
+                                                filter: "gratscale(100%)",
+                                            });
+                                        // 다음버튼 보이기
+                                        showNextBtn(this);
+                                    }, 1200); // setTimeout
+                                }
+                            ); //animate
+                    }); /////// fadeIn ///////////
+            }; ////////// 콜백함수 /////////////
+
+        // 미니언즈 공통함수 호출
+        actMini(this, 4, fn);
+    }); //// "무서우니 윗층으로!" 버튼 끝 //////////
