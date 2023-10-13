@@ -5,7 +5,7 @@
         <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0" />
-        <title>JS5-5.1. JS클래스</title>
+        <title>JS5-6.1. JS클래스</title>
         <script>
             /********************************************** 
             [ JS 클래스란? ]
@@ -28,36 +28,43 @@
             ((클래스 구문))
 
             class ClassName {
-                constructor() {...}
+                constructor(){...}
             }
-            -> 기본적으로 클래스 안에 constructor() 메서드를 필수로 생성함!
+
+            -> 기본적으로 클래스안에
+            constructor() 메서드를 필수로 생성함!
             (코딩으로 만들지 않아도 기본생성됨!)
-
             -> 객체의 속성을 셋팅하는 역할을 한다
-            -> 일명 '속성셋팅메서드' 라고도 함
-            -> 공식명칭 '생성자 메서드' 임
+            -> 일명 '속성셋팅메서드'라고도 함
+            -> 공식명칭 '생성자 메서드'임
 
-        ************************************************
+            **********************************
 
-        ((클래스 메서드))
+            ((클래스 메서드))
 
-        class ClassName {
-            constructor() {...}
-            method_1(){...}
-            method_2(){...}
-            method_3(){...}
-        }
-        -> 메서드를
+            class ClassName {
+                constructor(){...}
+                method_1(){...}
+                method_2(){...}
+                method_3(){...}
+            }
 
+            -> 메서드를 추가해서 만들 경우
+            constructor() 메서드 아래에 하나씩 생성한다!
 
-        객체모델:
-            1. 속성6가지 -> constructor() 메서드 안에 구현
+            ________________________________
+
+            ((클래스로 생성할 객체모델))
+
+            객체모델:
+            1. 속성6가지-> constructor()메서드 안에 구현
                 포스터, 제목, 개요, 감독, 출연, 문구
-            2. 메서드 1개 -> 실행할 메서드
+            2. 메서드 1가지
+            -> 실행할 메서드            
 
         **********************************************/
 
-            // 클래스로 객체 생성 템플릿 만들기
+            // 클래스로 객체 생성 템플릿 만들기 //////
             class MovieInfo {
                 // 생성자 메서드 : 주로 속성만 셋팅
                 constructor(pos, tit, sum, dir, act, des) {
@@ -68,24 +75,24 @@
                     this.감독 = dir;
                     this.출연 = act;
                     this.문구 = des;
-                } // 생성자 메서드
+                } ////// 생성자 메서드 ///////
 
-                // 내가 만들고자하는 메서드
+                // 내가 만들고자 하는 메서드
                 myMethod(txt) {
                     // txt - 전달변수는 응원메시지 받기
                     return `
-                        영화 ${this.제목}의
-                        감독님 이름은 ${this.감독},
-                        나의 응원은 ${txt}
-                    `;
-                } // myMethod(txt)
-            } // class MovieInfo
+                    영화 ${this.제목}의
+                    감독님 이름은 ${this.감독},
+                    나의 응원은 ${txt}
+                `;
+                } /////// myMethod 메서드 /////////
+            } ///////// MovieInfo 클래스 //////////
 
-            // 클래스의 데이터형: function
+            // 클래스의 데이터형은 뭐지?
             console.log("클래스의 데이터형은?", typeof MovieInfo);
-
-            // 클래스의 데이터형은 function이지만 호이스팅이 불가능하다.
-            // 즉, 생성전에 호출할 수 없다.
+            // 클래스의 데이터형은 function 이다!
+            // 그러나 함수와 달리 호이스팅이 불가하다!
+            // 즉 생성전에 호출할 수 없다!(순서중요!!!)
 
             // 영화정보 배열변수
             const mi = [];
@@ -99,6 +106,8 @@
                 "한지민, 남주혁",
                 "조제 보러 오세요"
             );
+
+            // 추가 객체생성하기
             mi[1] = new MovieInfo(
                 "https://movie-phinf.pstatic.net/20221213_158/1670910727328mpqYu_JPEG/movie_image.jpg?type=m203_290_2",
                 "영웅",
@@ -118,6 +127,7 @@
             mi[2].출연 = "황정민(정재호), 현빈(박대식)";
             mi[2].문구 = "아쌀라말라이쿰";
 
+            // 클래스로 만들어지 객체 확인
             console.log("생성객체:", mi);
             //////////////////// 로드구역 ///////////////////////
             window.addEventListener("DOMContentLoaded", () => {
@@ -275,7 +285,7 @@
         </style>
     </head>
     <body>
-        <h1 style="text-align: center">생성자함수로 만든 객체</h1>
+        <h1 style="text-align: center">클래스로 만든 객체</h1>
         <main class="cont ibx">
             <h2 style="text-align: center">무비차트</h2>
             <!-- 영화정보박스 -->
