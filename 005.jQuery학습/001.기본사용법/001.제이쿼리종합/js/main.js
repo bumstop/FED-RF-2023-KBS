@@ -489,8 +489,20 @@ btns
             // 건물 무너지기
             setTimeout(() => {
                 room.parent().addClass('on');
-            }, 6000);
-        })
+            }, 6000),
+
+            // 추가구현 : 시간(6초+건물기다리고 무너진시간 8초) +
+            // 건물 무너진후 좀비 하나 올라와 오른쪽으로 사라지기
+            setTimeout(() => {
+                room.parent().attr(
+                    'style','transform: rotate(0deg) !important'
+                )
+            }, 8000),
+
+            setTimeout(() => {
+
+            }, 10000);
+        }); // animate
         
 
       }; ////////// 콜백함수 /////////////
