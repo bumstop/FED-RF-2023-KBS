@@ -17,17 +17,24 @@ function MainComponent() {
             </section>
             {/* 3. 상품리스트박스 */}
             <div className="gwrap">
-                <ol class="glist">
-                    <li>
-                        <img src="./images/vans/vans_1.jpg" alt="신발" />
-                    </li>
-                    <li>반스명:Shine1</li>
-                    <li>가격: 32,400원</li>
-                </ol>
+                <GoodsCode />
             </div>
         </React.Fragment>
     );
 } /////////// MainComponent //////////////////
+
+// 상품 html코드구성 컴포넌트
+function GoodsCode() {
+    return myData.map((v) => (
+        <ol class="glist">
+            <li>
+                <img src={"./images/vans/vans_" + v.idx + ".jpg"} alt="신발" />
+            </li>
+            <li>{v.gname}</li>
+            <li>가격: {v.gprice}원</li>
+        </ol>
+    ));
+} /////////// GoodsCode //////////////////
 
 // 메인컴포넌트 출력하기 //////////
 ReactDOM.render(<MainComponent />, document.querySelector("#root"));

@@ -1,3 +1,6 @@
+@charset "utf-8";
+/* 01.공유신발 CSS - gong.css */
+
 /* 대상박스 */
 #root {
     width: 700px;
@@ -12,11 +15,11 @@
     color: orangered;
 }
 /* 내용박스 */
-#vapp p {
+#root section {
     border: 4px double gray;
 }
 /* 내용박스 이미지 */
-#vapp p img {
+#root section img {
     width: 80%;
     border-radius: 20px;
 }
