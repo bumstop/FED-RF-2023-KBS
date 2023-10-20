@@ -1,6 +1,12 @@
 @charset "utf-8";
 /* 01.공유신발 CSS - gong.css */
 
+body {
+    overflow-y: scroll;
+    /* 스크롤이 없어도 스크롤바 트랙이 나와 있어서 새로 
+    스크롤바 트랙 생성시 화면이 약간 옆으로 밀리는것을 막아준다 */
+    overflow-x: hidden;
+}
 /* 대상박스 */
 #root {
     width: 700px;
@@ -10,6 +16,7 @@
     margin: 0 auto;
     text-align: center;
 }
+
 /* 제목 */
 .tit {
     color: orangered;
