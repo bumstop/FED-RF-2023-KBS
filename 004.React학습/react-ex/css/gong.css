@@ -30,7 +30,7 @@
     /* 하위 ol박스를 옆으로 흐르게함 */
     justify-content: center;
     flex-wrap: wrap;
-
+    padding-top: 15px;
     gap: 10px 20px; /* 상하 좌우 사이간격 */
 }
 /* 개별리스트박스 */

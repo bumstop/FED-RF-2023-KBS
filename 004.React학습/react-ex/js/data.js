@@ -114,3 +114,4 @@ export default [
         gprice: "55000",
     },
 ];
+
