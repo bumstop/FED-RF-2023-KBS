@@ -53,9 +53,7 @@
 
         <script src="./js/jquery-3.6.0.min.js"></script>
         <script src="./js/jquery-ui.min.js"></script>
-        <!-- 기본적으로 드래그 기능은 모바일에서는 안됨!
-		모바일이벤트로 변환해주는 제이쿼리 플러그인을 추가해준다! 아래! -->
-        <!-- <script src="jquery-touch-punch.min.js"></script> -->
+        
         <!-- 
 		미리보기:
 		https://tombap8.github.io/FED211/004.jQuery학습/jQuery-02.실전연습/04.jQuery_utility/01_Postit/ready.html
@@ -63,6 +61,11 @@
         드래그 기능 공식설명서:
         https://api.jqueryui.com/draggable/
 	 -->
+
+        
+        <!-- 기본적으로 드래그 기능은 모바일에서는 안됨!
+		모바일이벤트로 변환해주는 제이쿼리 플러그인을 추가해준다! 아래! -->
+        <script src="./js/jquery-touch-punch.min.js"></script>
         <!-- 메인 JS -->
         <script src="./js/main.js"></script>
     </head>
@@ -72,12 +75,11 @@
         <div class="dropshow">여기에 드롭하세요~~!</div>
 
         <!-- 
-		w3c에서 허용하는 새로운 속성은 data- 라는 시작명으로
-		작성하면 된다!
-		-> data-내가지은이름="값"
-		예) data-myhouse="값"
-
-	 -->
+            w3c에서 허용하는 새로운 속성은 data- 라는 시작명으로
+            작성하면 된다!
+            -> data-내가지은이름="값"
+            예) data-myhouse="값"
+        -->
 
         <!-- 드래그 박스 -->
         <div class="dbox">
@@ -87,7 +89,7 @@
                 <img src="addimg/gm.jpg" alt="쥐마켓" />
             </div>
             <div class="draggable" data-mv="JDKhD-QNcvM">
-                <p>롯떼월들 자유이용권</p>
+                <p>롯떼월드 자유이용권</p>
                 <img src="addimg/lottee.jpg" alt="롯떼월들" />
             </div>
             <div class="draggable" data-mv="miSL86dtqis">
@@ -99,5 +101,8 @@
                 <img src="addimg/effect1.jpg" alt="허나투어" />
             </div>
         </div>
+
+        <!-- 유튜브 동영상 추가박스 -->
+        <div class="u-box"></div>
     </body>
 </html>
