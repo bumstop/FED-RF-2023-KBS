@@ -419,8 +419,41 @@ dFn.addEvt(mobtn, 'click', modifyData);
 
 // 6. 수정내용 반영 함수 만들기
 function modifyData() {
-    console.log('수정할고양');
+    // 0. 수정선택박스의 value가 show면 돌아가
+    if(modSel.value == "show") return;
+
+    // 1. 현재 선택된 배열의 유일한 값 idx읽기
+    // -> 현재 선택된 수정선택박스의 value값
+    let selIdx = modSel.value;
+
+    // 2. 로컬쓰 가져오기
+    // 2-1.로컬쓰 데이터 가져오기 : minfo
+    let orgData = localStorage.getItem("minfo");
+    // 2-2.제이슨 파싱!
+    orgData = JSON.parse(orgData);
+
+    // 2-3. find로 찾아서 해당값을 직접 업데이트 한다.
+    orgData.find(v => {
+        if(v.idx == selIdx) {
+             // 3. 선택 배열값인 객체의 제목과 내용을 다시 넣고 업데이트하기
+            v.tit = modTit.value;
+            v.cont = modCont.value;
+        }
+    });
+    console.log(orgData);
+    localStorage.setItem('minfo', JSON.stringify(orgData));
+
+    // 4. 리스트 업데이트하기
+    bindData();
+
+    // 5. 수정 선택박스 업데이트
+    bindMod();
 }
+
+
+
+
+
 // ***********************************************
 
 // [ 2. 세션 스토리지 연습 ] //////////////////////
