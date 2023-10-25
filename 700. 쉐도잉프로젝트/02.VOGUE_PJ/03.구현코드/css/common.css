@@ -155,12 +155,13 @@ https://www.w3schools.com/cssref/tryit.php?filename=trycss_cursor */
 }
 
 /* 마지막 li 돋보기 */
-.gnb li:last-child {
+.gnb i {
     padding: 0;
 }
-.gnb li:last-child a {
+.gnb i {
     font-weight: bold;
     padding-top: 2px;
+    cursor: pointer;
 }
 
 /* GNB a요소 */
@@ -168,10 +169,11 @@ https://www.w3schools.com/cssref/tryit.php?filename=trycss_cursor */
     /* 트랜지션 */
     transition: color .2s linear;
 }
-/* 오버시 a요소 */
-.gnb a:hover{
+/* 오버시 a요소 + i요소 */
+.gnb a:hover, .gnb i:hover{
     color: red;
 }
+
 
 /********************************************* 
     #top-area.on 인 경우 슬림디자인 상단영역적용!

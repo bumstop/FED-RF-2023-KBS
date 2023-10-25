@@ -47,7 +47,7 @@ export default {
     </div>
     <!-- 1-2.로고박스 -->
     <h1 class="logo">
-        <a href="#">
+        <a href="index.html">
             <img src="./images/mlogo.png" alt="메인로고" />
         </a>
     </h1>
@@ -80,9 +80,9 @@ export default {
             </li>
             <li>
                 <!-- 돋보기 검색버튼 -->
-                <a href="#" class="fi fi-search">
+                <i class="fi fi-search">
                     <span class="ir">search</span>
-                </a>
+                </i>
             </li>
         </ul>
     </nav>
