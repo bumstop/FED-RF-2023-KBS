@@ -77,4 +77,10 @@ function setValue() {
     $(".cat-cont-area h2").each((idx, ele) => {
         $(ele).html(selData.타이틀[idx]);
     });
+
+    // 5-5. 탭메뉴 타이틀 변경하기
+    // 형식: 카테고리명 | 기존 타이틀
+    // 제이쿼리 prepend() 메서드 사용
+    // -> 자식요소 또는 내용의 맨앞에 넣기!
+    $('title').prepend(pm.toUpperCase() + " | ");
 }
