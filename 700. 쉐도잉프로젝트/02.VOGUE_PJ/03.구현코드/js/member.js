@@ -98,10 +98,14 @@ form.logF input[type=password]`)
 
 let eyeNum = 1;
 $(".eye")
-    .css({ textDecoration: "line-through", opacity: 0.5 })
+    .css({
+        textDecoration: "line-through",
+        opacity: 0.5,
+        cursor: "pointer"
+    })
     .click(() => {
         $("#mpw").attr("type", eyeNum ? "text" : "password");
-        
+
         $(event.target).css({
             textDecoration: eyeNum ? "none" : "line-through",
             opacity: eyeNum ? 1 : 0.5,
