@@ -97,10 +97,17 @@ form.logF input[type=password]`)
     }); ///////////////// blur 메서드 /////////////////
 
 let eyeNum = 1;
-$(".eye").click(() => {
-    $("#mpw").attr("type", eyeNum ? "text" : "password");
-    eyeNum = eyeNum ? 0 : 1;
-});
+$(".eye")
+    .css({ textDecoration: "line-through", opacity: 0.5 })
+    .click(() => {
+        $("#mpw").attr("type", eyeNum ? "text" : "password");
+        
+        $(event.target).css({
+            textDecoration: eyeNum ? "none" : "line-through",
+            opacity: eyeNum ? 1 : 0.5,
+        });
+        eyeNum = eyeNum ? 0 : 1;
+    });
 
 /*////////////////////////////////////////////////////////
     함수명: vReg (validation with Regular Expression)
