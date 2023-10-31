@@ -6,7 +6,7 @@ import bData from "./data.json" assert { type: "json" };
 // console.log(bData);
 
 // 데이터 idx의 내림차순으로 정렬변경하기!
-bData.sort((a, b) => a.idx - b.idx);
+bData.sort((a, b) => b.idx - a.idx);
 
 // 데이터를 화면 리스트 코드로 변환하여 적용한다!
 // 대상: #board tbody
@@ -15,7 +15,7 @@ const board = $("#board tbody");
 // 리스트 번호변수
 let listNum = 0;
 // 숫자 1씩 증가 함수
-const addNum = () => listNum++;
+const addNum = () => ++listNum;
 
 console.log("증가수:", addNum());
 
@@ -27,28 +27,34 @@ console.log("증가수:", addNum());
 
 // 페이징 관련 변수들
 // [1] 한 페이지당 리스트 수 : pgBlock
-const pgBlock = 10;
+const pgBlock = 9;
 // [2] 페이지 순번 : pgNum
-let pgNum = 1;
+let pgNum = 6;
 // [3] 전체 레코드 수 : totalCnt
 const totalCnt = bData.length;
 // [4] 페이징 블록 계산하기
-let pagingBlock = Math.ceil(totalCnt / pgBlock);
+let pagingBlock = Math.floor(totalCnt / pgBlock);
 // [5] 나머지 리스트 여부 : 0이면 다음페이지 없음!
 let addOver = totalCnt % pgBlock;
 
+// 시작번호 업데이트
+listNum = (pgNum - 1) * pgBlock;
+
+let hcode = "";
 // 리스트 블록으로 리스트 소스 만들기
-for (let i = 0; i <= pgBlock * pgNum; i++) {
-    board.append(`
+for (let i = listNum; i < pgBlock * pgNum; i++) {
+    if(i >= totalCnt) break;
+    hcode += `
         <tr>
             <td>${addNum()}</td>
-            <td>${v.tit}</td>
-            <td>${v.writer}</td>
-            <td>${v.date}</td>
-            <td>${v.cnt}</td>
+            <td>${bData[i].tit}</td>
+            <td>${bData[i].writer}</td>
+            <td>${bData[i].date}</td>
+            <td>${bData[i].cnt}</td>
         </tr>
-    `);
+    `;
 }
+board.html(hcode);
 
 console.log(`
     pgBlock:${pgBlock}
