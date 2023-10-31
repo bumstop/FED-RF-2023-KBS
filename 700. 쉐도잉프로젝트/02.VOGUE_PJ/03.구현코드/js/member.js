@@ -48,6 +48,37 @@ chkEach.change(function () {
 }); //////////// change ////////////////////
 
 /***************************************************** 
+    동의 / 비동의 버튼 클릭시 처리하기
+*****************************************************/
+// 대상: .YNbox button
+// 통과조건: #termsService 와 #termsPrivacy 체크박스가 모두 체크되면 통과!
+$(".YNbox button").click(function () {
+    // 버튼 구분하기: is('#btnY')
+    let isBtn = $(this).is("#btnY");
+    console.log("동의냐?", isBtn);
+
+    // 동의 버튼일 경우: 필수체크 확인 후 회원가입허가!
+    const requiredChecked =
+        $("#termsService").prop("checked") && $("#termsPrivacy").prop("checked");
+
+    if (isBtn) {
+        if (requiredChecked) {
+            // alert("통과");
+            // 동의 / 비동의 박스 스윽 사라지기
+            $('#conf').fadeOut(300, () => {
+                $('.scont').fadeIn(300)
+            })
+        } else {
+            alert("모든 필수 항목에 체크하셔야합니다");
+        }
+    }
+    else {
+        alert('비동의하셨습니다. 메인페이지로 이동합니다.')
+        location.href = 'index.html';
+    }
+});
+
+/***************************************************** 
     [ 속성값을 읽어오는 메서드 2가지 ]
     attribute 단어의 메서드 : attr(속성명)
     property 단어의 메서드 : prop(속성명)
@@ -134,6 +165,7 @@ form.logF input[type=password]`)
                 // 여기서 우선은 DB조회 못하므로 통과시 메시지로 출력
                 // 메시지 띄우기
                 $(this).siblings(".msg").text("멋진 아이디네요~!").addClass("on");
+                // -> 비동기 통신 Ajax로 서버쪽에 아이디 중복검사 필요
             } ////// else //////
         } /////////////// else if : 아이디검사 ///////
 
@@ -379,6 +411,20 @@ $("#btnj").click((e) => {
 
     // 최종통과 여부
     console.log("통과여부:", pass);
+
+    // 4. 검사결과에 따라 메시지 보이기
+    if(pass) {
+        alert('회원가입을 축하드립니다! 짝짝짝!');
+        // 원래는 POST방식으로 DB에 가입정보를 전송하여 입력후
+        // DB처리 완료시 성공메시지나 로그인 페이지로 넘겨준다!
+        // location.href = 'login.html';
+
+        // 민감함 입력 데이터 페이지가 다시 돌아와서 보이면 안되기
+        // 때문에 히스토리를 지우는 replace로 이동한다
+        location.replace('login.html')
+    } else {
+        alert('입력을 수정하세요~!');
+    }
 }); ///////////// click ///////////
 
 /*//////////////////////////////////////////////////////
