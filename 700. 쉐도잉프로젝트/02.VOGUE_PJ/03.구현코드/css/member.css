@@ -7,12 +7,11 @@
 @import url(common.css);
 
 /* 컨텐츠 영역 속박스 */
-.main-area{
+.main-area {
     min-height: 700px;
-    padding: 15px;    
+    padding: 15px;
     padding-bottom: 100px;
 }
-
 
 /* 2-1-1. 서브타이틀 */
 .stit {
@@ -20,11 +19,11 @@
     font-weight: normal;
     font-size: 50px;
     text-align: center;
-    padding: 40px 0 20px;    
+    padding: 40px 0 20px;
 }
 
 /* 2-2. 서브 컨텐츠 박스 */
-.scont{
+.scont {
     /* 처음에 회원가입 박스안보임 
     -> 대신 동의박스가 보임 */
     display: none;
@@ -70,7 +69,6 @@ select:focus {
     color: green;
 }
 
-
 /* 리스트 ul */
 .scont ul {
     width: 100%;
@@ -98,8 +96,8 @@ select:focus {
 
 /*  입력박스 공통 */
 /* []는 속성(attribute)선택자 */
-.scont input[type=text],
-.scont input[type=password] {
+.scont input[type="text"],
+.scont input[type="password"] {
     width: 340px;
     height: 36px;
     font-size: 20px;
@@ -109,7 +107,7 @@ select:focus {
 }
 
 /* 라디오버튼 */
-.scont input[type=radio] {
+.scont input[type="radio"] {
     width: 20px;
     height: 20px;
     /* 인라인요소간 세로정렬 */
@@ -166,7 +164,6 @@ select:focus {
     cursor: pointer;
 }
 
-
 /* 약관동의박스 */
 #conf {
     /* display: none; */
@@ -198,12 +195,8 @@ select:focus {
     cursor: pointer;
 }
 
-
-
-
 /* 미디어쿼리 690px 이하 시작 */
-@media screen and (max-width:690px) {
-
+@media screen and (max-width: 690px) {
     /* 리스트 li */
     .scont li {
         height: auto;
@@ -215,8 +208,8 @@ select:focus {
     }
 
     /*  입력박스 공통 */
-    .scont input[type=text],
-    .scont input[type=password] {
+    .scont input[type="text"],
+    .scont input[type="password"] {
         width: 100%;
     }
 
@@ -252,10 +245,9 @@ select:focus {
         margin-right: 5.1vw;
     }
     /* @ 문자 글자크기 */
-    .gol{
+    .gol {
         font-size: 3vw;
     }
-
 }
 
 /* 미디어쿼리 690px 이하 끝 */

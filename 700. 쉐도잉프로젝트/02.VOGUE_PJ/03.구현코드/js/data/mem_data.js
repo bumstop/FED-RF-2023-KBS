@@ -1,6 +1,6 @@
 // 회원가입 html데이터 ///
 export const mcode = {
-    conf:`
+    conf: `
     <div class="terms_p">
     <p class="terms_chk_all"> <span class="input_chk">
             <input type="checkbox" id="chk_all" name="chk_all">
@@ -624,6 +624,5 @@ export const mcode = {
     <button id="btnN">비동의</button>
     <button id="btnY">동의</button>
 </div>
-    `
-
+    `,
 }; /////////////////// mcode //////////////
