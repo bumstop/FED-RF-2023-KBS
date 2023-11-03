@@ -1,80 +1,105 @@
-// 보그 PJ 메인 페이지 JS - main.js
+// 보그 PJ 카테고리 페이지 JS - category.js
 
-import catData from "./data/category_data.json" assert { type: "json" };
+// 상단영역 컴포넌트
+function TopArea() {
+    return (
+        <React.Fragment>
+             {/* 1-1.상단메뉴  */}
+    <div className="tmenu">
+         {/* 1-1-1.sns박스  */}
+        <div className="sns">
+            <a href="#" className="fi fi-instagram">
+                <span className="ir">인스타그램</span>
+            </a>
+            <a href="#" className="fi fi-facebook">
+                <span className="ir">페이스북</span>
+            </a>
+            <a href="#" className="fi fi-twitter">
+                <span className="ir">트위터</span>
+            </a>
+            <a href="#" className="fi fi-youtube-play">
+                <span className="ir">유튜브</span>
+            </a>
+            <a href="#" className="fi cas">
+                <span className="ir">카카오스토리</span>
+            </a>
+        </div>
+         {/* 1-1-2.사이드메뉴  */}
+        <div className="sideMenu">
+            <ul className="smbx">
+                <li>
+                    <a href="#">SIDE MENU</a>
+                     {/* 서브메뉴  */}
+                    <ol className="smsub">
+                        <li>
+                            <a href="#">회사 소개</a>
+                        </li>
+                        <li>
+                            <a href="#">광고 및 제휴</a>
+                        </li>
+                        <li>
+                            <a href="#">개인정보 처리방침</a>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <a href="#">SUBSCRIBE</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+     {/* 1-2.로고박스  */}
+    <h1 className="logo">
+        <a href="#">
+            <img src="./images/mlogo.png" alt="메인로고" />
+        </a>
+    </h1>
+     {/* 1-3.GNB박스  */}
+    <nav className="gnb">
+        <ul>
+            <li>
+                <a href="#">FASHION</a>
+            </li>
+            <li>
+                <a href="#">BEAUTY</a>
+            </li>
+            <li>
+                <a href="#">LIVING</a>
+            </li>
+            <li>
+                <a href="#">PEOPLE</a>
+            </li>
+            <li>
+                <a href="#">VIDEO</a>
+            </li>
+            <li>
+                <a href="#">RUNWAY</a>
+            </li>
+            <li>
+                <a href="#">TIME &amp; GEM</a>
+            </li>
+            <li>
+                <a href="#">SHOPPING</a>
+            </li>
+            <li>
+                 {/* 돋보기 검색버튼  */}
+                <i href="#" className="fi fi-search">
+                    <span className="ir">search</span>
+                </i>
+            </li>
+        </ul>
+    </nav>
+        </React.Fragment>
 
-// 카테고리 페이지 기능 구현하기
-// 요구사항: url로 전달된 키값을 읽어서 페이지의 데이터를 셋팅한다
+    );
+} // function TopArea() 컴포넌트 //////////////////
 
-// 1. 전체 url 읽기
-let pm = location.href;
-console.log(pm);
+// 상단영역 출력하기
+ReactDOM.render(<TopArea />, document.querySelector('.top-area'));
 
-// 값처리함수 호출하기
-setValue();
+// 카테고리 페이지 메인 컴포넌트
+function MainCategory() {
 
-// 값셋팅하기 함수 ////////
-function setValue() {
-    // 2. url에서 키값 분리하기
-    // -> ? 물음표가 Get방식의 시그널이므로 ?로 문자 자르기를 실행한다
-    try {
-        if (pm.indexOf("?") == -1 || pm.indexOf("=") == -1) {
-            throw "잘못된 접근입니다!";
-        }
-    } catch (err) {
-        // err 메시지 받기
-        // 에러 메시지 띄우기
-        alert(err);
-        // 메인으로 보내기
-        location.href = "index.html";
-    }
+} // function MainCategory() 컴포넌트 //////////////////
 
-    // 3. url 키값 추출하기
-    pm = pm.split("?")[1].split("=")[1];
 
-    // 특수문자 변환하기: time & gem 카테고리 때문
-    pm = decodeURIComponent(pm);
-    console.log("최종키값:", pm);
-
-    // 4. 카테고리 데이터 매칭하기
-    // 제이슨 파일 객체 데이터에서 속성으로 선택함
-    const selData = catData[pm];
-    console.log("선택데이터:", selData);
-
-    // 5. 데이터 바인딩하기
-    // 5-1. 배경이미지 셋팅을 위한 main요소에 클래스 넣기
-    // time & gem -> time - gem 으로 변경하기
-    $(".main-area").addClass(pm.replace(" & ", "-"));
-
-    // 5-2. 카테고리 타이틀 변경하기
-    $(".cat-tit").text(selData.제목);
-
-    // 5-3. 메뉴 변경하기
-    // 대상: .lnb
-    let lnb = $(".lnb");
-    // 메뉴데이터: selData.메뉴
-    let mData = selData.메뉴;
-    // 메뉴 리턴함수
-    const retMenu = () => {
-        return mData.map((v) => `<li><a href="#">${v}</a></li>`).join("");
-    };
-
-    // 메뉴 없음에 따라 분기하기
-    if (mData == "없음") {
-        lnb.remove();
-    } else {
-        lnb.html(`<ul>${retMenu()}</ul>`);
-    }
-
-    // 5-4. 서브 섹션 타이틀 넣기
-    // $(선택자).each((idx, ele) => { 구현부 })
-    // 대상: .cat-cont-area h2
-    $(".cat-cont-area h2").each((idx, ele) => {
-        $(ele).html(selData.타이틀[idx]);
-    });
-
-    // 5-5. 탭메뉴 타이틀 변경하기
-    // 형식: 카테고리명 | 기존 타이틀
-    // 제이쿼리 prepend() 메서드 사용
-    // -> 자식요소 또는 내용의 맨앞에 넣기!
-    $('title').prepend(pm.toUpperCase() + " | ");
-}
