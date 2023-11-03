@@ -18,7 +18,14 @@ $(() => {
     logo.click(() => (location.href = "index.html"));
 
     // 2-2. gnb 메뉴 클릭시 카테고리 서브 이동
-    gnb.click((e) => (location.href = "category.html?cat=" + $(e.target).text().toLowerCase()));
+    gnb.click(
+        (e) =>
+            (location.href =
+                "category.html?cat=" +
+                encodeURIComponent($(e.target).text().toLowerCase()))
+                // 특수문자 변환해서 보내기 encodeURIComponent(보낼문자)
+                // 그래야 받는곳에서 decodeURIComponent() 시 잘 동작함
+    );
     // console.log($(e.target).text().toLowerCase()))
 
     // e.target -> 이벤트발생요소(a요소)
@@ -107,6 +114,6 @@ $(() => {
             }
         }); /////////// click /////////////////
 
-        // 모바일 메뉴박스의 링크중 4번째 요소 다음에 br태그 삽입
-        $('.mosns a').eq(3).after('<br />'); 
+    // 모바일 메뉴박스의 링크중 4번째 요소 다음에 br태그 삽입
+    $(".mosns a").eq(3).after("<br />");
 }); //////////// jQB ///////////////////

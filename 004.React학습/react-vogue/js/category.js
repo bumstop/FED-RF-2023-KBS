@@ -3,6 +3,11 @@
 // 링크 시스템 JS 가져오기
 import { makeLink } from "./linksys2.js";
 
+// 카테고리 데이터 가져오기
+import catData from "./data/category_data.js";
+
+console.log(catData);
+
 // 상단영역 컴포넌트
 // 기능: 상단영역 메뉴, 로그 등 요소 구성
 function TopArea() {
@@ -106,6 +111,23 @@ ReactDOM.render(<TopArea />, document.querySelector(".top-area"));
 // 카테고리 페이지 메인 컴포넌트
 // 기능: 아이템 페이지 메인
 function MainCategory() {
+
+    // 우선 URL로 넘어온 키값을 가져옴!
+    // 파라미터 전달값 받기: 파라미터 JS 전담객체는?
+    // -> URLSearchParams(전체URL)
+    const params = new URLSearchParams(location.search);
+
+    // 파리미터중 특정키 받기: get(키이름) -> 키이름은 'cat'
+    const catName = decodeURIComponent(params.get('cat'));
+    // 'time & gem' 항목 때문에 decodeURIComponent로 변환해줌
+    
+    console.log('URL:', location.search,'\n파라미터:', params, '\n키값', catName);
+
+    // 카테고리 해당 데이터 선택하기
+    // 카테고리 전체 객체 데이터중 해당항목 선택
+    const selData = catData[catName];
+    console.log(selData);
+
     return (
         <React.Fragment>
             <SubTitle />
