@@ -1,116 +1,16 @@
 // 보그 PJ 카테고리 페이지 JS - category.js
-
 // 링크 시스템 JS 가져오기 //////
 import { makeLink } from "./linksys2.js";
-
 // 카테고리 데이터 가져오기 /////
 import catData from "./data/category_data.js";
 
+
 // console.log(catData);
 
-/////////// 상단영역 컴포넌트 /////////////
-/******************************************* 
-  컴포넌트명 : TopArea
-  기능 : 상단영역 메뉴, 로그 등 요소 구성
-*******************************************/
-function TopArea() {
-    // 컴포넌트 요소 랜더링 직전 호출구역
-    // -> 컴포넌트는 모두 만들어진 후 화면뿌리기 직전(가랜더랭)
-    React.useLayoutEffect(makeLink);
 
-    return (
-        <React.Fragment>
-            {/* 1-1.상단메뉴 */}
-            <div className="tmenu">
-                {/* 1-1-1.sns박스 */}
-                <div className="sns">
-                    <a href="#" className="fi fi-instagram">
-                        <span className="ir">인스타그램</span>
-                    </a>
-                    <a href="#" className="fi fi-facebook">
-                        <span className="ir">페이스북</span>
-                    </a>
-                    <a href="#" className="fi fi-twitter">
-                        <span className="ir">트위터</span>
-                    </a>
-                    <a href="#" className="fi fi-youtube-play">
-                        <span className="ir">유튜브</span>
-                    </a>
-                    <a href="#" className="fi cas">
-                        <span className="ir">카카오스토리</span>
-                    </a>
-                </div>
-                {/* 1-1-2.사이드메뉴 */}
-                <div className="sideMenu">
-                    <ul className="smbx">
-                        <li>
-                            <a href="#">SIDE MENU</a>
-                            {/* 서브메뉴 */}
-                            <ol className="smsub">
-                                <li>
-                                    <a href="#">회사 소개</a>
-                                </li>
-                                <li>
-                                    <a href="#">광고 및 제휴</a>
-                                </li>
-                                <li>
-                                    <a href="#">개인정보 처리방침</a>
-                                </li>
-                            </ol>
-                        </li>
-                        <li>
-                            <a href="#">SUBSCRIBE</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            {/* 1-2.로고박스 */}
-            <h1 className="logo">
-                <a href="#">
-                    <img src="./images/mlogo.png" alt="메인로고" />
-                </a>
-            </h1>
-            {/* 1-3.GNB박스 */}
-            <nav className="gnb">
-                <ul>
-                    <li>
-                        <a href="#">FASHION</a>
-                    </li>
-                    <li>
-                        <a href="#">BEAUTY</a>
-                    </li>
-                    <li>
-                        <a href="#">LIVING</a>
-                    </li>
-                    <li>
-                        <a href="#">PEOPLE</a>
-                    </li>
-                    <li>
-                        <a href="#">VIDEO</a>
-                    </li>
-                    <li>
-                        <a href="#">RUNWAY</a>
-                    </li>
-                    <li>
-                        <a href="#">TIME &amp; GEM</a>
-                    </li>
-                    <li>
-                        <a href="#">SHOPPING</a>
-                    </li>
-                    <li>
-                        {/* 돋보기 검색버튼 */}
-                        <i href="#" className="fi fi-search">
-                            <span className="ir">search</span>
-                        </i>
-                    </li>
-                </ul>
-            </nav>
-        </React.Fragment>
-    );
-} //////////// TopArea 컴포넌트 /////////////
+/////////////////////////////////////
 
-// 상단영역 출력하기 /////////////////
-ReactDOM.render(<TopArea />, document.querySelector(".top-area"));
+
 /////////////////////////////////////
 
 //////////////////////////////////////////////////////
@@ -129,18 +29,25 @@ function MainCategory() {
     // 파라미터중 특정키 받기 : get(키이름) -> 키이름은 'cat'
     const catName = decodeURIComponent(params.get("cat"));
     // 'time & gem' decodeURIComponent로 변환!
+    // -> 보내는 곳에서는 encodeURIComponent로 처리해야함!
 
     console.log("URL", location.search, "\n파라미터:", params, "\n키값:", catName);
 
+    // 카테고리 데이터 상태관리변수 만들기!
+    const [nowCat, setNowCat] = React.useState(catName);
+
     // 카테고리 해당 데이터 선택하기
     // 카테고리 전체 객체 데이터 중 해당항목 선택
-    const selData = catData[catName];
+    const selData = catData[nowCat];
 
     console.log(selData);
+
+    const chgMenu = () => setNowCat("living");
 
     return (
         <React.Fragment>
             <SubTitle tit={selData["제목"]} menu={selData["메뉴"]} />
+            <button onClick={chgMenu}>변경해!</button>
             <ItemList cname={selData["경로"]} tit={selData["타이틀"]} />
         </React.Fragment>
     );
@@ -198,38 +105,47 @@ function ItemList(props) {
     // cname - 카테고리명(클래스명넣기)
     // tit - 리스트 타이틀
 
+    // 태그처리 구분 코드생성 함수
+    const makeCode = (data) => {
+        console.log("배열인가?", Array.isArray(data));
+        // 배열데이터인 경우 ////
+        if (Array.isArray(data)) {
+            return (
+                <h2>
+                    <small>{data[0]}</small>
+                    <br />
+                    {data[1]}
+                </h2>
+            );
+        } /////// if ////////
+        else {
+            // 배열이 아닌경우 ////
+            return <h2>{data}</h2>;
+        } /////// else ///////
+    }; ////////// makeCode함수 ////////////
+
     return (
         // 2-2. 카테고리 페이지 컨텐츠영역
         // html출력일 경우 dangerouslySetInnerHTML을 사용함!
-        // <요소 dangerouslySetInnerHTML={{__html: 값}}>
+        // <요소 dangerouslySetInnerHTML={{__html:값}}>
+        // <h2 dangerouslySetInnerHTML={{__html:props.tit[0]}}>
+        // -> script태그와 같은 위험요소가 실행될 수 있으므로
+        // 데이터에서 직접적으로 태그를 넣는 방법을 비추천함!
+        // -> 개선: 태그 데이터를 제거하고 데이터화 함!
+        // -> runway 데이터를 배열형으로 만들고 첫번째 데이터를
+        // small태그로 싸고 뒤에 br태그로 줄바꿈한 구성을
+        // 컴포넌트에서 구성하도록 변경함!
+
         <div className={"cat-cont-area " + props.cname}>
             <section className="pt2">
-                <div className="cbx bgi bg1-1">
-                    {/* <h2 dangerouslySetInnerHTML={{ __html: props.tit[0] }}> */}
-                    {
-                        <h2>
-                            <small>{props.tit[0][0]}</small><br />
-                            {props.tit[0][1]}
-                        </h2>
-                    }
-                </div>
-                <div className="cbx bgi bg1-2">
-                    <h2>{props.tit[1]}</h2>
-                </div>
-                <div className="cbx bgi bg1-3">
-                    <h2>{props.tit[2]}</h2>
-                </div>
+                <div className="cbx bgi bg1-1">{makeCode(props.tit[0])}</div>
+                <div className="cbx bgi bg1-2">{makeCode(props.tit[1])}</div>
+                <div className="cbx bgi bg1-3">{makeCode(props.tit[2])}</div>
             </section>
             <section className="pt2">
-                <div className="cbx bgi bg2-1">
-                    <h2>{props.tit[3]}</h2>
-                </div>
-                <div className="cbx bgi bg2-2">
-                    <h2>{props.tit[4]}</h2>
-                </div>
-                <div className="cbx bgi bg2-3">
-                    <h2>{props.tit[5]}</h2>
-                </div>
+                <div className="cbx bgi bg2-1">{makeCode(props.tit[3])}</div>
+                <div className="cbx bgi bg2-2">{makeCode(props.tit[4])}</div>
+                <div className="cbx bgi bg2-3">{makeCode(props.tit[5])}</div>
             </section>
         </div>
     );

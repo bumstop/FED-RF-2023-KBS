@@ -23,11 +23,11 @@
         <script src="./js/jquery-3.7.1.min.js"></script>
         <!-- 제이쿼리 UI -->
         <script src="./js/jquery-ui.min.js"></script>
-        <!-- 공통모듈 JS -->
+        <!-- 공통모듈 JS - 카테고리페이지용 -->
         <script type="module" src="./js/common2.js"></script>
-
-        <!-- 링크시스템 JS는 리액트 상단영역 컴포넌트가 그려진 후 호출해야 적용된다 -->
-        <!-- <script src="./js/linksys.js"></script> -->
+        <!-- 링크시스템 JS는 리액트 상단영역 컴포넌트가
+      그려진 후 호출해야 적용된다!!! 그래서 여기는 주석!
+      <script src="./js/linksys.js"></script> -->
 
         <!-- 1.리액트 기본 라이브러리 -->
         <script
@@ -40,16 +40,32 @@
         <!-- 3.리액트 바벨 라이브러리 -->
         <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
-        <!-- 링크시스템 카테고리용 JS - 카테고리.JS 보다 위에 둘것 -->
+        <!-- 링크 시스템 카테고리용 JS 
+      - 카테고리JS 보다 위에 둘것! -->
         <script
             src="./js/linksys2.js"
             data-plugins="transform-es2015-modules-umd"
             type="text/babel"></script>
-        <!-- 카테고리 데이터 -->
+
+        <!-- 카테고리 데이터 JS 
+      - 카테고리JS 보다 위에 둘것!  -->
         <script
             src="./js/data/category_data.js"
             data-plugins="transform-es2015-modules-umd"
             type="text/babel"></script>
+
+        <!-- 상단영역 컴포넌트 -->
+        <script
+            src="./js/components/top_area.jsx"
+            data-plugins="transform-es2015-modules-umd"
+            type="text/babel"></script>
+
+        <!-- 하단영역 컴포넌트 -->
+        <script
+            src="./js/components/footer_area.jsx"
+            data-plugins="transform-es2015-modules-umd"
+            type="text/babel"></script>
+
         <!-- 카테고리 페이지 JS -->
         <script
             src="./js/category.js"
@@ -57,22 +73,27 @@
             type="text/babel"></script>
     </head>
     <body>
-        <!-- 1.상단영역 -->
-        <div id="top-area">
-            <header class="top-area ibx common-area"></header>
-        </div>
-        <!-- 2.메인영역 -->
-        <div id="main-area">
-            <main class="main-area ibx"></main>
-        </div>
-        <!-- 3.하단영역 -->
-        <div id="footer-area">
-            <footer class="footer-area ibx common-area"></footer>
-        </div>
+        <!-- 리액트 적용 Root 요소 -->
+        <div id="root">
+            <!-- 1.상단영역 -->
+            <div id="top-area">
+                <header class="top-area ibx common-area"></header>
+            </div>
 
-        <!-- 위로가기버튼 -->
-        <a href="#" class="tbtn fi fi-angle-up">
-            <span class="ir">위로가기버튼</span>
-        </a>
+            <!-- 2.메인영역 -->
+            <div id="main-area">
+                <main class="main-area ibx"></main>
+            </div>
+
+            <!-- 3.하단영역 -->
+            <div id="footer-area">
+                <footer class="footer-area ibx common-area"></footer>
+            </div>
+
+            <!-- 위로가기버튼 -->
+            <a href="#" class="tbtn fi fi-angle-up">
+                <span class="ir">위로가기버튼</span>
+            </a>
+        </div>
     </body>
 </html>
