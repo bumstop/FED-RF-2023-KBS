@@ -1,5 +1,4 @@
 // 카테고리 JS 사용 데이터
-
 export default {
     "fashion": {
         "제목": "Fashion",
@@ -71,12 +70,12 @@ export default {
         "메뉴": "없음",
         "경로": "runway",
         "타이틀": [
-            ["Ready To Wear 2021 F/W", "Rick Owens"],
-            ["Ready To Wear 2021 F/W", "We11done"],
-            ["Ready To Wear 2021 F/W", "Comme des Garçons"],
-            ["Ready To Wear 2021 F/W", "Chloé"],
-            ["Ready To Wear 2021 F/W", "Balmain"],
-            ["Ready To Wear 2021 F/W", "Loewe"]
+            ["Ready To Wear 2021 F/W","Rick Owens"],
+            ["Ready To Wear 2021 F/W","We11done"],
+            ["Ready To Wear 2021 F/W","Comme des Garçons"],
+            ["Ready To Wear 2021 F/W","Chloé"],
+            ["Ready To Wear 2021 F/W","Balmain"],
+            ["Ready To Wear 2021 F/W","Loewe"]
         ]
     },
     "shopping": {
