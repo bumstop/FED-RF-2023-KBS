@@ -18,7 +18,7 @@ import setJSTop from "./common2.js";
   기능 : 상단, 메인, 하단영역 종합출력
 *******************************************/
 function MainComponent() {
-    // React.useEffect(setJSTop, []);
+    React.useEffect(setJSTop, []);
     // 우선 URL로 넘어온 키값을 가져옴!
     // 파라미터 전달값 받기 : 파라미터JS전담객체는?
     // -> URLSearchParams(전체URL)
