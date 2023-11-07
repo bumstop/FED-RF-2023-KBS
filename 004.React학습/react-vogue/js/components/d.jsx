@@ -1,8 +1,5 @@
 /////////// 상단영역 컴포넌트 /////////////
 
-// 카테고리 컨텍스트 API 파일 불러오기
-import { catContext } from "./components/cat_context.jsx";
-
 // 링크 시스템 JS 가져오기 //////
 import { makeLink } from "./linksys2.js";
 
@@ -17,7 +14,7 @@ export default function TopArea(props) {
     // useEffect(함수,[]) -> 뒤에 의존성변수 구역 비어있으면
     // 본 컴포넌트가 처음 실행될때 한번만 실행한다!
 
-    // 다시 자식 컴포넌트로 함수를 만들어서 전달
+    // 다시 자식 컴포넌트로 함수를 만들어서 전달!
     const goFn = (v) => props.chgItem(v);
 
     return (
@@ -74,9 +71,7 @@ export default function TopArea(props) {
                     </a>
                 </h1>
                 {/* 1-3.GNB박스 */}
-                <GnbMenu />
-
-                {/* <GnbMenu gnbFn={goFn} /> 프롭스 펑션 다운 */}
+                <GnbMenu gnbFn={goFn} />
                 {/* 모바일용 버튼 */}
                 <MobBtns />
             </header>
@@ -91,11 +86,6 @@ export default function TopArea(props) {
  * 기능 : 모바일용 버튼 생성 컴포넌트
  ********************************************/
 function GnbMenu(props) {
-    // 여기 컴포넌트에서 컨텍스트 API를 사용할 것이므로 여기에 useContext(컨텍스트명)을 셋팅한다
-    const gnbContext = React.useContext(catContext);
-    // 할당된 변수에는 전역변수/함수가 들어있음!
-    // 부모의 컨텍스트 프로바이더 value에 셋팅된 이름으로 호출함!
-
     // GNB용 메뉴 배열변수
     const gnbText = [
         "FASHION",
@@ -112,12 +102,8 @@ function GnbMenu(props) {
     const chgCat = (data) => {
         console.log("나야나!", data);
 
-        // 컨텍스트 API로 전달된 부모컴포넌트 함수를 호출!
-        gnbContext.chgCat(data.toLowerCase());
-
-        // TopArea 컴포넌트에서 보낸 속성함수를 호출
-        // props.gnbFn(data.toLowerCase());
-        //  -> 컨텍스트 API를 사용할땐 프롭스펑션다운 사용안함!
+        // TopArea컴포넌트에서 보낸 속성함수를 호출
+        props.gnbFn(data.toLowerCase());
 
         // 전달된 부모함수 chgCat을 호출함!
         // props.chgItem(data.toLowerCase());
