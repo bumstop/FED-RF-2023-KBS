@@ -20,6 +20,7 @@ export default function TopArea(props) {
     // 다시 자식 컴포넌트로 함수를 만들어서 전달
     const goFn = (v) => props.chgItem(v);
 
+    console.log('상단영역실행');
     return (
         <div id="top-area">
             <header class="top-area ibx common-area">
