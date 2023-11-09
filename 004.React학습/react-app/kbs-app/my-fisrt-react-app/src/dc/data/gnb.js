@@ -1,5 +1,4 @@
-// DC.com GNB 메뉴 데이터
-
+// DC.com GNB메뉴 데이터
 export const menu = [
     {
         txt:"Home",
