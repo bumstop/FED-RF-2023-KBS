@@ -7,7 +7,7 @@ import { Main } from "../contents/Main";
 import { Movies } from "../contents/Movies";
 import { News } from "../contents/News";
 import { Video } from "../contents/Video";
-
+import { SwiperApp } from "../../plugin/SwiperApp"
 export function MainArea(props) {
     // cat 속성으로 메뉴분류 전달
 
@@ -20,6 +20,7 @@ export function MainArea(props) {
             {props.cat == "GAMES" && <Games cat={props.cat} />}
             {props.cat == "NEWS" && <News cat={props.cat} />}
             {props.cat == "VIDEO" && <Video />}
+            {props.cat == "SWIPER" && <SwiperApp />}
         </main>
     );
 } ///////// MainArea 컴포넌트 ////////////
