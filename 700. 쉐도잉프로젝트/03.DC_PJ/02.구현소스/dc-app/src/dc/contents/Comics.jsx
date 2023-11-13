@@ -2,12 +2,11 @@
 
 import { Banner } from "./Banner";
 
-export function Comics(){
-    return(
-        <>
-            <h1 style={{textAlign:'center'}}>코믹스 페이지</h1>
-            <Banner category={"COMICS"} />
-        </>
-    )
-
-} ////////////  Main 컴포넌트 ///////////
+export function Comics() {
+  return (
+    <>
+      <h1 style={{ textAlign: "center" }}>코믹스 페이지</h1>
+      <Banner category="COMICS" />
+    </>
+  );
+} ////////////  Comics 컴포넌트 ///////////
