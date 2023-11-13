@@ -1,12 +1,14 @@
 // index.js는 public/index.html 페이지에 적용되는 컴포넌트다!->루트 컴포넌트
+
+// 메인페이지 CSS 불러오기
+import "./css/index.css";
+
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import {BrowserRouter, Route, Routes} from "react-router-dom"
-// css 도 불러온다!
-import "./css/index.css";
 import { Layout } from "./dc/layout/Layout";
 import { Main } from "./dc/contents/Main";
-import { Character } from "./dc/contents/Character";
+import { Character } from "./dc/contents/Charactor";
 import { Comics } from "./dc/contents/Comics";
 import { Movies } from "./dc/contents/Movies";
 import { Games } from "./dc/contents/Games";
@@ -35,6 +37,13 @@ import { SwiperApp } from "./dc/plugin/SwiperApp";
     4. 라우터를 구성하는 컴포넌트는 자체적으로
     내보내기 셋팅을 해야한다!
     -> export default 라우터 컴포넌트
+
+    [ 리액트 라우터 흐름 ]
+    1. index.js 에 라우터 중앙 셋팅
+    2. Layout.jsx 레이아웃 컴포넌트를 루트로 선택
+    3. 상단영역 GNB에 <Link to> 셋팅
+    4. 메인영역에 <Outlet /> 셋팅
+    
 *********************************************/
 
 // 라우터구성 컴포넌트 : 스스로 내보내기 셋팅 필수!
@@ -56,7 +65,7 @@ export default function App() {
           <Route path="games" element={<Games />} />
           <Route path="news" element={<News />} />
           <Route path="video" element={<Video />} />
-          <Route path="swiperapp" element={<SwiperApp />} />
+          <Route path="board" element={<SwiperApp />} />
         </Route>
       </Routes>
     </BrowserRouter>
