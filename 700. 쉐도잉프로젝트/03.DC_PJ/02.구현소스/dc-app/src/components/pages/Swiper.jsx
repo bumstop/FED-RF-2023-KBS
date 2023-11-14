@@ -1,4 +1,4 @@
-y// 스와이퍼페이지 메인컨텐츠
+// 스와이퍼페이지 메인컨텐츠
 
 import { Banner } from "../modules/Banner";
 
