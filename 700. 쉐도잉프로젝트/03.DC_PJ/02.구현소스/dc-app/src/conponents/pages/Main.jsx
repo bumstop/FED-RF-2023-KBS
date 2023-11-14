@@ -1,4 +1,4 @@
-import { Banner } from '../contents/Banner';
+import { Banner } from '../modules/Banner';
 
 export function Main() {
     return (
