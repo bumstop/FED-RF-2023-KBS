@@ -19,9 +19,9 @@ const A_ES = "easeInOutQuint";
 let cSts = 0;
 // (4) 슬라이드순번
 let sNum = 0;
-
 // 배너 컴포넌트 //
 export function Banner(props) {
+  
   // 슬라이드 이동구현함수
   // 이벤트 설정 및 함수 호출은 리액트 파트에서 처리함!
   // -> 그래야 다중 컴포넌트 배치시 개별화를 할 수 있다.
@@ -29,10 +29,11 @@ export function Banner(props) {
     // 1. 이벤트가 발생한 요소
     const tg = e.target;
     console.log(tg);
-
+    console.log($(".slider"))
     // 2. 대상선정
     // (1) 슬라이드 : 클릭된 버튼으로부터 잡아줌!
     const sldBox = $(tg).siblings(".slider");
+    console.log(sldBox)
     // (2) 슬라이드 블릿 : 형제요소는 .indic
     const indic = $(tg).siblings(".indic").find("li");
     // (3) 슬라이드개수

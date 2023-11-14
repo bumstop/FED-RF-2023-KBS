@@ -8,7 +8,7 @@ import { MainArea } from "./layout/MainArea";
 import { FooterArea } from "./layout/FooterArea";
 
 // Import common CSS
-import './css/common.css';
+import "./css/common.css";
 
 // 최상위 Root 컴포넌트
 function App() {
@@ -22,16 +22,18 @@ function App() {
 
   return (
     <>
-      <TopArea />
-      <button onClick={() => chgPgName("main")}>메인 페이지</button>
-      <button onClick={() => chgPgName("men")}>남성 페이지</button>
-      <button onClick={() => chgPgName("women")}>여성 페이지</button>
-      <button onClick={() => chgPgName("style")}>스타일 페이지</button>
+      <TopArea cat={pgName} />
       <MainArea page={pgName} />
       <FooterArea />
     </>
   );
 } // function App()
 
+/* 
+  <button onClick={() => chgPgName("main")}>메인 페이지</button>
+  <button onClick={() => chgPgName("men")}>남성 페이지</button>
+  <button onClick={() => chgPgName("women")}>여성 페이지</button>
+  <button onClick={() => chgPgName("style")}>스타일 페이지</button> 
+*/
 const root = createRoot(document.querySelector("#root"));
 root.render(<App />);

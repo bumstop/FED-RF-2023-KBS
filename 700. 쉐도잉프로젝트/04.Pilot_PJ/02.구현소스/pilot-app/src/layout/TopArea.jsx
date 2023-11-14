@@ -1,40 +1,45 @@
-// Pliot PJ 상단영역 공통 컴포넌트
+// Pilot PJ 상단영역 공통 컴포넌트
 
-export function TopArea() {
+// GNB 데이터 가져오기
+import { gnbData } from "../data/gnb";
+
+export function TopArea(props) {
+  // props.cat - 카테고리명(메뉴데이터 선택용)
+
+  /// GNB메뉴 리스트 만들기 함수
+  const makeList = (data) => {
+    return gnbData[data].map((v, i) => (
+      <li key={i}>
+        <a href="#">{v}</a>
+      </li>
+    ));
+  }; ///////// makeList /////////
+
   return (
     <>
-      <h1>상단영역</h1>
-      <div id="top">
-        <header class="top ibx">
+      <div id="top-area">
+        <header className="top-area ibx">
           <h1 id="logo">
             <a href="#">
               <img src="./images/main_logo.png" alt="파일럿로고" />
             </a>
           </h1>
-          <nav class="gnb">
+          <nav className="gnb">
             <ul>
-              <li class="bld">배너순번 li 숨기기</li>
-              <li>
-                <a href="#men">MEN</a>
-              </li>
-              <li>
-                <a href="#women">WOMEN</a>
-              </li>
-              <li>
-                <a href="#style">STYLE</a>
-              </li>
+              <li className="bld">배너순번 li 숨기기</li>
+              {makeList(props.cat)}
             </ul>
           </nav>
-          <div class="ham">
+          <div className="ham">
             <span></span> <span></span> <span></span>
           </div>
-          <div class="mbox">
+          <div className="mbox">
             <video
               src="images/disc2018.mp4"
               loop="loop"
               muted="muted"
-              class="bgm"></video>
-            <nav class="mlist">
+              className="bgm"></video>
+            <nav className="mlist">
               <dl>
                 <dt>
                   <a href="sub.html?cat=남성">MEN</a>
@@ -92,4 +97,4 @@ export function TopArea() {
       </div>
     </>
   );
-} // export function TopArea()
+} //////////////// TopArea 컴포넌트 //////////
