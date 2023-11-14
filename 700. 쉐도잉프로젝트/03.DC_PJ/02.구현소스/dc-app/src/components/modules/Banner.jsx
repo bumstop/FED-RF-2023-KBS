@@ -4,7 +4,7 @@
 import { banData } from "../data/banner";
 
 // 배너CSS
-import "../../../css/banner.css";
+import "../../css/banner.css";
 import { useEffect } from "react";
 // 제이쿼리 + 제이쿼리UI
 import $ from "jquery";
