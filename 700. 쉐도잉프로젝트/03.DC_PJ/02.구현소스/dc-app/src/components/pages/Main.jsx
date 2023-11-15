@@ -1,12 +1,13 @@
 import { Banner } from '../modules/Banner';
+import { SecIntro } from '../modules/SecIntro';
 
 export function Main() {
     return (
         <>
-            <h1 style={{textAlign:"center"}}>
-                메인페이지
-            </h1>
+            {/* 1. 배너 컴포넌트 */}
             <Banner category={"main" + Math.ceil(Math.random() * 3) }/>
+            {/* 2. 섹션 소개 컴포넌트 */}
+            <SecIntro />
         </>
     )
 }
