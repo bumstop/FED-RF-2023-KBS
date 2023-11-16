@@ -1,15 +1,18 @@
 // 제이쿼리로 구현한 자동페이지 휠 JS : jquery-autoScroll.js
+
+// 로딩구역없이 함수로 구현함! /////
+
+// 제이쿼리 호출
 import $ from 'jquery';
 window.jQuery = $;
 require('jquery-ui-dist/jquery-ui');
 require('jquery-ui-touch-punch/jquery.ui.touch-punch');
 
-// 로딩구역없이 함수로 구현함! /////
 
 export function autoScroll() {
   /****************************************** 
     대상 변수할당하기
-******************************************/
+  ******************************************/
   // 전체 페이지번호
   let pno = 0;
   // 페이지 요소
@@ -30,14 +33,28 @@ export function autoScroll() {
 
   /****************************************** 
     이벤트 등록하기
-******************************************/
+    ->>> 리액트에서 제이쿼리로 이벤트설정시
+    리액트와 충돌되는 문제가 생길 수 있다
+    예컨데 현재 휠이벤트는 설정되지만
+    휠델타값이 안찍힘! -> 해결은?
+    순수한 JS 로 이벤트를 설정한다!
+    왜? 제이쿼리로 이벤트를 설정하면
+    제이쿼리 나름의 객체가 생성되어 처리되므로
+    이것을 단순화하여 이벤트를 걸면 휠델타값이
+    처리된다! 
+  ******************************************/
   // 윈도우 휠이벤트 발생시
-  $(window).on("wheel", wheelFn);
+  // $(window).on("wheel", wheelFn); -> 제이쿼리 이벤트X
+  window.addEventListener('wheel',wheelFn);
 
   // 키보드 이벤트발생시 업데이트
   // 1. Page Up(33) / Up Arrow (38)
   // 2. Page Down(34) / Down Arrow (40)
   $(document).keydown((e) => {
+    // 광휠금지
+    if (prot[0]) return;
+    chkCrazy(0);
+
     // 이전페이지이동
     if (e.keyCode === 33 || e.keyCode === 38) {
       pno--;
@@ -59,17 +76,17 @@ export function autoScroll() {
     함수명: wheelFn
     기능: 마우스휠 이벤트 발생시 호출됨
     -> 한페이지씩 자동스크롤 기능
-****************************************/
+    ****************************************/
   function wheelFn(e) {
     // 광휠금지
     if (prot[0]) return;
     chkCrazy(0);
 
-    console.log("휠~~~~~~!");
+    // console.log("휠~~~~~~!");
 
     // 1.휠방향 알아내기
     let delta = e.wheelDelta;
-    console.log(delta);
+    // console.log(delta);
 
     // 2. 방향에 따른 페이지번호 증감
     if (delta < 0) {
@@ -83,14 +100,11 @@ export function autoScroll() {
       // 첫페이지번호에 고정!
     } //// else ////
 
-    console.log(pno);
+    // console.log(pno);
 
     // 3. 스크롤 이동하기 + 메뉴에 클래스"on"넣기
     movePg();
   } /////////////// wheelFn 함수 ///////////////
-
-  // 광클 초기값
-  prot[1] = 0;
 
   /******************************************** 
     함수명: chkCrazy
@@ -105,7 +119,7 @@ export function autoScroll() {
   /******************************************** 
     함수명: movePg
     기능: 페이지이동 애니메이션
-  ********************************************/
+    ********************************************/
   function movePg() {
     // 대상: html,body -> 두개를 모두 잡아야 공통적으로 적용됨!
     $("html,body")
@@ -115,19 +129,7 @@ export function autoScroll() {
           scrollTop: $(window).height() * pno + "px",
         },
         700,
-        "easeInOutQuint",
+        "easeInOutQuint"
       );
-
-    // 대상: GNB메뉴 , 인디케이터 메뉴
-    gnb.eq(pno).addClass("on").siblings().removeClass("on");
-    indic.eq(pno).addClass("on").siblings().removeClass("on");
   } ///////////////// movePg ////////////////
-
-  // 등장할 요소 초기화 /////
-  minfo.css({
-    opacity: 0,
-    transform: "translate(-50%,50%)",
-    transition: ".3s ease-out",
-  }); ///////// css //////
-
-} // function autoScroll()
+} ///////////// autoScroll 함수 //////////
