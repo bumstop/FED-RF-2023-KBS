@@ -3,7 +3,7 @@ import { secIntroData } from "../data/sec_intro";
 
 // 섹션소개모듈용 CSS 불러오기
 import "../../css/sec_intro.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // 구조정의:
 // Root > section > img Box + title Box + button Box
@@ -11,6 +11,10 @@ import { Link } from "react-router-dom";
 export function SecIntro() {
   // 선택데이터
   const selData = secIntroData;
+  // 라우터 이동객체 설정
+  const goNav = useNavigate();
+
+  // 라우터 이동함수
 
   return (
     <>
@@ -28,9 +32,10 @@ export function SecIntro() {
             </div>
             {/* 3. 버튼 박스 */}
             <div className="btnbx">
-              <Link to={v.link}>
+              <button onClick={() => goNav(v.link)}>{v.btn.toUpperCase()}</button>
+              {/* <Link to={v.link}>
                 <button>{v.btn.toUpperCase()}</button>
-              </Link>
+              </Link> */}
             </div>
           </div>
         ))}
