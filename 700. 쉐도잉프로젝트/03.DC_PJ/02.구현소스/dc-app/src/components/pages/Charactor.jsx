@@ -2,11 +2,12 @@
 
 import { Banner } from "../modules/Banner";
 
-export function Character() {
-  return (
-    <>
-      <h1 style={{ textAlign: "center" }}>캐릭터 페이지</h1>
-      <Banner category="CHARACTERS" />
-    </>
-  );
+export function Character(){
+    return(
+        <>
+            <h1 style={{textAlign:'center'}}>캐릭터 페이지</h1>
+            <Banner category="CHARACTERS" />
+        </>
+    )
+
 } ////////////  Character 컴포넌트 ///////////
