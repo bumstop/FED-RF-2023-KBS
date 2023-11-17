@@ -49,7 +49,7 @@ $(".stopPlay")
     border: "none",
     fontSize: "40px",
     display: "block",
-    width: "40px",
+    width: "55px",
     margin: "0 auto",
     cursor: "pointer",
   })

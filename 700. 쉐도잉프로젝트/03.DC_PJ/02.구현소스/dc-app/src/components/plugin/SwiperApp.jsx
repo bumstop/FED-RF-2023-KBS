@@ -29,7 +29,7 @@ export function SwiperApp() {
         border: "none",
         fontSize: "40px",
         display: "block",
-        width: "40px",
+        width: "55px",
         margin: "0 auto",
         cursor: "pointer",
       })
@@ -38,17 +38,28 @@ export function SwiperApp() {
 
   // 플레이/멈춤 기능 함수
   const stopPlay = () => {
-    console.log("0. ", sts);
-
+    // 상태값 업데이트 -> 컴포넌트 리랜더링!
     sts ? setSts(0) : setSts(1);
-    console.log("1. ", sts);
-    
     sts ? myRef.current.swiper.autoplay.stop() : myRef.current.swiper.autoplay.start();
-    console.log("2. ", sts);
+    console.log("리랜더링", myFirst, mySecond.current);
   }; // const stopPlay
+
+  // 일반 변수와 useRef사용변수의 차이
+  let myFirst = "스와이퍼";
+  const mySecond = useRef("갤러리");
+
+  // 변수값 업데이트 함수
+  const myFn = () => {
+    myFirst = "Swiper";
+    mySecond.current = "Gallery";
+    console.log("함수호출", myFirst, mySecond.current);
+  }; // const myFn
 
   return (
     <>
+      <h1>
+        {myFirst + " : " + mySecond.current}
+      </h1>
       <Swiper
         ref={myRef}
         slidesPerView={3}
@@ -70,6 +81,7 @@ export function SwiperApp() {
       <button className="stopPlay" onClick={stopPlay}>
         {sts ? "▣" : "▶"}
       </button>
+      <button style={{ display: "block", margin: "0 auto" }} onClick={myFn}>useRef 테스트</button>
     </>
   );
 }
