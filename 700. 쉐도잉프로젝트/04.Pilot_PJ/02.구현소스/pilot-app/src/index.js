@@ -1,7 +1,7 @@
 // 메인 페이지 JS - index.js
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM, { createRoot } from "react-dom/client";
-
+import $ from "jquery";
 // import layout component
 import { TopArea } from "./layout/TopArea";
 import { MainArea } from "./layout/MainArea";
@@ -19,6 +19,26 @@ function App() {
   const chgPgName = (txt) => {
     setPgName(txt);
   }; // const chgPgName
+
+  // 랜더링후 실행구역
+  useEffect(() => {
+    $(".gnb li, .indic li").on("click", function () {
+      let idx = $(this).index();
+      console.log("나야나", idx);
+
+      // 페이지이동
+      $("html, body").animate(
+        {
+          scrollTop: $(window).height() * idx + "px",
+        },
+        800,
+        "easeInOutQuint"
+      ); // animate
+      // 클릭된 메뉴에 class 'on' 넣기
+      $('.gnb li').eq(idx).addClass("on").siblings().removeClass("on");
+      $('.indic li').eq(idx).addClass("on").siblings().removeClass("on");
+    });
+  });
 
   return (
     <>
