@@ -21,6 +21,8 @@ export function MainCont() {
 
     //드래그배너 호출
     dragBanner();
+
+    return(() => console.log('소멸했어'))
   }, []); /////// useEffect ///////////
 
   return (
