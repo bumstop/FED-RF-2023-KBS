@@ -8,7 +8,6 @@ import { menu } from "../data/gnb";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-
 /******************************************************* 
   [ 리액트 라우터와 연결하여 사용되는 라우터 컴포넌트 ]
   1. <Link to="/경로명"></Link>
@@ -33,18 +32,21 @@ export function TopArea() {
             {/* 2. GNB메뉴 데이터기반으로 li태그 생성하기 */}
             {menu.map((v, i) => (
               <li key={i}>
-                <Link to={v.link}>{v.txt}</Link>
+                {
+                  // 하위메뉴가 있으면 일반a요소에 출력
+                  // 없으면 Link 라우팅 출력
+                  v.sub ? <a href="#">{v.txt}</a> : <Link to={v.link}>{v.txt}</Link>
+                }
                 {
                   // 서브메뉴 데이터가 있으면 하위 그리기
                   v.sub && (
                     <div className="smenu">
                       <ol>
-                        {
-                          v.sub.map((v,i)=>
+                        {v.sub.map((v, i) => (
                           <li key={i}>
                             <Link to={v.link}>{v.txt}</Link>
-                          </li>)
-                        }
+                          </li>
+                        ))}
                       </ol>
                     </div>
                   )
@@ -52,10 +54,10 @@ export function TopArea() {
               </li>
             ))}
             {/* 3. 검색,회원가입,로그인 링크 */}
-            <li style={{marginLeft:'auto'}}>
+            <li style={{ marginLeft: "auto" }}>
               {/* 검색기능링크 - 클릭시 검색창보이기 */}
               <a href="#">
-              <FontAwesomeIcon icon={faSearch} />
+                <FontAwesomeIcon icon={faSearch} />
               </a>
             </li>
             {/* 회원가입, 로그인은 로그인 아닌 상태일때 나옴 */}
