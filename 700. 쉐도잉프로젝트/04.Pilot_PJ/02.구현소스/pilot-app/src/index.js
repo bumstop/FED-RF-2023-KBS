@@ -1,8 +1,7 @@
 // 메인 페이지 JS - index.js
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import ReactDOM, { createRoot } from "react-dom/client";
-
-// 컨텍스트 API불러오기
+// 컨텍스트 API 불러오기
 import { pCon } from "./modules/PilotContext";
 
 import { TopArea } from "./layout/TopArea";
@@ -15,7 +14,6 @@ import "jquery-ui-dist/jquery-ui";
 
 // 페이지 공통 CSS
 import "./css/common.css";
-
 
 // 최상위 Root 컴포넌트 ///////
 function App() {
@@ -49,11 +47,18 @@ function App() {
       // play() 메서드 : 동영상 재생 메서드
       // pause() 메서드 : 동영상 정지 메서드
     }); //////// click ////////
+
+    // 랜더링구역 한번만 실행 : 옵션 []
   }, []); ////////// useEffect //////////////
+
+  // 처음 로딩시 스크롤 상단이동 //////
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }); ///// useLayoutEffect //////////
 
   // 리턴코드 //////////////////////////
   return (
-    <pCon.Provider value={{chgPgName}}>
+    <pCon.Provider value={{ pgName, chgPgName }}>
       <TopArea cat={pgName} />
       <MainArea page={pgName} />
       <FooterArea />
