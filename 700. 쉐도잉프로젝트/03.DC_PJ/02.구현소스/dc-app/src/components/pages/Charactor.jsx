@@ -6,10 +6,9 @@ import { CatList } from "../modules/CatList";
 export function Character() {
   return (
     <>
-    {/* 1. 배너 컴포넌트 */}
+      {/* 1. 배너 컴포넌트 */}
       <Banner category="CHARACTERS" />
       {/* 2.  */}
-      
       {/* 3. 캐릭터 리스트 컴포넌트 */}
       <CatList />
     </>
