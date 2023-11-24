@@ -24,6 +24,20 @@ export function SwiperApp(props) {
   const myRef = useRef(null);
   // Swiper 컴포넌트의 ref속성에 담아서 연결!!!
 
+  const makeList = (num) => {
+    let temp = [];
+
+    for (let x = 0; x < num; x++) {
+      temp[x] = (
+        <SwiperSlide>
+          <img src={"./images/sub/" + props.cat + "/banner/ban" + (x + 1) + ".png"} />
+        </SwiperSlide>
+      );
+    }
+    // 배열을 리턴
+    return temp;
+  };
+
   // 플레이/멈춤기능 함수
   const stopPlay = () => {
     console.log("멈추거나 플레이!");
@@ -67,15 +81,7 @@ export function SwiperApp(props) {
         /* 사용할 모듈을 여기에 적용시킨다 */
         modules={[Pagination, Navigation, Autoplay]}
         className="mySwiper">
-        <SwiperSlide>
-          <img src={"./images/sub/" + props.cat + "/banner/ban1.png"} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={"./images/sub/" + props.cat + "/banner/ban2.png"} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={"./images/sub/" + props.cat + "/banner/ban3.png"} />
-        </SwiperSlide>
+        {makeList(props.cat == "style" ? 5 : 3)}
       </Swiper>
       {/* 플레이/멈춤버튼 */}
       <button
