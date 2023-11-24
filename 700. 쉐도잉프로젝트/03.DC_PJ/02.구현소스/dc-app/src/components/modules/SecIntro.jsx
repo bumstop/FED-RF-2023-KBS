@@ -4,10 +4,11 @@
 import { secIntroData } from "../data/sec_intro";
 
 // 섹션소개모듈용 CSS 불러오기
-import { useContext } from "react";
-import { DcCon } from "./dcContext";
-
 import "../../css/sec_intro.css";
+
+// 컨텍스트 API를 사용하는 컴포넌트 파일에서 불러옴!
+import { dcCon } from "./dcContext";
+import { useContext } from "react";
 
 // 링크 이동을 위한 라우터 불러오기
 // import { useNavigate } from "react-router-dom";
@@ -16,17 +17,17 @@ import "../../css/sec_intro.css";
 // Root > section > img Box + title Box + button Box
 
 export function SecIntro() {
-  // 컨텍스트 API사용하기
-  const myCon = useContext(DcCon);
+  // 컨텍스트 API 사용하기
+  const myCon = useContext(dcCon);
 
   // 선택데이터
   const selData = secIntroData;
 
-  // 라우터 이동객체설정
-  // const goNav = useNavigate();
+  // 라우터 이동객체설정 -> 컨텍스트 API사용!
+  // const goNav = useNavigate(); -> 여기서 사용안함
 
-  // 라우터 이동함수
-  // const chgPage = (txt) => goNav(txt);
+  // 라우터 이동함수 -> 컨텍스트 API사용!
+  // const chgPage = (txt) => goNav(txt);  -> 여기서 사용안함
 
   return (
     <>
@@ -44,7 +45,13 @@ export function SecIntro() {
             </div>
             {/* 3. 버튼박스 */}
             <div className="btnbx">
-              <button onClick={() => myCon.chgPage(v.link)}>{v.btn.toUpperCase()}</button>
+              <button
+                onClick={() =>
+                  // 컨텍스트 API 함수호출!
+                  myCon.chgPage(v.link, {})
+                }>
+                {v.btn.toUpperCase()}
+              </button>
             </div>
           </div>
         ))}

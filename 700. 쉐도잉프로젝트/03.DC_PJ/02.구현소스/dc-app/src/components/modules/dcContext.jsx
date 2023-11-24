@@ -1,3 +1,4 @@
 import { createContext } from "react";
 
-export const DcCon = createContext();
+// DC PJ - Context API 
+export const dcCon = createContext();

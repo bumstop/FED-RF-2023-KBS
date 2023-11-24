@@ -2,7 +2,7 @@ import { TopArea } from "./TopArea";
 import { MainArea } from "./MainArea";
 import { FooterArea } from "./FooterArea";
 import { useNavigate } from "react-router-dom";
-import { DcCon } from "../modules/dcContext";
+import { dcCon } from "../modules/dcContext";
 import { useLayoutEffect } from "react";
 
 export function Layout() {
@@ -22,10 +22,10 @@ export function Layout() {
       1. chgPage 함수 : 라우터 이동가능
   **********************************************/
   return (
-    <DcCon.Provider value={{ chgPage }}>
+    <dcCon.Provider value={{ chgPage }}>
       <TopArea />
       <MainArea />
       <FooterArea />
-    </DcCon.Provider>
+    </dcCon.Provider>
   );
 } // Layout 컴포넌트
