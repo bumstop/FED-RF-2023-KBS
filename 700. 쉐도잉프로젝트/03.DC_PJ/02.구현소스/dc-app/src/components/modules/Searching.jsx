@@ -8,6 +8,7 @@ import $ from "jquery";
 // 검색모듈용 CSS 불러오기
 import "../../css/searching.css";
 import { useState } from "react";
+import { useRef } from "react";
 
 export function Searching(props) {
   // props.kword - 검색어전달
@@ -18,24 +19,42 @@ export function Searching(props) {
   // 2. 출력개수 후크 상태변수
   const [cntNum, setCntNum] = useState(0);
 
+  // 검색 케이스 구분변수 (useRef -> 값 유지!)
+  const allow = useRef();
+  // 1 - 상단검색허용 , 0 - 상단검색불허용
+
   // 검색어 업데이트 함수
   const chgKword = (txt) => setKword(txt);
 
   // 리스트 개수 출력 함수
   const chgCnt = (num) => setCntNum(num);
 
-  // 넘어온 검색어와 셋팅된 검색어가 다르면 업데이트
-  // if (props.kword != kword) chgKword(props.kword);
+  // 상단검색 초기실행 함수
+  const initFn = () => {
+    // 넘어온 검색어와 셋팅된 검색어가 다르면 업데이트
+    if (props.kword !== kword) {
+      chgKword(props.kword);
+      $("#schin").val(props.kword);
+    }
+  };
+
+  // 만약 useRef변수값이 1이면 initFn 실행
+  if (allow.current) initFn();
+  console.log("allow:", allow.current);
 
   // 검색리스트 만들기 함수
   const schList = (e) => {
-    console.log(e.currentTarget)
-    chgKword($(e.currentTarget).next().val())
+    console.log(e.currentTarget);
+    chgKword($(e.currentTarget).next().val());
   };
 
   // 엔터키 반응 함수
   const enterKey = (e) => {
-    if ((e.key === "Enter")) {
+    // 상단키워드 검색막기
+    allow.current = 0;
+    // 잠시후 상태해제
+    setTimeout(() => (allow.current = 1), 100);
+    if (e.key === "Enter") {
       const txt = $(e.target).val();
       console.log(txt);
       chgKword(txt);
@@ -71,7 +90,10 @@ export function Searching(props) {
               placeholder="Filter by Keyword"
               onKeyUp={enterKey}
               defaultValue={kword}
-              // input 요소에서 리액트 value 속성은 defaultValue를 사용한다
+              // input 요소에서 리액트 value 속성은 defaultValue를 사용한다 -> 처음 입력값
+
+              // value 속성을 쓰면 동적변경이 이뤄지고 사용자가 입력하지 못하도록
+              // readOnly속성으로 들어간다
             />
           </div>
           {/* 1-2. 체크박스구역 */}
