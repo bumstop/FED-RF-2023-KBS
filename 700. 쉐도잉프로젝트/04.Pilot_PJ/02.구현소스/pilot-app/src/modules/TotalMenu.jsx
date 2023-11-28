@@ -26,55 +26,55 @@ export function TotalMenu() {
         <nav className="mlist">
           <dl>
             <dt>
-              <a href="#" onClick={() => goPage("men")}>
+              <a href="#!" onClick={() => goPage("men")}>
                 MEN
               </a>
             </dt>
             <dd>
-              <a href="#">T-SHIRT</a>
+              <a href="#!">T-SHIRT</a>
             </dd>
             <dd>
-              <a href="#">JACKET</a>
+              <a href="#!">JACKET</a>
             </dd>
             <dd>
-              <a href="#">TRAINING WARE</a>
+              <a href="#!">TRAINING WARE</a>
             </dd>
             <dd>
-              <a href="#">BEACH WARE</a>
-            </dd>
-          </dl>
-          <dl>
-            <dt>
-              <a href="#" onClick={() => goPage("women")}>WOMEN</a>
-            </dt>
-            <dd>
-              <a href="#">T-SHIRT</a>
-            </dd>
-            <dd>
-              <a href="#">JACKET</a>
-            </dd>
-            <dd>
-              <a href="#">TRAINING WARE</a>
-            </dd>
-            <dd>
-              <a href="#">BEACH WARE</a>
+              <a href="#!">BEACH WARE</a>
             </dd>
           </dl>
           <dl>
             <dt>
-              <a href="#" onClick={() => goPage("style")}>STYLE</a>
+              <a href="#!" onClick={() => goPage("women")}>WOMEN</a>
             </dt>
             <dd>
-              <a href="#">COLLECTION</a>
+              <a href="#!">T-SHIRT</a>
             </dd>
             <dd>
-              <a href="#">SEASON AD</a>
+              <a href="#!">JACKET</a>
             </dd>
             <dd>
-              <a href="#">STAR &amp; NEWS</a>
+              <a href="#!">TRAINING WARE</a>
             </dd>
             <dd>
-              <a href="#">MAIN ITEM</a>
+              <a href="#!">BEACH WARE</a>
+            </dd>
+          </dl>
+          <dl>
+            <dt>
+              <a href="#!" onClick={() => goPage("style")}>STYLE</a>
+            </dt>
+            <dd>
+              <a href="#!">COLLECTION</a>
+            </dd>
+            <dd>
+              <a href="#!">SEASON AD</a>
+            </dd>
+            <dd>
+              <a href="#!">STAR &amp; NEWS</a>
+            </dd>
+            <dd>
+              <a href="#!">MAIN ITEM</a>
             </dd>
           </dl>
         </nav>

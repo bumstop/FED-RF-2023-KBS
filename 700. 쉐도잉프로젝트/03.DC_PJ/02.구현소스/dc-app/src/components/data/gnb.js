@@ -12,10 +12,7 @@ export const menu = [
     txt: "COMICS",
     link: "/comics",
     sub: [
-      {
-        txt: "LATEST COMICS",
-        link: "/comics",
-      },
+      { txt: "LATEST COMICS", link: "/comics" },
       {
         txt: "DC UNIVERSE INFINITE",
         link: "/comics",
