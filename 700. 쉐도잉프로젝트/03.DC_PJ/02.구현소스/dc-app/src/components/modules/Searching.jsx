@@ -4,68 +4,218 @@
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SchCatList } from "./SchCatList";
+
+// 제이쿼리
 import $ from "jquery";
+
 // 검색모듈용 CSS 불러오기
 import "../../css/searching.css";
 import { useState } from "react";
 import { useRef } from "react";
+import { useEffect } from "react";
+
+// 캐릭터 리스트 데이터 가져오기
+import { catListData } from "../data/swiper_cat";
+
+// 최초 원본 데이터 정렬변경하기(오름차순)
+// 주의사항 : 컴포넌트에 포함시키지 말것!
+// 이유는 배열의 정렬정보가 컴포넌트에 포함될경우
+// 컴포넌트 리랜더링시 초기화 되므로 정렬이 변경되지 않는다!
+// 따라서 컴포넌트 바깥쪽 위에서 정렬된 원본 배열데이터를
+// 만들어준다!
+catListData.sort((a, b) => {
+  return a.cname == b.cname ? 0 : a.cname > b.cname ? 1 : -1;
+});
+
+// console.log(catListData);
 
 export function Searching(props) {
   // props.kword - 검색어전달
   console.log("전달검색어:", props.kword);
 
-  // 1. 검색어 후크 상태변수 : 초기값은 전달된 검색어
+  ////////// 후크 상태관리 변수 ////////////
+  // 1. 검색어 후크상태변수 : 초기값은 전달된 검색어
   const [kword, setKword] = useState(props.kword);
-  // 2. 출력개수 후크 상태변수
+
+  // 2. 출력개수 후크상태변수
   const [cntNum, setCntNum] = useState(0);
 
-  // 검색 케이스 구분변수 (useRef -> 값 유지!)
-  const allow = useRef();
-  // 1 - 상단검색허용 , 0 - 상단검색불허용
+  // 3. 데이터 구성 상태변수 : [배열데이터,정렬상태]
+  const [selData, setSelData] = useState([catListData, 2]);
+  // - 정렬상태값 : 0 - 오름차순, 1 - 내림차순, 2 - 정렬전
+  // 두가지값을 같이 관리하는 이유는 데이터정렬만 변경될 경우
+  // 배열자체가 변경된 것으로 인식하지 않기때문이다!
 
-  // 검색어 업데이트 함수
+  // 4. 데이터 건수 상태변수
+  const [cnt, setCnt] = useState(catListData.length);
+
+  //////////////////////////////////////////
+
+  // 검색어 업데이트 함수 /////
   const chgKword = (txt) => setKword(txt);
 
-  // 리스트 개수 출력 함수
-  const chgCnt = (num) => setCntNum(num);
+  // 검색 케이스 구분변수(useRef->값유지!)
+  const allow = useRef(1);
+  // 1-상단검색허용 , 0-상단검색불허용
+  // useRef 변수 사용은 변수명.current
 
-  // 상단검색 초기실행 함수
+  // 폰트어썸을 참조하는 테스트용 참조변수
+  const xx = useRef(null);
+  useEffect(() => {
+    //xx가 폰트어썸 컴포넌트를 담은후!
+    console.log(xx);
+    // 테두리디자인 줘봐요!
+    xx.current.style.outline = "5px dotted orange";
+  }); //// useEffect ///
+
+  // 상단검색 초기실행함수 ///////
   const initFn = () => {
     // 넘어온 검색어와 셋팅된 검색어가 다르면 업데이트
-    if (props.kword !== kword) {
+    if (props.kword != kword) {
       chgKword(props.kword);
+      // 모듈검색 input창에 같은 값 넣어주기
       $("#schin").val(props.kword);
-    }
-  };
+      // 검색리스트 만들기 함수 호출
+      // schList();
+    } ///////// if ///////////
+  }; ///////// initFn 함수 ///////////
 
-  // 만약 useRef변수값이 1이면 initFn 실행
+  // 만약 useRef변수값이 1이면(true면) initFn실행!
   if (allow.current) initFn();
-  console.log("allow:", allow.current);
 
-  // 검색리스트 만들기 함수
+  console.log("allow값:", allow.current);
+
+  // 리스트 개수변경함수 ///////
+  const chgCnt = (num) => {
+    // 후크 상태개수변수 업데이트하기
+    setCntNum(num);
+    // $('.cntNum').text(num);
+  }; ///////// showCnt 함수 ///////
+
+  //////////////////////////
+  // 검색리스트 만들기 함수 //
+  //////////////////////////
   const schList = (e) => {
-    console.log(e.currentTarget);
-    chgKword($(e.currentTarget).next().val());
-  };
+    // 1. 검색어 읽어오기
+    let keyword = $("#schin").val();
+
+    // 2. 데이터 검색하기
+    const newList = catListData.filter((v) => {
+      if (v.cname.toLowerCase().indexOf(keyword) != -1) return true;
+    }); //////////// filter ////////////////////
+
+    console.log("검색결과:", newList);
+
+    // 3. 검색결과 리스트 업데이트하기
+    // 데이터 상태관리변수 업데이트!
+    setSelData([newList, 2]);
+    // 검색건수 상태관리변수 업데이트!
+    setCnt(newList.length);
+  }; ///////////// schList 함수 /////////////
 
   // 엔터키 반응 함수
   const enterKey = (e) => {
-    // 상단키워드 검색막기
-    allow.current = 0;
-    // 잠시후 상태해제
-    setTimeout(() => (allow.current = 1), 100);
-    if (e.key === "Enter") {
-      const txt = $(e.target).val();
-      console.log(txt);
+    // 엔터키일때만 반영함
+    if (e.key == "Enter") {
+      // 상단키워드 검색막기
+      allow.current = 0;
+      // 잠시후 상태해제(비동기)
+      setTimeout(() => (allow.current = 1), 0);
+
+      let txt = $(e.target).val();
       chgKword(txt);
+      console.log(txt, e.key);
+
+      // 검색리스트만들기 함수 호출
+      schList();
+    } /////// if //////
+  }; ////// enterKey 함수 //////
+
+  ////////////////////////
+  // 체크박스검색 함수 ////
+  ////////////////////////
+  const chkSearch = (e) => {
+    // 1. 체크박스 아이디 : 검색항목의 값(alignment)
+    const cid = e.target.id;
+
+    // 2. 체크박스 체크여부 : checked (true/false)
+    const chked = e.target.checked;
+    console.log("아이디:", cid, chked);
+
+    // 3. 기존 입력 데이터 가져오기
+    let temp = selData[0];
+
+    // 결과집합배열변수 : 최종결과배열
+    let lastList = [];
+    // 4. 체크박스 체크개수 세기 : 1개 초과시 배열합치기
+    let num = $(".chkhdn:checked").length;
+    const nowList = catListData.filter((v) => {
+      if (v.alignment === cid) return true;
+    });
+    // 5. 체크박스 체크 유무에따른 분기
+    // (1) 체크박스가 true 일때 해당 검색어로 검색
+    if (chked) {
+      // 현재데이터 변수에 담기
+     
+      // 1개 초과시 배열합치기
+      if (num > 1) {
+        lastList = [...temp, ...nowList];
+        return;
+      }
+      if (num <= 1) {
+        lastList = nowList;
+        return;
+      }
+      console.log(lastList);
+    } else {
+      console.log("지울데이터", cid);
+      // for문을 돌면서 지울 데이터를 찾는다
+      for (let i = 0; i < temp; i++) {
+        // 데이터중 alignment 항목값이 아이디명과 같은것
+        if (temp[i].alignment == cid) {
+          // temp.splice(i, 1);
+          // i--;
+          delete temp[i];
+        }
+      }
+      lastList = temp;
     }
-  };
 
-  // 체크박스검색 함수 ////////
-  const chkSearch = () => {};
+    // 5. 검색결과 리스트 업데이트하기
+    setSelData([lastList, 2]);
+    setCnt(lastList.length);
+  }; ////////////// chkSearch 함수 ///////////
 
-  // 리스트 정렬 함수 /////////
-  const sortList = () => {};
+  //////////////////////
+  // 리스트 정렬 함수 ///
+  //////////////////////
+  const sortList = (e) => {
+    // 1. 선택옵션값 : 0 - 오름차순 / 1 - 내림차순
+    const optVal = e.target.value;
+    console.log("선택옵션:", optVal);
+
+    // 2. 재정렬할 데이터를 가져온다 : selData 첫번째값
+    let temp = selData[0];
+
+    // 3. 옵션에 따른 정렬반영하기
+    temp.sort((a, b) => {
+      if (optVal == 1) {
+        // 내림차순
+        return a.cname == b.cname ? 0 : a.cname > b.cname ? -1 : 1;
+      } ////// if ////
+      else if (optVal == 0) {
+        // 오름차순
+        return a.cname == b.cname ? 0 : a.cname > b.cname ? 1 : -1;
+      } ////// else if ////
+    }); /////// sort /////////
+
+    console.log("정렬후:", temp, optVal);
+
+    // 4. 데이터 정렬후 정렬변경 반영하기
+    // -> 데이터 변경만 하면 정렬이 반영안됨!
+    // setSelData([배열데이터,정렬상태값])
+    setSelData([temp, Number(optVal)]);
+  }; ////////////// sortList 함수 //////////
 
   // 리턴 코드 ////////////////////////
   return (
@@ -82,6 +232,7 @@ export function Searching(props) {
               className="schbtn"
               title="Open search"
               onClick={schList}
+              ref={xx}
             />
             {/* 입력창 */}
             <input
@@ -90,10 +241,12 @@ export function Searching(props) {
               placeholder="Filter by Keyword"
               onKeyUp={enterKey}
               defaultValue={kword}
-              // input 요소에서 리액트 value 속성은 defaultValue를 사용한다 -> 처음 입력값
-
-              // value 속성을 쓰면 동적변경이 이뤄지고 사용자가 입력하지 못하도록
-              // readOnly속성으로 들어간다
+              /* input요소에서 리액트 value속성은 
+              defaultValue를 사용한다! -> 처음입력값 
+              _________________________________
+              value속성을 쓰면 동적변경이 이루어지고
+              사용자가 입력하지 못하도록 readOnly(읽기전용)
+              설정이 되어 있어야한다! */
             />
           </div>
           {/* 1-2. 체크박스구역 */}
@@ -151,7 +304,7 @@ export function Searching(props) {
         {/* 2. 결과리스트박스 */}
         <div className="listbx">
           {/* 2-1. 결과 타이틀 */}
-          <h2 className="restit">BROWSE CHARACTERS ({cntNum})</h2>
+          <h2 className="restit">BROWSE CHARACTERS ({cnt})</h2>
           {/* 2-2. 정렬선택박스 */}
           <aside className="sortbx">
             <select name="sel" id="sel" className="sel" onChange={sortList}>
@@ -159,8 +312,9 @@ export function Searching(props) {
               <option value="1">Z-A</option>
             </select>
           </aside>
-          {/* 2-3. 캐릭터 리스트 컴포넌트 */}
-          <SchCatList word={kword} chgCntFn={chgCnt} />
+          {/* 2-3. 캐릭터 리스트 컴포넌트 : 
+            데이터 상태변수 중 첫번째값만 보냄 */}
+          <SchCatList dt={selData[0]} total={cnt} />
         </div>
       </section>
     </>
