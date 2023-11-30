@@ -1,6 +1,6 @@
 // 신상품 컴포넌트 ////////
 
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import $ from "jquery";
 
 import { sinsangData } from "../data/sinsang";
@@ -9,7 +9,6 @@ export function SinSang(props) {
   // props.cat - 카테고리 분류명
 
   const selData = sinsangData[props.cat];
-
   const makeList = () => {
     // 코드 담을 배열
     let temp = [];
@@ -21,7 +20,12 @@ export function SinSang(props) {
           key={x}
           onMouseEnter={shwoInfo}
           onMouseLeave={removeInfo}>
-          <a href="#">
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              props.chgItemFn("m" + (x + 1));
+            }}>
             <img
               src={"./images/goods/" + props.cat + "/m" + (x + 1) + ".png"}
               alt="신상품"
