@@ -1,6 +1,7 @@
 // 상품상세보기 컴포넌트
 
 // 신상품 데이터 가져오기
+import { useEffect } from "react";
 import { sinsangData } from "../data/sinsang";
 
 import $ from "jquery";
@@ -18,8 +19,29 @@ export function ItemDetail({ cat, goods }) {
   // 닫기 함수 ////
   const closeBox = (e) => {
     e.preventDefault();
-    $(".cbtn").slideUp(400);
+    $(".bgbx").slideUp(400);
   };
+
+  // 렌더링 후 실행구역
+  useEffect(() => {
+    const sum = $("#sum");
+    const numBtn = $(".chg_num img");
+    
+    numBtn.click((e) => {
+      let seq = $(e.currentTarget).index();
+      let num = Number(sum.val());
+      seq ? num-- : num++;
+      if (num < 1) num = 1;
+      console.log("순번:", seq, num);
+      sum.val(num);
+      $('#total').text((selData[2] * num).toLocaleString() + "원")
+     
+    });
+  }, []);
+  // 리랜더링 실행구역
+  useEffect(() => {
+    $("#sum").val(1);
+  })
 
   // 리턴코드 ///////////////////////////
   return (
@@ -58,7 +80,7 @@ export function ItemDetail({ cat, goods }) {
                 </li>
                 <li>
                   <span>판매가</span>
-                  <span id="gprice">{selData[2]}</span>
+                  <span id="gprice">{Number(selData[2]).toLocaleString() + "원"}</span>
                 </li>
                 <li>
                   <span>적립금</span>
@@ -100,7 +122,7 @@ export function ItemDetail({ cat, goods }) {
                   <span>권장계절</span> <span>여름</span>
                 </li>
                 <li className="tot">
-                  <span>총합계</span> <span id="total">13,000</span>
+                  <span>총합계</span> <span id="total">{Number(selData[2]).toLocaleString() + "원"}</span>
                 </li>
               </ol>
             </div>

@@ -31,7 +31,7 @@ export function Fashion(props) {
     $("#logo a").click(() => myCon.chgPgName("main"));
 
     // 상품상세보기 박스 처음에 숨기기
-    // $(".bgbx").hide();
+    $(".bgbx").hide();
   }, []); ///////// useEffect ///////////
 
   // 후크 상태변수

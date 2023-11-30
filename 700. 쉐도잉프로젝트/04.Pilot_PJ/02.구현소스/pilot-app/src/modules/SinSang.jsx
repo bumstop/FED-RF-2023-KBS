@@ -51,7 +51,7 @@ export function SinSang(props) {
       .html(selData[gKey].split("^").map((v) => `<div>${v}</div>`))
       .animate(
         {
-          top: "90%",
+          top: "110%",
           opacity: 1,
         },
         300
