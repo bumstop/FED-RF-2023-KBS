@@ -63,7 +63,7 @@ export const TopArea = memo(({ chgPageFn }) => {
 
   // 2. 입력창에 엔터키를 누르면 검색함수 호출!
   const enterKey = (e) => {
-    // console.log(e.target);
+    console.log(e);
     // 엔터키는 'Enter'문자열을 리턴함!
     if (e.key === "Enter") {
       // 입력창의 입력값 읽어오기 : val() 사용!
