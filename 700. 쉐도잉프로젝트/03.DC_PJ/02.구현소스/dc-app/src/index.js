@@ -55,6 +55,7 @@ import { Member } from "./components/pages/Member";
 // 출력해야하기 때문에 스스로 내보내기를 셋팅해야하는 것!
 export default function App() {
   return (
+    // "homepage": "https://bumstop.github.io/kbx-dc-pj/",
     // basename속성은 package.json의 "homepage" 속성값을 읽어옴
     // <BrowserRouter basename={process.env.PUBLIC_URL}>
     // <BrowserRouter>
