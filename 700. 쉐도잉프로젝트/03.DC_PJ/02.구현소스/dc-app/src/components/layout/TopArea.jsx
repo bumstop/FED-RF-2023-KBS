@@ -13,7 +13,7 @@ import $ from "jquery";
 // 폰트어썸 불러오기
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { memo, useContext, useState } from "react";
+import { memo, useContext, useEffect, useState } from "react";
 
 /******************************************************* 
   [ 리액트 라우터와 연결하여 사용되는 라우터 컴포넌트 ]
@@ -64,6 +64,8 @@ export const TopArea = memo(({ chgPageFn, logSts, logMsg, logOut }) => {
     // console.log(e.target);
     // 엔터키는 'Enter'문자열을 리턴함!
     if (e.key === "Enter") {
+      // 모바일에서 열린 메뉴창 닫기
+      $(".top-area").removeClass("on");
       // 입력창의 입력값 읽어오기 : val() 사용!
       let txt = $(e.target).val().trim();
       console.log(txt);
@@ -84,6 +86,20 @@ export const TopArea = memo(({ chgPageFn, logSts, logMsg, logOut }) => {
     // 라우터 이동함수로 이동하기 : 컨텍스트 API 사용
     chgPageFn("/schpage", { state: { keyword: txt } });
   }; //////////// goSearch 함수 /////////////
+
+  // 햄버거용 함수 : 전체메뉴 보이기
+  const showMenu = () => $(".top-area").toggleClass("on");
+
+  // 랜더링후 실행구역 ///////////////
+  useEffect(() => {
+    // GNB a요소 클릭시 전체메뉴 닫기
+    // 대상: .gnb a[href!='#']
+    // -> href가 '#'이 아닌 gnb 하위 모든 a요소
+    // -> != 은 제이쿼리전용!
+    $(".gnb a[href!='#']").on("click", () => {
+      $(".top-area").removeClass("on");
+    }); /////////// click //////////
+  }); ///////// useEffect /////////
 
   // 리턴코드 ///////////////////////////
   return (
@@ -124,7 +140,11 @@ export const TopArea = memo(({ chgPageFn, logSts, logMsg, logOut }) => {
               </li>
             ))}
             {/* 3. 검색,회원가입,로그인 링크 */}
-            <li style={{ marginLeft: "auto" }}>
+            <li
+              style={{
+                marginLeft: "auto",
+                marginRight: "25px",
+              }}>
               {/* 검색입력박스 */}
               <div className="searchingGnb">
                 {/* 검색버튼 돋보기 아이콘 */}
@@ -174,9 +194,9 @@ export const TopArea = memo(({ chgPageFn, logSts, logMsg, logOut }) => {
               )
             }
           </ul>
-          {/* 모바일용 햄버거 버튼 */}
-          <button className="hambtn"></button>
         </nav>
+        {/* 모바일용 햄버거 버튼 */}
+        <button className="hambtn" onClick={showMenu}></button>
       </header>
     </>
   );
