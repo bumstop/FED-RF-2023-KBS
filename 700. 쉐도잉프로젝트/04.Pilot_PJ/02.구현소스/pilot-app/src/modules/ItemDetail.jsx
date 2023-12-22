@@ -15,7 +15,6 @@ export function ItemDetail({ cat, goods }) {
   // 컨텍스트 API 사용하기
   const myCon = useContext(pCon);
 
-  
   //////////////////////////////////////
   // 카트에 담기 버튼 클릭시 호출함수 ////
   /////////////////////////////////////
@@ -24,7 +23,6 @@ export function ItemDetail({ cat, goods }) {
     // 카트 컴포넌트와 공유한 useRef 참조변수인 flag값을
     // true로 업데이트 한다!!!
     myCon.flag.current = true;
-
 
     // 1.선택된 상품을 로컬스토리지에 담기!
     /* 데이터 구성:
@@ -53,24 +51,23 @@ export function ItemDetail({ cat, goods }) {
       localD.push(selData);
       localStorage.setItem("cart", JSON.stringify(localD));
 
-      // localD변수에 담긴 로컬스 변환값을 
-        // transData에 담아
-        // CartList 컴포넌트에 전달한다!
-        myCon.setTransData(localD);
+      // localD변수에 담긴 로컬스 변환값을
+      // transData에 담아
+      // CartList 컴포넌트에 전달한다!
+      myCon.setTransData(localD);
 
-        console.log(myCon.transData);
+      console.log(myCon.transData);
 
-        myCon.setCsts(1);
+      myCon.setCsts(1);
 
-        // 쇼핑카트버튼 초기화
-        $("#mycart")
-          .removeClass("on")
-          .delay(1000)
-          .fadeIn(300, function () {
-            // 페이드 애니후
-            $(this).addClass("on");
-          }); ////// fadeIn ////////
-
+      // 쇼핑카트버튼 초기화
+      $("#mycart")
+        .removeClass("on")
+        .delay(1000)
+        .fadeIn(300, function () {
+          // 페이드 애니후
+          $(this).addClass("on");
+        }); ////// fadeIn ////////
     } ///// if //////
     // (2) 기존 카트 로컬스가 있는 경우 기존값에 더하기
     else {
@@ -94,13 +91,12 @@ export function ItemDetail({ cat, goods }) {
 
       // **** 새로운 아이템만 등록! **** ///
       else {
-        
         // 객체변환 데이터에 push로 추가!
         localD.push(selData);
         // // 다시 문자형변환하여 넣기
         localStorage.setItem("cart", JSON.stringify(localD));
 
-        // localD변수에 담긴 로컬스 변환값을 
+        // localD변수에 담긴 로컬스 변환값을
         // transData에 담아
         // CartList 컴포넌트에 전달한다!
         myCon.setTransData(localD);
@@ -174,8 +170,6 @@ export function ItemDetail({ cat, goods }) {
       // 출력박스 : #total
       $("#total").text(addComma(ginfo[3] * num) + "원");
     });
-
-    
   }, []); ////  한번만 실행 /////
 
   // 리랜더링 실행구역 /////
@@ -288,8 +282,6 @@ export function ItemDetail({ cat, goods }) {
           </section>
         </div>
       </div>
-
-     
     </>
   );
 } /////////// ItemDetail 컴포넌트 ///////////

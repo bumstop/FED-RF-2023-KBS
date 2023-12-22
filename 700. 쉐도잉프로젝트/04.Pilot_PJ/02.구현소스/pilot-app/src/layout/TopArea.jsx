@@ -9,12 +9,18 @@ export function TopArea(props) {
 
   /// GNB메뉴 리스트 만들기 함수
   const makeList = (data) => {
-    return gnbData[data].map((v, i) => (
-      <li key={i}>
-        <a href="#">{v}</a>
-      </li>
-    ));
+    console.log('GNB리스트:',data);
+    return(
+      gnbData[data].map((v,i)=>
+        <li key={i}>
+          <a href="#">{v}</a>
+        </li>
+      )
+    )
+
   }; ///////// makeList /////////
+
+
 
   return (
     <>
