@@ -4,27 +4,27 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <!-- 
-            [ 뷰포트(viewport)란? ]
-            - 모바일 기기에서 볼때 모바일 기기의 랜더링 화면사이즈를
-            일반적인 물리적 크기의 픽셀로 변환해 주는 메타태그임
-            - 미디어쿼리를 사용하는 웹 페이지에서 필수!!!
+        [ 뷰포트(viewport)란? ]
+        - 모바일 기기에서 볼때 모바일 기기의 랜더링 화면사이즈를
+        일반적인 물리적 크기의 픽셀로 변환해 주는 메타태그임
+        - 미디어쿼리를 사용하는 웹 페이지에서 필수!!!
 
-            mata  요소 속성 name="viewport" 로 설정
-            content 속성에
-            1) width=device-width 
-                : 가로픽셀크기를 디바이스 물리적크기와 일치시킴
-            2) initial-scale=1.0
-                : 물리적크기를 그대로 쓸때 1.0을 사용
-                (1보다 작게하면 축소, 1보다 크게하면 확대)
+        mata  요소 속성 name="viewport" 로 설정
+        content 속성에
+        1) width=device-width 
+            : 가로픽셀크기를 디바이스 물리적크기와 일치시킴
+        2) initial-scale=1.0
+            : 물리적크기를 그대로 쓸때 1.0을 사용
+            (1보다 작게하면 축소, 1보다 크게하면 확대)
 
-            예) 아이폰 6플러스의 물리적 가로크기는 414px인데
-                디스플레이할때는 1080px로 보여진다!
-                이때 viewport를 쓰면 414px로 변환해서 보여준다!
-        -->
+        예) 아이폰 6플러스의 물리적 가로크기는 414px인데
+            디스플레이할때는 1080px로 보여진다!
+            이때 viewport를 쓰면 414px로 변환해서 보여준다!
+     -->
         <title>미디어쿼리 기본개념 연습</title>
         <style>
             /* 
-                [ 미디어쿼리(Media Query)란? ]
+            [ 미디어쿼리(Media Query)란? ]
 
                 - 디바이스의 가로 사이즈에 대해 계속된
                 질의(Query)를 브라우저에 함으로써 사이즈
@@ -125,8 +125,8 @@
                     <link rel="stylesheet" href="일반CSS">
                     <link rel="stylesheet" href="미디어쿼리CSS">
                 </head>
-            */
 
+        */
             /* 초기화 */
             html,
             body {
@@ -203,16 +203,16 @@
 
             /* 1200px 이하 미디어쿼리 시작 */
             @media screen and (max-width: 1200px) {
-                /* 1. 타이틀 변경 */
+                /* 1. 타이틀 변경하기 */
                 .tit::after {
-                    content: '최대 1200px이하';
-                    color: pink;        
+                    content: "최대 1200px이하";
+                    color: pink;
                 }
-                /* 3. 이미지 숨기기 */
-                .screen img:nth-child(1) {
+                /* 2. 기존이미지 숨기기 */
+                .screen img:first-child {
                     display: none;
                 }
-                /* 3. 다음이미지 보기 */
+                /* 3. 다음이미지 보이기 */
                 .screen img:nth-child(2) {
                     display: inline;
                 }
@@ -221,16 +221,16 @@
 
             /* 1100px 이하 미디어쿼리 시작 */
             @media screen and (max-width: 1100px) {
-                /* 1. 타이틀 변경 */
+                /* 1. 타이틀 변경하기 */
                 .tit::after {
-                    content: '최대 1100px이하';
-                    color: pink;        
+                    content: "최대 1100px이하";
+                    color: lime;
                 }
-                /* 3. 이미지 숨기기 */
+                /* 2. 기존이미지 숨기기 */
                 .screen img:nth-child(2) {
                     display: none;
                 }
-                /* 3. 다음이미지 보기 */
+                /* 3. 다음이미지 보이기 */
                 .screen img:nth-child(3) {
                     display: inline;
                 }
@@ -239,16 +239,16 @@
 
             /* 1000px 이하 미디어쿼리 시작 */
             @media screen and (max-width: 1000px) {
-                /* 1. 타이틀 변경 */
+                /* 1. 타이틀 변경하기 */
                 .tit::after {
-                    content: '최대 1000px이하';
-                    color: pink;        
+                    content: "최대 1000px이하";
+                    color: darkmagenta;
                 }
-                /* 3. 이미지 숨기기 */
+                /* 2. 기존이미지 숨기기 */
                 .screen img:nth-child(3) {
                     display: none;
                 }
-                /* 3. 다음이미지 보기 */
+                /* 3. 다음이미지 보이기 */
                 .screen img:nth-child(4) {
                     display: inline;
                 }
@@ -257,16 +257,16 @@
 
             /* 900px 이하 미디어쿼리 시작 */
             @media screen and (max-width: 900px) {
-                /* 1. 타이틀 변경 */
+                /* 1. 타이틀 변경하기 */
                 .tit::after {
-                    content: '최대 900px이하';
-                    color: pink;        
+                    content: "최대 900px이하";
+                    color: darkorange;
                 }
-                /* 3. 이미지 숨기기 */
+                /* 2. 기존이미지 숨기기 */
                 .screen img:nth-child(4) {
                     display: none;
                 }
-                /* 3. 다음이미지 보기 */
+                /* 3. 다음이미지 보이기 */
                 .screen img:nth-child(5) {
                     display: inline;
                 }
@@ -275,16 +275,16 @@
 
             /* 850px 이하 미디어쿼리 시작 */
             @media screen and (max-width: 850px) {
-                /* 1. 타이틀 변경 */
+                /* 1. 타이틀 변경하기 */
                 .tit::after {
-                    content: '최대 850px이하';
-                    color: pink;        
+                    content: "최대 850px이하";
+                    color: darkseagreen;
                 }
-                /* 3. 이미지 숨기기 */
+                /* 2. 기존이미지 숨기기 */
                 .screen img:nth-child(5) {
                     display: none;
                 }
-                /* 3. 다음이미지 보기 */
+                /* 3. 다음이미지 보이기 */
                 .screen img:nth-child(6) {
                     display: inline;
                 }
@@ -293,16 +293,16 @@
 
             /* 830px 이하 미디어쿼리 시작 */
             @media screen and (max-width: 830px) {
-                /* 1. 타이틀 변경 */
+                /* 1. 타이틀 변경하기 */
                 .tit::after {
-                    content: '최대 830px이하';
-                    color: pink;        
+                    content: "최대 830px이하";
+                    color: darkkhaki;
                 }
-                /* 3. 이미지 숨기기 */
+                /* 2. 기존이미지 숨기기 */
                 .screen img:nth-child(6) {
                     display: none;
                 }
-                /* 3. 다음이미지 보기 */
+                /* 3. 다음이미지 보이기 */
                 .screen img:nth-child(7) {
                     display: inline;
                 }
@@ -311,16 +311,16 @@
 
             /* 810px 이하 미디어쿼리 시작 */
             @media screen and (max-width: 810px) {
-                /* 1. 타이틀 변경 */
+                /* 1. 타이틀 변경하기 */
                 .tit::after {
-                    content: '최대 810px이하';
-                    color: pink;        
+                    content: "최대 810px이하";
+                    color: darkred;
                 }
-                /* 3. 이미지 숨기기 */
+                /* 2. 기존이미지 숨기기 */
                 .screen img:nth-child(7) {
                     display: none;
                 }
-                /* 3. 다음이미지 보기 */
+                /* 3. 다음이미지 보이기 */
                 .screen img:nth-child(8) {
                     display: inline;
                 }
@@ -329,16 +329,16 @@
 
             /* 790px 이하 미디어쿼리 시작 */
             @media screen and (max-width: 790px) {
-                /* 1. 타이틀 변경 */
+                /* 1. 타이틀 변경하기 */
                 .tit::after {
-                    content: '최대 790px이하';
-                    color: pink;        
+                    content: "최대 790px이하";
+                    color: lawngreen;
                 }
-                /* 3. 이미지 숨기기 */
+                /* 2. 기존이미지 숨기기 */
                 .screen img:nth-child(8) {
                     display: none;
                 }
-                /* 3. 다음이미지 보기 */
+                /* 3. 다음이미지 보이기 */
                 .screen img:nth-child(9) {
                     display: inline;
                 }
@@ -347,16 +347,16 @@
 
             /* 770px 이하 미디어쿼리 시작 */
             @media screen and (max-width: 770px) {
-                /* 1. 타이틀 변경 */
-                .tit::after { 
-                    content: '최대 770px이하';
-                    color: darkorange;        
+                /* 1. 타이틀 변경하기 */
+                .tit::after {
+                    content: "최대 770px이하";
+                    color: darkgoldenrod;
                 }
-                /* 3. 이미지 숨기기 */
+                /* 2. 기존이미지 숨기기 */
                 .screen img:nth-child(9) {
                     display: none;
                 }
-                /* 3. 다음이미지 보기 */
+                /* 3. 다음이미지 보이기 */
                 .screen img:nth-child(10) {
                     display: inline;
                 }
@@ -377,37 +377,38 @@
 
             /* 세로모드 시작 */
             @media screen and (orientation: portrait) and (max-width: 1000px) {
-                /* tv 화면 박스 배경변경 */
+                /* tv화면 박스 배경변경 */
                 .bx {
                     background-position-y: top;
                     background-size: auto 60%;
                 }
-                /* 스크린 위치 변경 */
+                /* 스크린 위치변경 */
                 .screen {
                     top: 130px;
                 }
             }
-
             /* 세로모드 끝 */
 
             /* 가로모드 시작 */
-            @media screen and (orientation: landscape) and (max-width: 1000px) {
-                /* 타이틀 위치 변경 */
-                .tit{
+            @media screen and 
+            (orientation: landscape) and (max-width: 1000px) {
+                /* 타이틀 */
+                .tit {
                     text-align: left;
-                    text-indent: 15px;  
+                    text-indent: 15px;
                 }
-                /* tv 화면 박스 배경변경 */
+                /* tv화면 박스 배경변경 */
                 .bx {
                     background-position: center -11%;
                     background-size: auto 54%;
                 }
-                /* 스크린 위치 변경 */
+                /* 스크린 위치변경 */
                 .screen {
                     top: 25%;
+                    transform: translateX(-57%);
                 }
             }
-            
+
             /* 가로모드 끝 */
         </style>
     </head>

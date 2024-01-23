@@ -52,35 +52,50 @@
 
              */
         /* h2요소 맨앞에 이미지 넣기 */
-        /* 이미지는 원본 그대로 사용해야함
-        가로,세로 크기를 변경하고 싶으면 박스로 만들고 배경이미지로 처리해야함 */
-        h2::before {
+       h2::before{
             content: url(./imgs/blogo.png);
-            margin-right: 20px;/* 마진적용 */
-            vertical-align: middle;/* 인라인 요소간 세로정렬 */
-        }
+            width: 20px;
+            height: 10px;
+
+            /* 이미지는 원본 그대로 사용해야함
+            가로,세로 크기를 변경하고 싶으면
+            박스로 만들고 배경이미지로 처리함! */
+
+            /* 마진적용 */
+            margin-right: 20px;
+            /* 인라인요소간 세로정렬 */
+            vertical-align: top;
+       }
         
 
         /* 맨뒤 추가요소 ::after */
-        h2::after {
-            content:'';
-            /* content를 쓰는 순간 span요소를 쓴것 같고
-            display: block 하면 div를 쓴것 같다.
-            다른 display로 변경 가능하다. */
+        h2::after{
+            content: '';
+            /* content를 쓰는 순간 span요소를
+            쓴것 같고 display:block하면
+            div를 쓴것 같다. 다른 display로 변경
+            가능하다~! */
             display: inline-block;
             width: 40px;
             height: 60px;
             /* background-color: red; */
-            background: url(./imgs/bg_logo_a_01.png) no-repeat center/80%;
+            background: 
+            url(./imgs/bg_logo_a_01.png) no-repeat center/80%;
+
             border: 2px solid gray;
             border-radius: 5px;
-            box-shadow: 0 0 10px purple,
-                        10px 10px 5px 2px #00000070;
+
+            box-shadow: 
+            0 0 10px purple,
+            /* 10px 10px 5px 2px rgba(0, 0, 0, 0.292); */
+            10px 10px 5px 2px rgba(0 0 0 / 40%);
+
             /* 인라인요소간 세로정렬 */
             vertical-align: middle;
-            /* 왼쪽마진 */
+            /* 왼쪽마진 ml */
             margin-left: 20px;
         }
+        
         
 
 
@@ -99,40 +114,40 @@
         }
 
         /* 반복되는 요소의 앞에 아이콘 가상요소로 넣기 */
-        
+        dt::before{
+            content: '🎪★';
+            font-size: 30px;
+            vertical-align: 2px;
+            color: red;
+        }
         
 
         /* dd전체 before적용하기 */
-        dt::before {
-            content:'🌻';
-            margin-right: 10px;
-        }
         dd::before {
-            content:'🎉';
+            content: '😍';
             margin-right: 10px;
-            
-        }
+        }        
+
 
         /* 출연배우의 dd부터 아이콘변경 */
-        dt:nth-of-type(2) ~ dd:before {
-            content:'🎊';
-            margin-right: 10px;
+        dt:nth-of-type(2) ~ dd::before{
+            content: '🍓';
         }
         
         /* 아티스트의 dd부터 아이콘변경 */
-        dt:nth-of-type(3) ~ dd:before {
-            content:'✨';
-            margin-right: 10px;
+        dt:nth-of-type(3) ~ dd::before{
+            content: '📀';
         }
 
         /* 스토리의 dd는 가상요소 없애기 */
-        dd.story::before {
+        dd.story::before{
             display: none;
         }
         
         /* 스토리의 dd 아래 h3 이모지넣기 */
-        dd.story h3::before {
-            content:'📽';
+        dd.story h3::before{
+            content: '🎥';
+            margin-right: 20px;
         }
         
         
@@ -141,10 +156,12 @@
         .story p:nth-of-type(1)::first-letter {
             font-size: 50px;
             color: hotpink;
+            font-weight: bold;
         }
         
+        
         /* .story의 첫번째 p태그의 첫번째줄 디자인 변경하기 */
-        .story p:nth-of-type(1)::first-line {
+        .story p:nth-of-type(1)::first-line{
             color: blue;
         }
         
@@ -153,24 +170,25 @@
 
         /* 두번째 p태그는 태그로 
         첫번째 글자(b태그), 첫번째 줄(span)변경 */
-        .story p:nth-of-type(2) b {
+        .story p:nth-of-type(2) b{
             font-size: 50px;
             color: hotpink;
         }
-        .story p:nth-of-type(2) span {
+        .story p:nth-of-type(2) span{
             color: blue;
         }
+        
 
         
 
         /* 기타 가상요소 ::selection */
         /* 드래그 선택시 글자색 배경색 설정변경! */
-        /* p::selection { */
-        ::selection {
+        /* p::selection{ */
+        ::selection{
             color: lime;
             background-color: darkblue;
         }
-       
+        
         /* ::selection만쓰면 전체가 다 적용됨! 
         특정선택자::selection 으로 쓰면 자식태그로 싸지 않은 글자만 적용됨!*/
     </style>

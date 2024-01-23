@@ -7,8 +7,8 @@ import mySlider from "./mySlider.js";
 // 현재슬라이드 3군데 모두 적용하기
 
 // 제이쿼리 버전
-$(".slider").each((idx, ele) => {
-  mySlider(ele);
+$(".slider").each((idx,ele)=>{
+    mySlider(ele);
 }); ////////// each ////////////
 
 // mySlider($(".slider").eq(0))

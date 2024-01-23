@@ -9,10 +9,15 @@ import dFn from "./dom.js";
 // import { mTitle, sTitle, personInfo, mvData } from './text_data.js';
 // 별칭으로 받기 { 원래변수 as 별칭 }
 // -> 별칭을 썼으면 별칭으롤 사용해야함!
-import { mTitle as mTit, sTitle as sTit, personInfo as pInfo, mvData as mv } from "./text_data.js";
+import {
+  mTitle as mTit,
+  sTitle as sTit,
+  personInfo as pInfo,
+  mvData as mv,
+} from "./text_data.js";
 
 // 메시지 구성함수
-import msgFn from "./msg_format.js";
+import msgFn from './msg_format.js';
 // import {message as msgFn} from './msg_format.js';
 // default로 내보낸것은 {변수} 형식으로 받을 수 없다!
 
@@ -52,11 +57,11 @@ console.log(msgFn);
 
 // 1. 대상선정 : 출력박스
 // (1) 타이틀 출력박스
-const titBox = dFn.qs(".tpart");
+const titBox = dFn.qs('.tpart');
 // (2) 내용출력박스
-const contBox = dFn.qs("#demo");
+const contBox = dFn.qs('#demo');
 // (3) 영화정보 출력박스
-const mvBox = dFn.qs(".mvpart");
+const mvBox = dFn.qs('.mvpart');
 
 // 2. 변경 적용하기
 // (1) 타이틀 출력하기 : 큰제목+작은제목
@@ -65,17 +70,17 @@ titBox.innerHTML = `
     <h3>${sTit}</h3>
 `;
 // (2) 내용 넣기 : 이름과 나이를 소개하는 메시지 넣기
-contBox.innerHTML = msgFn("공유", 45);
-contBox.innerHTML += msgFn("톰행크스", 59);
-contBox.innerHTML += msgFn("졸리", 48);
+contBox.innerHTML = msgFn('공유',45);
+contBox.innerHTML += msgFn('톰행크스',59);
+contBox.innerHTML += msgFn('졸리',48);
 // 이름과 나이가 셋팅된 배열데이터를 이용하여 출력하기
-pInfo.forEach((val) => (contBox.innerHTML += msgFn(val[0], val[1])));
+pInfo.forEach(val=>contBox.innerHTML+=msgFn(val[0],val[1]));
 
 // (3) 영화정보 뿌리기
 // ol>li 형식으로 .mvpart 박스에 영화정보를 구성함
 // 데이터는 mv변수
-mvBox.innerHTML = "<h2>♥ 영화위시리스트 ♥</h2>";
-mv.forEach((val) => {
+mvBox.innerHTML = '<h2>♥ 영화위시리스트 ♥</h2>';
+mv.forEach(val=>{
     mvBox.innerHTML += `
         <ol>
             <li>★제목 : ${val[0]}</li>

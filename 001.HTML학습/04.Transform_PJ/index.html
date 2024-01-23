@@ -75,8 +75,11 @@
                 채도 등 출력 이미지를 변경하고자 할때
                 사용하는 속성
                 (참고) 
-                https://www.w3schools.com/cssref/playit.php?filename=playcss_filter&preval=blur(5px)*/
+                https://www.w3schools.com/cssref/playit.php?filename=playcss_filter&preval=blur(5px)
+                
+                */
                 filter: grayscale(100%);
+                
             }
 
             /* 
@@ -87,13 +90,14 @@
                 /* 트랜스폼 X축회전 : tfrx */
                 transform: rotateX(180deg);
                 /* 필터 흐림효과 */
-                filter: blur(1px);
+                filter: blur(2px);
             }
             #trans2:hover img {
                 /* 트랜스폼 X축회전 : tfrx */
-                transform: rotateX(360deg);
+                transform: rotateX(0deg);
                 /* 흐림 복원 */
-                filter: none;
+                filter: blur(0);
+                
             }
 
             /* 
@@ -106,7 +110,7 @@
             */
             #trans3:hover img {
                 /* 트랜스폼 X축 위치이동 tftx */
-                transform: translateX(-100px);
+                transform: translateX(-50%);
             }
             /* 
                 4. translateY(거리) - Y축이동
@@ -143,12 +147,13 @@
             */
             #trans6:hover img {
                 /* 평면회전 tfr */
-                transform: rotate(8700deg);
+                transform: rotate(8756deg);
                 /* 트랜지션 시간 늘리기 */
                 transition-duration: 20s;
-                /* 
+                /*******************************
                 transition: 속시이지
                 개별 설정이 가능함!
+
                 1. 속성 : 
                     transition-property
                 2. 시간 :
@@ -157,12 +162,12 @@
                     transition-timing-function
                 4. 지연시간 :
                     transition-delay
-
-                */
+                *******************************/
             }
 
             /* 회전축 변경하기 */
             #trans6 img {
+                /* transform-origin: right bottom; */
                 transform-origin: 20% 30%;
                 /* 
                 [ 트랜스폼 회전축 변경속성 ]
@@ -179,7 +184,7 @@
                 - 각도가 양수/음수에 따라 기울임 방향이 달라짐
             */
             #trans7:hover img {
-                transform: skew(0, 30deg);
+                transform: skewY(30deg);
             }
 
             /* 
@@ -193,11 +198,12 @@
             */
             #trans8:hover img {
                 /* 트랜스폼 스케일 tf:s */
-                transform: scale(1.1);
+                transform: scale(2);
+                
             }
             /* 초기배율설정 */
             #trans8 img {
-                transform: scale(.8);
+                transform: scale(.5);                
             }
 
             /* 
@@ -207,9 +213,10 @@
 
             #trans9:hover img {
                 /* 다중 트랜스폼 tf */
-                transform: scale(5) translate(-200%, -100%);
+                transform: scale(5) translate(-200%, -100%) 
+                rotateX(1200deg) skewX(50deg) rotate(5300deg);
                 /* 트랜지션 시간늘리기 */
-                transition-duration: 5s;
+                transition-duration: 30s;                
             }
 
             /* 
@@ -237,7 +244,7 @@
 
             /* 1. 보거미 원본 */
             #trans10 img:last-child{
-                /* 0도 회전하기 - 안써도 초깃값 0deg임 */
+                /* 0도 회전하기 - 안써도 초기값 0deg임!*/                
                 transform: rotateY(0deg);
                 /* 트랜지션: 속시이지 - 0.4초기다림 */
                 transition: .4s ease-out .4s;
@@ -264,6 +271,7 @@
             #trans10:hover img:first-child{
                 /* 0도 회전하기 */
                 transform: rotateY(0deg);
+                
                 /* 트랜지션: 속시이지 - 0.4초기다림 */
                 transition: .4s ease-out .4s;
                 /* ease-out 나중에 천천히 처음엔 등속도 */

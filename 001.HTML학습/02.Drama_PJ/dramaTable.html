@@ -6,13 +6,13 @@
         <link rel="stylesheet" href="./css/drama.css" />
     </head>
     <body>
-        
-        <table id="drama">
+        <!-- 한국 최신 드라마 리스트 -->
+        <table class="tbl" id="drama">
             <!-- 1. 테이블 제목 -->
             <caption>
                 한국 최신 드라마 리스트
             </caption>
-            <!-- 2. 테이블 헤드부분 -->
+            <!-- 2. 테이블 상단부분 -->
             <thead>
                 <tr>
                     <th>번호</th>
@@ -110,7 +110,7 @@
                 <tr>
                     <td>10</td>
                     <td><a href="#">마이크로 칩</a></td>
-                    <td>이라미, 박노라</td>
+                    <td>이라미,박노라</td>
                     <td>MBC</td>
                     <td>수목</td>
                     <td>오후10:50</td>
@@ -121,16 +121,17 @@
             <tfoot>
                 <tr>
                     <td colspan="7">
-                        ◀ 
-                        <a href="">1</a> | <a href="">2</a> | <a href="">3</a> | <a href="">4</a> | <a href="">5</a> | 
-                        <a href="">6</a> | <a href="">7</a> | <a href="">8</a> | <a href="">9</a> |<a href="">10</a> ▶
+                        ◀ <a href="#">1</a> | <a href="#">2</a> | <a href="#">3</a> | <a href="#">4</a> |
+                        <a href="#">5</a> | <a href="#">6</a> | <a href="#">7</a> | <a href="#">8</a> |
+                        <a href="#">9</a> | <a href="#">10</a> ▶
                     </td>
-                    <!--
-                        [ 테이블 colspan(colcolumn) 속성 ] 
-                        - 같은 tr의 td셀을 가로방향으로 합칠때 사용함
-                        - 합칠 td의 개수만큼 숫자를 쓴다
-                        - 주의 : td의 갯수가 colspan숫자와 전체갯수가 일치해야함
-                    -->
+                    <!-- 
+                        [ 테이블 colspan 속성 ]
+                        - 같은 tr의 td셀을 가로방향으로 합칠때 사용함!
+                        - column 컬럼(기둥) + span(범위)
+                        - 합칠때 합칠 td의 개수만큼 숫자를 쓴다!
+                        - 주의: td개수가 colspan숫자와 전체개수가 일치해야함!
+                     -->
                 </tr>
             </tfoot>
         </table>
@@ -140,36 +141,38 @@
             <table id="gubun" class="tbl">
                 <tr>
                     <td rowspan="4">구분</td>
-                    <td>월화: 월화드라마</td>
+                    <td>월화:월화드라마</td>
                     <!-- 
-                        [테이블 rowspan 속성]
+                        [ 테이블 rowspan 속성 ]
                         - 같은 tr의 td셀을 세로방향으로 합칠때 사용
-                        - row(가로줄) span(범위)
-                        - 합칠 td 의 개수만큼 숫자를 쓴다.
+                        - row(가로줄) + span(범위)
+                        - 합칠 td의 개수만큼 숫자를 쓴다!
                      -->
                 </tr>
                 <tr>
                     <!-- <td>구분</td> -->
-                    <td>수목: 수목드라마</td>
+                    <td>수목:수목드라마</td>
                 </tr>
                 <tr>
                     <!-- <td>구분</td> -->
-                    <td>금토: 금토드라마</td>
+                    <td>금토:금토드라마</td>
                 </tr>
                 <tr>
                     <!-- <td>구분</td> -->
-                    <td>토일: 토일드라마</td>
+                    <td>토일:토일드라마</td>
                 </tr>
             </table>
         </div>
 
         <!-- 
-            [ 가장 복잡한 그룹요소인 테이블 ]
+            [ 가장 복잡한 그룹요소인 테이블 !!! ]
             1. table : 테이블 전체 부모요소
-            2. tr : 테이블 레코드행요소 (table row)
-            3. td : 테이블 데이터요소 (table data)
-            4. th : 테이블 머릿부분에 사용될 경우 td대신 사용할 수 있다.
-            ___________________________________________________
+            2. tr : 테이블 레코드행요소(table row)
+            3. td : 테이블 데이터요소(table data)
+            4. th : 테이블 머릿부분에 사용될 경우 
+                td대신 th를 사용할 수 있다!
+                (기본디자인 - 중앙정렬+두꺼운글자)
+            _____________________________________
 
             [ 테이블 구조를 위한 추가요소들 ]
             5. caption : 테이블 제목
@@ -177,16 +180,32 @@
             7. tbody : 테이블 중앙 내용부분
             8. tfoot : 테이블 하단부분
 
-            ※ tbody는 일반적으로 table tr td로 구성되는 테이블일 경우 자동으로 생성됨
-            ※ thead나 tfoot은 코딩 순서와 상관없이 테이블 맨위, 맨아래에 출력된다.
-            ___________________________________________________
+            ※tbody는 일반적으로  table tr td로
+            구성되는 테이블일 경우 자동으로 생성된다!
 
-            [ 테이블 열 관련 레이아웃 요소 ]
+            ※thead나 tfoot은 코딩순서와 상관없이
+            테이블 맨위와 맨아래에 출력된다!
+            ________________________________
+
+            [ 테이블 열관련 레이아웃 요소 ]
             9. colgroup : 테이블 열별로 디자인 컨트롤할때 사용
-            -> 하위필수요소 col : 개별 column(열)별 셋팅
-               - col 속성들
-                    - span : 적용범위열 개수를 숫자로 입력함
-                    - 기타 열별로 스타일 시트를 따로 쓸 수 있음
-        -->
+            -> 하위필수요소 col : 개별 컬럼(열)별 셋팅
+            -> col 속성들
+                - span 속성 : 값은 적용범위열 개수를 숫자로 입력함
+            -> 기타 열별로 스타일시트를 따로 쓸 수 있음!
+
+            예)
+            <table>
+                <colgroup>
+                    <col span="2" style="background-color:red">
+                    <col style="background-color:yellow;width:200px">
+                </colgroup>
+                <tr>...</tr>
+            </table>
+
+            -> 원본 W3 Schools
+            https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_colgroup_test            
+
+         -->
     </body>
 </html>

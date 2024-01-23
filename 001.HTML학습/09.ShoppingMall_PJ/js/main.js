@@ -92,7 +92,6 @@ function loadFn() {
         clickSts=1;//잠금!
         setTimeout(()=>clickSts=0,TIME_SLIDE);//해제!       
 
-        clearAuto();
 
         // 호출확인
         console.log('나야나!',this,
@@ -143,12 +142,14 @@ function loadFn() {
         // 4. 블릿순번 변경 함수 호출
         chgIndic(isRight); // 방향값을 보냄!
 
+        // 5. 자동넘김 멈춤함수 호출하기
+        clearAuto();
         
     } ////////// goSlide 함수 /////////
 
     // 블릿순번 변경 함수 /////////////
     function chgIndic(isRight){ // isRight(0-왼쪽,1-오른쪽)
-        // 슬라이드 순번과 일치하는 블릿에 클래스 넣기
+        // 1. 슬라이드 순번과 일치하는 블릿에 클래스 넣기
         // 대상: .indic li -> indic변수
         // 맨앞 슬라이드 li의 'data-seq' 값 읽어오기
         // isRight값이 true이면 오른쪽버튼이고 순번은 [1]
@@ -158,10 +159,8 @@ function loadFn() {
         .getAttribute('data-seq');
 
         console.log('현재슬라이드 순번:',nowSeq);
-
-
         
-        // 해당순번 블릿li에 클래스 on넣기
+        // 2. 해당순번 블릿li에 클래스 on넣기
         // 블릿전체순회시 해당순번에 on넣고 나머지는 on빼기
         indic.forEach((ele,idx)=>{
             if(idx==nowSeq) ele.classList.add('on');
@@ -198,25 +197,50 @@ function loadFn() {
         -> 버튼클릭 실행 메서드: click()
         대상: 오른쪽버튼 - .ab2 -> abtn[1]
     **********************************/
-    // 인터발변수
-    let autoI;
-    let autoT;
-    // 인터발호출 함수 //////////
-    function slideAuto(){
-        autoI = setInterval(() => {
-            // console.log('실행!');
-            rightSlide();     
-        }, 3000);
-    } ///////// slideAuto 함수 //////////////
-    slideAuto();
-    // 버튼을 클릭할 경우를 구분하여 자동넘김을 멈춰준다!
-    function clearAuto(){
-        // 자동넘김 지우기
+   // 인터발변수
+   let autoI;
+   // 인터발타이밍함수를 변수에 할당후
+   // clearInterval(할당변수) 해야 멈출 수 있다!
+
+   // 타임아웃변수
+   let autoT;
+   // 타임아웃함수도 마찬가지임!
+   // clearTimeout(할당변수) 해야 실행 쓰나미를 막을 수 있다!
+   
+   // 인터발호출 함수 //////////
+   function slideAuto(){
+       autoI= setInterval(() => {
+        // 오른쪽이동 슬라이드 함수호출
+        rightSlide();
+        // 블릿변경함수호출(오른쪽은 1)
+        chgIndic(1);
+
+       // console.log('실행!');
+       // 오른쪽버튼 클릭이벤트 강제발생!
+       // 선택요소.click()
+        //  abtn[1].click();   
+      }, 3000);
+
+   } ///////// slideAuto 함수 //////////////
+
+   // 인터발함수 최초호출!
+   slideAuto();
+
+   // 버튼을 클릭할 경우를 구분하여 자동넘김을 멈춰준다!
+   function clearAuto(){
+    // 자동넘김 지우기
         // clearInterval(인터발할당변수)
+        console.log('멈춤!!!');
+
+        // 1. 인터발 지우기
         clearInterval(autoI);
+        // 2. 타임아웃 지우기(재실행호출 쓰나미 방지)
         clearTimeout(autoT);
-        autoT = setTimeout(slideAuto, 5000);
-    } //////////// clearAuto 함수 ///////////
+        // 3. 일정시간후 다시 인터발호출셋팅하기!!!
+        autoT = setTimeout(slideAuto,5000);
+        // 결과적으로 5초후 인터발재실행은 하나만 남는다!
+
+   } //////////// clearAuto 함수 ///////////
 
 
 

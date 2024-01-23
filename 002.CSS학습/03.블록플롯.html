@@ -131,7 +131,7 @@
         }
 
         /* float해제용 가상요소 */
-        .flclb::after {
+        .flclb::after{
             content: '';
             display: block;
             clear: both;
@@ -166,13 +166,15 @@
         .case4 .bx{
             float: left;
         }
-        .case4 {
+        .case4{
             overflow: hidden;
         }
+        
         /* 경우5 - .flclb로 clear:both처리함! */
-        .case5 .bx {
+        .case5 .bx{
             float: right;
         }
+        
 
     </style>
 </head>
@@ -203,8 +205,8 @@
         <div class="bx bx2 flr"></div>
         <div class="bx bx3 clb fll"></div>
         <div class="bx bx4 flr"></div>
-        <!-- clear속성은 블록인 형제요소에만 적용됨 -->
-        <div class="clb"></div>
+        <!-- clear속성은 블록인 형제요소에만 적용됨! -->
+        <div style="clear: both;"></div>
     </div>
 
     <h2>경우3</h2>

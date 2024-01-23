@@ -48,33 +48,32 @@
             height: 100%;
 
         }
-
-        /* 공통 flex 박스 클래스 */
-        .flex-box {
+        /* 공통 flex박스 클래스 */
+        .flex-box{
             display: flex;
             flex-wrap: wrap;
         }
+
         /* 12 그리드 클래스 : 
         한줄에 합이 12컬럼이 되도록 셋팅! */
-        .col-1 { width: 8.33%; }
-        .col-2 { width: 16.66%; }
-        .col-3 { width: 25%; }
-        .col-4 { width: 33.33%; }
-        .col-5 { width: 41.66%; }
-        .col-6 { width: 50%; }
-        .col-7 { width: 58.33%; }
-        .col-8 { width: 66.66%; }
-        .col-9 { width: 75%; }
-        .col-10 { width: 83.33%; }
-        .col-11 { width: 91.66%; }
-        .col-12 { width: 100%; }
-
-        /* 숨길박스 */
-        .col-none { display: none; }
-        /* 보일박스 */
-        .col-block { display: block; }
-        
+        .col-1 {width: 8.33%;}
+        .col-2 {width: 16.66%;}
+        .col-3 {width: 25%;}
+        .col-4 {width: 33.33%;}
+        .col-5 {width: 41.66%;}
+        .col-6 {width: 50%;}
+        .col-7 {width: 58.33%;}
+        .col-8 {width: 66.66%;}
+        .col-9 {width: 75%;}
+        .col-10 {width: 83.33%;}
+        .col-11 {width: 91.66%;}
+        .col-12 {width: 100%;}
         /* 참고: https://www.w3schools.com/css/css_rwd_grid.asp */
+
+        /* 숨길 박스 */
+        .col-none{display: none;}
+        /* 보일 박스 */
+        .col-block{display: block;}
 
         /* 개별영역 박스 -> 확장형 박스
         -> 개별영역 중앙속박스에 높이값을 주면
@@ -121,42 +120,54 @@
             height: 100px;
         }
 
+        /* 미디어쿼리 레이아웃 변경 적용 */
         /* 최대 800px 이하 시작 */
-        @media screen and (max-width: 800px) {
-            .col-2-1 { width: 8.33%; }
-            .col-2-2 { width: 16.66%; }
-            .col-2-3 { width: 25%; }
-            .col-2-4 { width: 33.33%; }
-            .col-2-5 { width: 41.66%; }
-            .col-2-6 { width: 50%; }
-            .col-2-7 { width: 58.33%; }
-            .col-2-8 { width: 66.66%; }
-            .col-2-9 { width: 75%; }
-            .col-2-10 { width: 83.33%; }
-            .col-2-11 { width: 91.66%; }
-            .col-2-12 { width: 100%; }
-            
-            /* 숨길박스 */
-            .col-2-none { display: none; }
-            /* 보일박스 */
-            .col-2-block { display: block; }
+        @media screen and (max-width:800px) {
+            /* 원리 - 그리드구성 클래스셋을 다른이름으로
+            하나더 만들고 미리 요소에 클래스 주면
+            해당크기로 미디어쿼리 작동시 그리드값을 덮어씀! */
+
+            /* 레이아웃구성 */
+            .col2-1 {width: 8.33%;}
+            .col2-2 {width: 16.66%;}
+            .col2-3 {width: 25%;}
+            .col2-4 {width: 33.33%;}
+            .col2-5 {width: 41.66%;}
+            .col2-6 {width: 50%;}
+            .col2-7 {width: 58.33%;}
+            .col2-8 {width: 66.66%;}
+            .col2-9 {width: 75%;}
+            .col2-10 {width: 83.33%;}
+            .col2-11 {width: 91.66%;}
+            .col2-12 {width: 100%;}
+
+            /* 숨길 박스 */
+            .col2-none{display: none;}
+            /* 보일 박스 */
+            .col2-block{display: block;}
         }
+        /* 최대 800px 이하 종료 */
 
         /* 최대 500px 이하 시작 */
-        @media screen and (max-width: 500px) {
-            /* 모든 그리드 클래스 100%로 일괄변경하기 */
+        @media screen and (max-width:500px) {
+            /* 모든 그리드 클래스 100%로 일괄변경하기! */
             /* 
-                CSS선택자 문법: 속성선택자
-                [속성명 = 값] -> 어떤 속성값이 정확히 일치
-                [속성명 ^= 값] -> 어떤 속성값이 어떤값으로 시작
-                [속성명 $= 값] -> 어떤 속성값이 어떤값으로 끝
-                [속성명 *= 값] -> 어떤 속성값이 어떤값이 포함됨
+                CSS 선택자 문법 : 속성선택자
+                [속성명=값] -> 어떤속성값이 정확히 일치
+                [속성명^=값] -> 어떤속성값이 어떤값으로 시작
+                [속성명$=값] -> 어떤속성값이 어떤값으로 끝남
+                [속성명*=값] -> 어떤속성값이 어떤값이 포함됨
             */
 
-            [class *= 'col-'] {
+            /* [class^='fl']{ */
+            /* [class$='-9']{ */
+            [class*='col-']{
                 width: 100%;
             }
         }
+        /* 최대 500px 이하 종료 */
+
+
     </style>
 </head>
 <body>
@@ -166,9 +177,9 @@
         <header class="header inbox">
             <!-- 파트박스 3개 -->
             <div class="flex-box">
-                <div class="partbox col-2 col-2-3"></div>
-                <div class="partbox col-7 col-2-9"></div>
-                <div class="partbox col-3 col-2-12"></div>
+                <div class="partbox col-2 col2-3"></div>
+                <div class="partbox col-7 col2-9"></div>
+                <div class="partbox col-3 col2-12"></div>
             </div>
         </header>
     </div>
@@ -178,9 +189,9 @@
             <h2>메인배너</h2>
             <!-- 파트박스 2개 -->
             <div class="flex-box">
-                <div class="partbox col-9 col-2-6"></div>
-                <div class="partbox col-none  col-2-6 col-2-block"></div>
-                <div class="partbox col-3 col-2-12"></div>
+                <div class="partbox col-9 col2-6"></div>
+                <div class="partbox col-none col2-6 col2-block"></div>
+                <div class="partbox col-3 col2-12"></div>
             </div>
         </section>
     </div>
@@ -192,10 +203,10 @@
                 <h2>배너바로가기</h2>
                 <!-- 파트박스 4개 -->
                 <div class="flex-box">
-                    <div class="partbox col-3 col-2-6"></div>
-                    <div class="partbox col-3 col-2-6"></div>
-                    <div class="partbox col-3 col-2-6"></div>
-                    <div class="partbox col-3 col-2-6"></div>
+                    <div class="partbox col-3 col2-6"></div>
+                    <div class="partbox col-3 col2-6"></div>
+                    <div class="partbox col-3 col2-6"></div>
+                    <div class="partbox col-3 col2-6"></div>
                 </div>
             </div>
             <div class="group-part group-part-02">
@@ -207,14 +218,14 @@
                 <h2>뉴스모아보기</h2>
                 <!-- 파트박스 8개 -->
                 <div class="flex-box">
-                    <div class="partbox col-3 col-2-6"></div>
-                    <div class="partbox col-3 col-2-6"></div>
-                    <div class="partbox col-3 col-2-6"></div>
-                    <div class="partbox col-3 col-2-6"></div>
-                    <div class="partbox col-3 col-2-6"></div>
-                    <div class="partbox col-3 col-2-6"></div>
-                    <div class="partbox col-3 col-2-6"></div>
-                    <div class="partbox col-3 col-2-6"></div>
+                    <div class="partbox col-3 col2-4"></div>
+                    <div class="partbox col-3 col2-4"></div>
+                    <div class="partbox col-3 col2-4"></div>
+                    <div class="partbox col-3 col2-4"></div>
+                    <div class="partbox col-3 col2-4"></div>
+                    <div class="partbox col-3 col2-4"></div>
+                    <div class="partbox col-3 col2-6"></div>
+                    <div class="partbox col-3 col2-6"></div>
                 </div>
                 
             </div>
@@ -222,22 +233,23 @@
                 <h2>유관기관링크모음</h2>
                 <!-- 파트박스 6개 -->
                 <div class="flex-box">
-                    <div class="partbox col-2 col-2-3"></div>
-                    <div class="partbox col-2 col-2-3"></div>
-                    <div class="partbox col-2 col-2-3"></div>
-                    <div class="partbox col-2 col-2-3"></div>
-                    <div class="partbox col-2 col-2-6"></div>
-                    <div class="partbox col-2 col-2-6"></div>
+                    <div class="partbox col-2 col2-3"></div>
+                    <div class="partbox col-2 col2-3"></div>
+                    <div class="partbox col-2 col2-3"></div>
+                    <div class="partbox col-2 col2-3"></div>
+                    <div class="partbox col-2 col2-6"></div>
+                    <div class="partbox col-2 col2-6"></div>
                 </div>
+                
             </div>
             <div class="group-part group-part-05">
                 <h2>마케팅통계보기</h2>
                 <!-- 파트박스 4개 -->
                 <div class="flex-box">
-                    <div class="partbox col-3 col-2-6"></div>
-                    <div class="partbox col-3 col-2-6"></div>
-                    <div class="partbox col-3 col-2-12"></div>
-                    <div class="partbox col-3 col-2-12"></div>
+                    <div class="partbox col-3 col2-6"></div>
+                    <div class="partbox col-3 col2-6"></div>
+                    <div class="partbox col-3 col2-12"></div>
+                    <div class="partbox col-3 col2-12"></div>
                 </div>
             </div>
         </main>
@@ -247,12 +259,12 @@
         <footer class="footer inbox">
             <!-- 파트박스 6개 -->
             <div class="flex-box">
-                <div class="partbox col-6 col-2-6"></div>
-                <div class="partbox col-6 col-2-6"></div>
-                <div class="partbox col-2 col-2-6"></div>
-                <div class="partbox col-4 col-2-6"></div>
-                <div class="partbox col-2 col-2-6"></div>
-                <div class="partbox col-4 col-2-6"></div>
+                <div class="partbox col-6 col2-6"></div>
+                <div class="partbox col-6 col2-6"></div>
+                <div class="partbox col-2 col2-12"></div>
+                <div class="partbox col-4 col2-none"></div>
+                <div class="partbox col-2 col2-none"></div>
+                <div class="partbox col-4 col2-none"></div>
             </div>
         </footer>
     </div>

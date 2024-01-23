@@ -7,11 +7,12 @@
             body {
                 margin: 0;
                 min-height: 100vh;
-                /* 최소 높이로 보이는 화면 크기만큼 지정하면 기본적으로 body가 보이는 화면을 유지하다가 컨텐츠가 많아져서 스크롤 생성시 body도 늘어남. */
-                /* background: url(https://images.adsttc.com/media/images/5f73/76e0/63c0/17bc/c900/04e8/large_jpg/HK_1_N3.jpg?1601402564)
-                    no-repeat fixed center/cover; */
-            }
+                /* 최소 높이로 보이는 화면크기만큼 지정하면
+                기본적으로 body가 보이는 화면을 유지하다가
+                컨텐츠가 많아져서 스크롤 생성시 body도 늘어남! */
 
+                /* background: url(https://images.adsttc.com/media/images/5f73/76e0/63c0/17bc/c900/04e8/large_jpg/HK_1_N3.jpg?1601402564) no-repeat fixed center/cover; */
+            }
             /* 배경박스 */
             .bgbox {
                 position: fixed;
@@ -20,7 +21,8 @@
                 width: 100vw;
                 height: 100vh;
                 z-index: -1;
-                /* body가 투명하므로 아래쪽에 내려가 있어도 배경은 보인다! -> 배경처리시 이렇게 하면됨 */
+                /* body가 투명하므로 아래쪽에 내려가 있어도
+                배경은 보인다! -> 배경처리시 이렇게 하면됨! */
             }
             .bgbox ul {
                 margin: 0;
@@ -31,16 +33,21 @@
             }
             .bgbox li {
                 position: absolute;
-                /* 서로 겹쳐짐 */
+                /* 서로겹쳐짐 */
                 width: 100%;
                 height: 100%;
+                /* 투명하게 */
                 opacity: 0;
-                transition: .5s ease-in-out;
+                /* 트랜지션 */
+                transition: 0.5s ease-in-out;
             }
             .bgbox li.on {
+                /* 보이게함 */
                 opacity: 1;
+                /* 맨위로 오게함 */
                 z-index: 1;
             }
+
             h2 {
                 font-size: 5vh;
                 color: #fff;
@@ -206,22 +213,33 @@
                 "https://wallpaperaccess.com/full/11678.jpg",
                 "https://wallpaperaccess.com/full/5480068.jpg",
                 "https://wallpaperaccess.com/full/11682.jpg",
+                "https://wallpaperaccess.com/full/5480079.jpg",
             ];
-            
-            let scene_cnt = scene.length;
+
+            /* 
+https://www.wallpaperflare.com/static/353/548/867/cityscape-seoul-south-korea-landscape-wallpaper-preview.jpg
+https://wallpaperaccess.com/full/11675.jpg
+https://wallpaperaccess.com/full/11676.jpg
+https://wallpaperaccess.com/full/11678.jpg
+https://wallpaperaccess.com/full/5480068.jpg
+https://wallpaperaccess.com/full/11682.jpg
+
+        */
+
             /*////////////////////////////////
                 함수명: Korea
                 기능: 다른함수호출
             */ ////////////////////////////////
             function Korea(txt) {
                 // 1.함수호출,전달값 확인
-                alert(txt);
-                // 2.다른함수호출
-                let ri = Ri(txt + "리");
-                // 3.리턴값 찍기
-                alert(ri);
-                // 4.리턴값 보내기! -> 호출한곳으로!
+                alert(txt); // '우'
+                // 2. 다른함수호출
+                let ri = Ri(txt + "리"); // '우리'
+                // 3. 리턴값 찍기
+                alert(ri); // '우리나라 대한민'
+                // 4. 리턴값 보내기! -> 호출한 곳으로!
                 return ri + "국 만세!!!";
+                // '우리나라 대한민국 만세!!!' 리턴
             } ///// Korea함수 ////////////////
             //////////////////////////////////
 
@@ -231,13 +249,14 @@
             */ ////////////////////////////////
             function Ri(txt) {
                 // 1.함수호출,전달값 확인
-                alert(txt);
-                // 2.다른함수호출
-                let na = Na(txt + "나");
-                // 3.리턴값 찍기
-                alert(na);
-                // 4.리턴값 보내기! -> 호출한곳으로!
+                alert(txt); // '우리'
+                // 2. 다른함수호출
+                let na = Na(txt + "나"); // '우리나'
+                // 3. 리턴값 찍기
+                alert(na); // '우리나라 대한'
+                // 4. 리턴값 보내기! -> 호출한 곳으로!
                 return na + "민";
+                // '우리나라 대한민' 리턴
             } ///// Ri함수 ////////////////
             //////////////////////////////////
 
@@ -247,13 +266,14 @@
             */ ////////////////////////////////
             function Na(txt) {
                 // 1.함수호출,전달값 확인
-                alert(txt);
-                // 2.다른함수호출
-                let ra = Ra(txt + "라");
-                // 3.리턴값 찍기
-                alert(ra);
-                // 4.리턴값 보내기! -> 호출한곳으로!
+                alert(txt); // '우리나'
+                // 2. 다른함수호출
+                let ra = Ra(txt + "라"); // '우리나라'
+                // 3. 리턴값 찍기
+                alert(ra); // '우리나라 대'
+                // 4. 리턴값 보내기! -> 호출한 곳으로!
                 return ra + "한";
+                // '우리나라 대한' 리턴
             } ///// Na함수 ////////////////
             //////////////////////////////////
 
@@ -263,9 +283,10 @@
             */ ////////////////////////////////
             function Ra(txt) {
                 // 1.함수호출,전달값 확인
-                alert(txt);
-                // 2.리턴값 보내기! -> 호출한곳으로!
+                alert(txt); // '우리나라'
+                // 2. 리턴값 보내기! -> 호출한 곳으로!
                 return txt + " 대";
+                // '우리나라 대' 리턴
             } ///// Ra함수 ////////////////
             //////////////////////////////////
 
@@ -285,19 +306,17 @@
 
             // 할당형 익명함수를 코드 위에서 호출!
             // myHome("익명함수 위에서 호출!");
-
             // 위에서 호출불가! 왜? 변수에 할당하는 순간 생성되기때문!
 
             ////////// 할당형 익명함수 ////////////
             // -> 변수에 익명함수를 할당하여 함수를 호출!
             const myHome = function (txt) {
                 // txt 전달변수
-                // console.log("오!나의집!", txt);
+                console.log("오!나의집!", txt);
             }; /////// myHome 함수 ////////////////
 
             // 할당형 익명함수를 코드 아래에서 호출!
-            myHome("익명함수 아래에서 호출!");
-
+            // myHome("익명함수 아래에서 호출!");
             // 만약 함수를 처음부터 호출하는 경우라면 할당형 익명함수는
             // 반드시 생성후 아랫쪽에서 호출해야한다!
 
@@ -344,89 +363,137 @@
             /// body에 h2태그로 넣기 ///////////////////
             ///////////////////////////////////////////
 
-            /************************************************ 
+            /********************************************* 
                 함수명: myFn
                 기능: 파라미터 얼마든지 받아서 h2만들어 넣기
-            ************************************************/
-            // [유사배열객채란? - 배열형식으로 생겼으나 배열이 아니다.]
-            function myFn() {
+            *********************************************/
+            // 함수의 전달변수가 없어도 보내는 전달값이 있으면
+            // 함수의 arguments라는 전달변수인 [유사배열객체]에
+            // 값을 자동으로 담아준다!
+            
+            // [유사배열객체란? - 배열형식으로 생겼으나 배열이 
+            // 아니므로 배열 메서드를 직접 사용할 수 없다!]
+            // (1) 배열인지 여부검사 : Array.isArray(변수or값)
+            // -> 배열이면 treu / 아니면 false
+            // (2) 유사배열을 배열로 변경하는 메서드는? 
+            // -> Array.from(유사배열)
+            // (3) 기타유사배열 : html컬렉션 
+
+            // arguments 는 익명함수에서 사용가능함!
+            // 단, 화살표함수는 사용불가!
+
+            // const myFn = ()=>{
+            // const myFn = function (){
+            function myFn(){
+                // 파라미터가 전혀 없음!!!
                 console.log('내함수!', 
                 arguments,
                 typeof arguments,
-                'arguments는 배열인가?', Array.isArray(arguments),
-                'arguments를 배열로 변경!', Array.isArray(Array.from(arguments)),
-                // 유사배열을 배열로 변경하는 메서드 -> Array.from()
-                typeof scene);
+                'arguments는 배열인가?',Array.isArray(arguments),
+                typeof scene,
+                'scene는 배열인가?',Array.isArray(scene),
+                'arguments를 배열로 변경!',
+                Array.isArray(Array.from(arguments))
+                
+            
+                );
 
                 // 대상선정: .letters
                 let letters = document.querySelector('.letters');
-                // body에 대상을 직접 추가하면 전체 DOM구조에 영향을 주므로
+                // body에 대상을 직접 추가하면
+                // 전체 DOM구조에 영향을 주므로
                 // 기존에 셋팅한 코드가 끊어질 수 있다!
-                // 따라서 변경요소는 처음부터 넣은 특정 박스로 한정해 주는것이 좋다.
-                for(let i = 0; i <arguments.length; i++) {
-                    letters.innerHTML += `
-                        <h2>${arguments[i]}</h2>
-                    `;
-                    // letters 자식으로 추가 (+= 대입연산자) 
-                }
-            }
-            // arguments는 화살표함수에서 사용불가
+                // 따라서 변경요소는 처음부터 넣은
+                // 특정박스로 한정해 주는 것이 좋다!
 
+                for(let i=0;i<arguments.length;i++){
+                    letters.innerHTML +=
+                    `<h2>${arguments[i]}</h2>`;
+                    // 기존body자식으로추가(+=대입연산자)
+                } ///////////// for ///////////////
 
+            } ///////////// myFn 함수 ////////////////////
+
+            // 타임아웃 함수를 사용하여 일정시간뒤 코드실하기
             setTimeout(() => {
                 myFn('동해물과','백두산이','마르고','닳도록','하느님이','보우하사','우리나라','만세!');
             }, 3000);
 
-            // 로드구역
-            window.addEventListener("load", () => {
+
+
+            /////////// 로드구역 /////////////////////
+            window.addEventListener("load", function () {
                 console.log("로딩완료!");
 
-                // 대상선정
+                // 1. 대상선정: .bgbox
                 let bgbox = document.querySelector(".bgbox");
 
-                // 대상에 html 넣기
+                // 2. 대상에 html 넣기
+                // html 넣을 변수
                 let hcode = "";
+
                 hcode += "<ul>";
-                for (let i = 0; i < scene_cnt; i++) hcode += `
-                    <li ${i == 0 ? "class='on'" : ""}></li>
-                `;
+
+                // 반복코드 li는 for문으로!
+                // 명령문이 하나면 중괄호 생략가능!
+                // class='on'을 넣기위해
+                // 삼항연산자(비?집:놀이동산)를 사용
+                // i==0 이면 class='on'넣기
+
+                // li개수는 동적으로 scene 배열변수의
+                // 개수와 같게 생성하고 배경을 셋팅한다!
+
+                // scene 개수 변수
+                let scene_cnt = scene.length;
+                console.log('배경배열개수:',scene_cnt);
+
+                for (let i = 0; i < scene_cnt; i++){
+                    hcode += 
+                    `<li ${i == 0 ? "class='on'" : ""}></li>`;
+                } ///////////// for ///////////////
+
                 hcode += "</ul>";
 
                 // 대상넣기
                 bgbox.innerHTML = hcode;
 
-                // 배경박스 li에 배경이미지 넣기
+                // 배경 박스 li에 배경이미지 넣기
                 let bgli = bgbox.querySelectorAll("li");
                 for (let i = 0; i < bgli.length; i++) {
-                    bgli[i].style.background = `
-                        url(${scene[i]}) no-repeat center/cover
-                    `;
-                }
+                    bgli[i].style.background = 
+                    `url(${scene[i]}) no-repeat center/cover`;
+                } ////////// for ///////////////
 
-                // li 순번변수
+                // 배경이미지 순서대로 li에 클래스 on넣기
+                // 2초간격으로 계속실행 -> 인터발함수!
+
+                // li순번변수
                 let seq = 0;
-                // 배경이미지 순서대로 li에 클래스 on 넣기 - 2초간격으로 계속실행
+
                 setInterval(() => {
-                    // 순번증가 전 클래스 제거
-                    bgli[seq].classList.remove('on');
+                    // 1.순번증가 전 클래스 제거
+                    bgli[seq].classList.remove("on");
 
-                    // 순번증가
+                    // 2.순번증가
                     seq++;
-                    // 한계수 체크(마지막번호 +1 -> 0번으로)
-                    // 마지막번호는 (배열개수 -1)
-                    // 마지막번호다음은 개수
-                    if(seq == scene_cnt) seq = 0;
 
-                    // 다음해당순번 적용하기
-                    bgli[seq].classList.add('on');
-                }, 2000);
+                    // 3.한계수 체크(마지막번호+1->0번으로)
+                    // 마지막번호는 (배열개수-1)
+                    // 마지막번호다음은 개수다!
+                    if (seq == scene_cnt) seq = 0;
+
+                    // 4.다음해당순번 적용하기
+                    bgli[seq].classList.add("on");
+                }, 2000); ////// 인터발함수 ///////
             });
+            /////////// 로드구역 /////////////////////
         </script>
     </head>
 
     <body>
         <!-- 배경박스 -->
         <div class="bgbox"></div>
+
 
         <!-- 프로젝트 버튼 -->
         <button onclick="alert(Korea('우'))">우리나라 대한민국 만세 프로젝트 시작!</button>
@@ -436,9 +503,10 @@
             2. 이퀄 오른쪽에서 왼쪽으로
             3. 소괄호 안에서 바깥으로
             4. 함수바깥부터실행 호출시 함수실행
+
         -->
 
-        <!-- 애국가 가사 타이틀 넣기 박스 -->
+        <!-- 애국가 가사 타이틀 넣기박스 -->
         <div class="letters"></div>
     </body>
 </html>

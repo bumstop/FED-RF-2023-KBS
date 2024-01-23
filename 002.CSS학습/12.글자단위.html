@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <!-- 모바일 뷰포트필수! -->
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>글자단위</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         /* 
 
@@ -105,7 +105,7 @@
 
          /* 14px */
          .f3{
-            font-size: 0.05em;
+            font-size: 0.58em;
             /* 0.58em = 14px / 24px */
          }
 
@@ -127,8 +127,7 @@
 
          /* 14px */
          .rf3{
-            font-size: .87rem;
-
+            font-size: 0.87rem;
             /* rem = 원하는px / html의px
                   = 14px / 16px = 0.87rem */
          }
@@ -154,21 +153,21 @@
 
          /* 미디어쿼리 */
          @media screen and (max-width:1000px) {
-            html {
-               font-size: 40px;
-            }
             /* root인 html만 글자크기를 변경하면
             하위의 모든 상대단위 글자는 한번에 변경된다! */
-            
+            html{
+               font-size: 40px;
+            }
          }
 
          /* 미디어쿼리 */
          @media screen and (max-width:800px) {
             /* 부모를 기준한 상대단위는 부모요소만 변경하면
             별도로 그 부분만 상대적으로 변경된다! */
-            f1 {
-               font-size: 30px;  
+            .f1{
+               font-size: 30px;
             }
+            
          }
 
         

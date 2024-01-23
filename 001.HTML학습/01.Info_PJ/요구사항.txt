@@ -12,6 +12,7 @@
 3. 뉴스 하단에 관련뉴스를 링크한다
 4. 전체 공통 메뉴는 각 페이지로 링크한다
 
+
 [ 인포PJ 미리보기 ]
 버전1
 https://tombap8.github.io/GITA-FED213/001.HTML%ED%95%99%EC%8A%B5/01.Info_PJ/
@@ -20,17 +21,14 @@ https://tombap8.github.io/GITA-FED213/001.HTML%ED%95%99%EC%8A%B5/01.Info_PJ/
 https://tombap8.github.io/GITA-FSD-JD22/02.HTML%ED%95%99%EC%8A%B5/01.Info_PJ/index.html
 
 [ 공통 뉴스 IT/과학 주소 ]
-https://n.news.naver.com/mnews/hotissue/article/031/0000760697?type=series&cid=1087779 
+https://n.news.naver.com/mnews/hotissue/article/031/0000760697?type=series&cid=1087779
 
 [ 기타 뉴스 선정 ]
 
 정치페이지
-https://n.news.naver.com/mnews/article/660/0000040999?sid=100
+
 경제페이지
-https://n.news.naver.com/mnews/article/057/0001759117?sid=101
+
 사회페이지
-https://n.news.naver.com/mnews/article/277/0005292864?sid=102
-IT/과학페이지
-https://n.news.naver.com/mnews/article/421/0006958702?sid=105
+
 TV/연예페이지
-https://entertain.naver.com/read?oid=076&aid=0004037463

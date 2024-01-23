@@ -5,7 +5,7 @@ const qs = x => document.querySelector(x);
 const qsa = x => document.querySelectorAll(x);
 
 // 새로고침시 맨위로 이동
-setTimeout(() => {scrollTo(0, 0)}, 100);
+setTimeout(()=>{window.scrollTo(0,0)},500);
 
 window.addEventListener('wheel',(e)=>{
     // 기본기능 막기 : preventDefault()
@@ -20,14 +20,17 @@ window.addEventListener('wheel',(e)=>{
     // 윈도우높이값 * 음수명 1곱하고 양수면 0곱함
     // 아랫방향은 윈도우높이값만큼 가고 윗방향은 위치값 0임!
 
-    if(e.wheelDelta < 0) {
-        qs('.trailer-box iframe').src =
-            'https://www.youtube.com/embed/Ko2NWhXI9e8?autoplay=1';
-    }
-    else {
-        qs('.trailer-box iframe').src =
-            'https://www.youtube.com/embed/Ko2NWhXI9e8';
-    }
+    // 두번째 페이지일때 동영상 플레이하기
+    if(e.wheelDelta<0){ // 아래로 내려갈때 - 자동플레이
+        qs('.trailer-box iframe').src=
+        'https://www.youtube.com/embed/Ko2NWhXI9e8?autoplay=1';
+    } ///// if ////////////
+    else{ // 위로 올라올때 - 멈춤
+        qs('.trailer-box iframe').src=
+        'https://www.youtube.com/embed/Ko2NWhXI9e8';
+    } ////// else ///////////////
+
+
 },{passive:false});
 
 // passive:false 설정값 변경을 해야

@@ -1,9 +1,10 @@
 @charset "utf-8";
 /* 메인페이지용 CSS - main.css */
 
-/* 공통 외부 CSS 합치기 */
+/* 공통외부CSS 합치기 */
 @import url(./common.css);
 
-#cont {
-    background-color: transparent;
+/* 메인페이지용 메인영역 */
+#cont{
+    background-color: #37c1b4;
 }

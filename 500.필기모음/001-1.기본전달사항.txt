@@ -1,6 +1,5 @@
 [ 프론트엔드(React, PHP), 플러터(Flutter)활용 웹&앱개발 양성과정 - 기본전달사항 ]
 탐쌤이멜: tombap@naver.com
-번호: 010-3006-3753
 
 1. 교재: 6권
 
@@ -20,7 +19,7 @@ https://github.com/tombap8/FED-RF-2023-TOM
 7. 사이트 벤치마킹 포털
 
 (1) 디비컷
-https://www.dbcut.com/bbs/index.php
+https://www.dbcut.com/
 
 (2) 굿디자인웹
 https://www.gdweb.co.kr/main/
@@ -58,8 +57,5 @@ https://youtu.be/EKFM5yeXdck
 
 -> 소통이 이루지는 장소에서 사용되는 
 수단과 방법을 인터페이스라고함!
-
-
-
 
 

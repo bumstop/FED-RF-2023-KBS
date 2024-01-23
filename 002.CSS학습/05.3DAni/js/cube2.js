@@ -1,4 +1,4 @@
-// 큐브 애니 JS //////////////
+// 큐브 애니2 JS - cube2.js //////////////
 
 /************************************* 
     [구현내용]
@@ -11,29 +11,19 @@
 
 *************************************/
 
-// window 로드 이벤트 호출
-window.addEventListener('DOMContentLoaded', loadFn);
+// window 로드 이벤트 호출 ///
+window.addEventListener('DOMContentLoaded',loadFn);
 
-// 로딩함수
-function loadFn() {
-    // 호출확인
-    console.log('호출');
+// DOM 선택함수 //////
+const qs = x => document.querySelector(x);
+const qsa = x => document.querySelectorAll(x);
 
-// 1. 대상선정
-// 이벤트대상: .btngo
-const btngo = document.querySelector('.btngo');
-// 변경대상: .cube
-const cube = document.querySelector('.cube');
+/////// 로딩함수 //////////////
+function loadFn(){
+    // 함수호출확인
+    console.log('로딩완료!');
 
-// 2. 이벤트 함수 설정하기  
-btngo.addEventListener('click',(e) => {
-    cube.classList.toggle('on');
-    // 3. 텍스트 읽어오기(버튼 글자변경 위해)
-    let btxt = e.target.innerText;
-    console.log(
-        '화살표 함수에서 this:', this,
-        '화살표 함수에서 e.target:', e.target,
-        '현제 버튼 글자:', btxt);
-        btxt = btxt == '돌아!' ? '멈춰!' : '돌아!';       
-    });  
-}
+    // 부드러운 스크롤함수 호출!
+    startSS();
+} /////////////// loadFn함수 //////////////
+///////////////////////////////////////////

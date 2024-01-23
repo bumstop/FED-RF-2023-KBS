@@ -25,22 +25,28 @@ Post방식은 데이터 크기에 제한이 없다!)
     url에는 단 하나의 물음표만 허용됨!!!!
 4. &(엔퍼센드)는 키=값 쌍단위를 구분해주는 구분자
 *********************************************************/
-
 // 서브 샵페이지를 호출하기 위한 GNB링크 셋팅하기!
-// 호출시 Get02.html?키=값 형태로 호출함
-// 대상: #gnb a
-const gnb = document.querySelectorAll("#gnb a");
+// 호출시 Get02.html?키=값 형태로 호출함!
+// 1. 대상선정 : #gnb a
+const gnb = document.querySelectorAll('#gnb a');
 
-gnb.forEach(ele => ele.addEventListener("click", goSub));
+// 2. 이벤트 설정
+gnb.forEach(ele=>ele.addEventListener('click',goSub));
 
-function goSub() {
+// 3. 함수만들기
+function goSub(){
+    // 1. 샵명 글자읽기
     let atxt = this.innerText;
-    console.log(atxt);
+    console.log('서브로가!',atxt);
 
-    // 서브페이지로 이동하기
+    // 2. 서브 페이지로 이동하기
     // location.href = 페이지URL
+    // 현재 브라우저창에서 URL이동함!
     location.href = 'Get02.html?shop='+encodeURIComponent(atxt);
-}
+
+} ///////// goSub 함수 ////////////
+
+
 
 /********************************************************* 
     [ url로 보낼때 한글깨짐 방지하기! ]
@@ -65,7 +71,8 @@ function goSub() {
     '한글'은 %uD55C%uAE00'이 된다.
 
     -> 참고) encodeURI(), decodeURI() -> 전체 URL처리시 사용!
-    -> 주의) 최신브라우저에서 encodeURIComponent() 를 안해도
-    자동 인코딩처리를 해주는데 모든 브라우저 지원이 아닌것을 고려해서 
-    encodeURIComponent()처리를 해주는것이 정석이다.
+    -> 주의) 최신브라우저에서 encodeURIComponent()를 안해도
+    자동 인코딩처리를 해주는데 모든 브라우저 지원이 아닌것을 고려해서
+    encodeURIComponent()처리를 해주는 것이 정석이다!
+
 *********************************************************/

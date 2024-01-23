@@ -52,3 +52,5 @@ const domFn = {
   setTimeout(() => {
     stage.classList.add('on');
   }, 2000);
+
+

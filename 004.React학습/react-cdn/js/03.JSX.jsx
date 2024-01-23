@@ -7,22 +7,22 @@
     - appendChild() 메서드 없이 DOM에 요소넣기가 가능함!
 *****************************************************/
 
-// 1. JSX를 사용한 것과 JSX를 사용하지 않은 것을 비교
-
-// (1) JSX를 사용한 예
+// 1. JSX를 사용한 것과 JSX를 사용하지 않은 것을 비교 /////
+// (1) JSX를 사용한 예 //////
 // (1-1) 넣을 요소 만들기
 const myEle1 = <h1>나는 JSX를 사용하고 있어!</h1>;
-// (1-2) 리액트 루트 선택하기: createRoot() 메서드 사용
+// (1-2) 리액트 루트 선택하기 : createRoot() 메서드 사용!
 const root1 = ReactDOM.createRoot(document.querySelectorAll("#root>div")[0]);
-// (1-3) 리액트 요소 출력하기: 생성된 루트에 render() 메서드를 붙여서 사용
+// (1-3) 요소 출력하기 :
+// 생성된 루트에 render() 메서드를 붙여서 사용
 root1.render(myEle1);
 
-// (2) JSX를 사용하지 않은 예
-// -> 넣을 요소를 createElement()메서드로 생성해야함!(JSX를 안씀!)
-const myEle2 = React.createElement("h1", {}, "나는 JSX를 쓰지 않아!");
-// createElement(요소명, {JS코드작성}, 요소내용)
+// (2) JSX를 사용하지 않는 방법 ////////////
+// -> 넣을 요소를 createElement() 메서드로 생성해야함!(JSX를 안씀!)
+const myEle2 = React.createElement("h1", {}, "나는 JSX를 쓰지 않다!");
+// createElement(요소명,{JS코드작성},요소내용)
 
-// 두번째에 출력하기
+// 두번째에 출력하기 //////
 ReactDOM.render(myEle2, document.querySelectorAll("#root>div")[1]);
 
 /***************************************************** 
@@ -53,27 +53,27 @@ ReactDOM.render(myEle2, document.querySelectorAll("#root>div")[1]);
 
 // 표현식에 쓸 변수
 let num1 = 1000,
-    num2 = 7;
+  num2 = 7;
 
-// 3. JSX 표현식 사용하기
+// 3. JSX 표현식 사용하기 /////////////////
 const myEle3 = <h1>리액트는 {num1 * num2}번 사용해도 좋다!</h1>;
 
-// 세번째에 출력하기
+// 세번째에 출력하기 //////
 ReactDOM.render(myEle3, document.querySelectorAll("#root>div")[2]);
 
-// 4. 다중요소 html 블록 삽입하기
+// 4. 다중요소 html 블록 삽입하기 /////////////
 const myEle4 = (
-    <React.Fragment>
-        <h2>[ 다중요소 html 블록 출력하기 ]</h2>
-        <ul>
-            <li>프론트엔드</li>
-            <li>리액트적용개발</li>
-            <li>플러터까지사용</li>
-        </ul>
-    </React.Fragment>
+  <React.Fragment>
+    <h2>[ 다중요소 HTML 블록출력하기 ]</h2>
+    <ul>
+      <li>프론트엔드</li>
+      <li>리액트적용개발</li>
+      <li>플러터까지사용</li>
+    </ul>
+  </React.Fragment>
 );
 
-// 네번째에 출력하기
+// 네번째에 출력하기 //////
 ReactDOM.render(myEle4, document.querySelectorAll("#root>div")[3]);
 
 /***************************************************** 
@@ -94,33 +94,35 @@ ReactDOM.render(myEle4, document.querySelectorAll("#root>div")[3]);
         (단점, 원하는 않는 태그가 삽입됨!!!)
 *****************************************************/
 
-// 기본 데이터 (배열)
+// 5. 내가 원하는 태그 출력해보기 ////////////
+
+// 기본 데이터(배열)
 const mydata = [
-    { idx: 1, name: "김수현", movie: "언제왔니" },
-    { idx: 2, name: "장우혁", movie: "형님,형~~~님" },
-    { idx: 3, name: "김혜수", movie: "내가쎈언니야" },
+  { idx: 1, name: "김수현", movie: "언제왔니" },
+  { idx: 2, name: "장우혁", movie: "형님,형~~~님" },
+  { idx: 3, name: "김혜수", movie: "내가쎈언니야" },
 ];
 
 // 출력형식:
 // <li>배우명 : 영화명</li>
-// 배열변수.map()을 사용하자! 여기서도 map().join('') 인가?
-// -> JS map() 과는 다른 별도의 출력처리가 이루어짐!
-// 결론: map() 만 사용하여 바로 출력가능!
+// 배열변수.map() 을 사용하자! -> 여기서도 맵쬬잉! 인가???
+// -> JS map()과는 다른 별도의 출력처리가 이루어짐!
+// 결론: map() 만 사용하여 바로 출력가능~!
 
 const myEle5 = (
-    <React.Fragment>
-        <h2>[ 배우리스트 ]</h2>
-        <ul>
-            {mydata.map((val) => (
-                <li>
-                    {val.name} : {val.movie} : {val.idx == 3 ? "예뻐!" : "멋져!"}
-                </li>
-            ))}
-        </ul>
-    </React.Fragment>
+  <React.Fragment>
+    <h2>[ 배우리스트 ]</h2>
+    <ul>
+      {mydata.map((v) => (
+        <li>
+          {v.name} :{v.movie} :{v.idx == 3 ? "예뻐!♥" : "멋쪄!♠"}
+        </li>
+      ))}
+    </ul>
+  </React.Fragment>
 );
 
-// 다섯번째에 출력하기
+// 다섯번째에 출력하기 //////
 ReactDOM.render(myEle5, document.querySelectorAll("#root>div")[4]);
 
 /***************************************************** 
@@ -129,10 +131,10 @@ ReactDOM.render(myEle5, document.querySelectorAll("#root>div")[4]);
         <input type="text"> -> <input type="text" />
 *****************************************************/
 
-// 6. 홀로태그 출력해 보기
+// 6. 홀로태그 출력해 보기 //////////
 const myEle6 = <input type="text" value="홀로태그는 스스로 닫아라!" />;
 
-// 여섯번째에 출력하기
+// 여섯번째에 출력하기 //////
 ReactDOM.render(myEle6, document.querySelectorAll("#root>div")[5]);
 
 /***************************************************** 
@@ -143,7 +145,9 @@ ReactDOM.render(myEle6, document.querySelectorAll("#root>div")[5]);
 *****************************************************/
 
 // 7. 속성으로 클래스 셋팅하여 사용하기 /////////
-const myEle7 = <h1 className="myclass">className 속성으로 클래스를 셋팅한다!</h1>;
+const myEle7 = (
+  <h1 className="myclass">className 속성으로 클래스를 셋팅한다!</h1>
+);
 
 // 일곱번째에 출력하기 //////
 ReactDOM.render(myEle7, document.querySelectorAll("#root>div")[6]);
@@ -162,15 +166,15 @@ ReactDOM.render(myEle7, document.querySelectorAll("#root>div")[6]);
 const x = 1000;
 let txt = "이 돈으로는 충분히 살 수 있어!";
 if (x < 10000) {
-    txt = "돈이 부족해서 살 수 없어!";
+  txt = "돈이 부족해서 살 수 없어!";
 }
 
 // 출력변수
 const myEle8 = (
-    <div>
-        <h1>현재 내가 가진 돈은 {x}원!</h1>
-        <h1>{txt}</h1>
-    </div>
+  <div>
+    <h1>현재 내가 가진 돈은 {x}원!</h1>
+    <h1>{txt}</h1>
+  </div>
 );
 
 // 여덟번째에 출력하기 //////
@@ -180,10 +184,10 @@ ReactDOM.render(myEle8, document.querySelectorAll("#root>div")[7]);
 let time = 8;
 
 const myEle9 = (
-    <React.Fragment>
-        <h1>지금 몇시지? {time}시야!</h1>
-        <h1>{time > 9 ? "지금 집에 들어와!" : "더 놀다와~!"}</h1>
-    </React.Fragment>
+  <React.Fragment>
+    <h1>지금 몇시지? {time}시야!</h1>
+    <h1>{time > 9 ? "지금 집에 들어와!" : "더 놀다와~!"}</h1>
+  </React.Fragment>
 );
 
 // 아홉번째에 출력하기 //////
